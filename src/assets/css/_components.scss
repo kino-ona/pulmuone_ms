@@ -1,0 +1,120 @@
+@use "./breakpoints";
+
+.a11y {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.logo {
+	background: url("../images/logo.svg") no-repeat 0 0;
+	display: flex;
+	height: 32px;
+	width: 94px;
+
+	a {
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.anniversary {
+	background: url("../images/40th.svg") no-repeat 0 0 / 100% 100%;
+	height: 120px;
+	width: 176px;
+}
+
+.wraping {
+	margin: 0 auto;
+	max-width: 1640px;
+	padding: 0 20px;
+
+	&__header {
+		margin-bottom: 60px;
+		text-align: center;
+
+		.title {
+			font-size: 52px;
+			font-weight: 800;
+
+			&:not(:first-child) {
+				margin-top: 15px;
+			}
+		}
+
+		.desc {
+			font-size: 24px;
+		}
+	}
+
+	@include breakpoints.xl {
+		&__header {
+			margin-bottom: 28px;
+
+			.title {
+				font-size: 26px;
+			}
+
+			.desc {
+				font-size: 14px;
+				line-height: 1.4;
+			}
+		}
+	}
+}
+
+.roundBox {
+	clip-path: inset(0 round 44px);
+
+	@include breakpoints.xl {
+		clip-path: inset(0 round 20px);
+	}
+}
+
+.tab {
+	&__list {
+		column-gap: 52px;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__button {
+		color: #999;
+
+		&--selected {
+			color: #000;
+			font-weight: 700;
+		}
+	}
+
+	&__contents {
+		margin-top: 24px;
+	}
+}
+
+.bullet {
+	&__item {
+		line-height: 1.875;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+		}
+
+		&--sqaure {
+			&::before {
+				height: 2px;
+				left: 2.5px;
+				top: 14.5px;
+				width: 2px;
+			}
+		}
+	}
+}

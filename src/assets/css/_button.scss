@@ -1,0 +1,45 @@
+@use "./breakpoints";
+
+.button {
+	display: flex;
+	justify-content: center;
+
+	&:not(:first-child) {
+		margin-top: 40px;
+	}
+
+	&__item {
+		align-items: center;
+		background-color: #fff;
+		border: 1.5px solid #000;
+		border-radius: 100vw;
+		display: inline-flex;
+		font-weight: 700;
+		height: 50px;
+		justify-content: center;
+		padding: 0 28px;
+		text-align: center;
+
+		&--primary {
+			background-color: #007b3a;
+			border-color: #007b3a;
+			color: #fff;
+		}
+
+		&--secondary {
+			background-color: #000;
+			color: #fff;
+		}
+	}
+
+	@include breakpoints.xl {
+		&:not(:first-child) {
+			margin-top: 28px;
+		}
+
+		&__item {
+			font-size: 14px;
+			height: 40px;
+		}
+	}
+}

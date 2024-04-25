@@ -1,0 +1,42 @@
+{
+  "name": "micro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production gulp buildProd",
+    "dev": "cross-env NODE_ENV=development gulp buildDev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.1",
+    "cross-env": "^7.0.3",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-dependents": "^1.2.5",
+    "gulp-file-include": "^2.3.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-noop": "^1.0.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "prettier": "3.1.0",
+    "sass": "^1.62.1",
+    "stylelint": "^15.11.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-scss": "^5.3.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

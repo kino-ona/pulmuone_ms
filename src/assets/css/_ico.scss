@@ -1,0 +1,32 @@
+.ico {
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: inline-flex;
+
+	&__10x16 {
+		height: 16px;
+		width: 10px;
+
+		&--arrowRight {
+			background-image: url("../images/ico/ico_arrow_right.svg");
+		}
+	}
+
+	&__50x50 {
+		height: 50px;
+		width: 50px;
+
+		&--topu {
+			background-image: url("../images/ico/ico_topu.svg");
+		}
+
+		&--pulmuone {
+			background-image: url("../images/ico/ico_pulmuone.svg");
+		}
+
+		&--cf {
+			background-image: url("../images/ico/ico_cf.svg");
+		}
+	}
+}

@@ -1,0 +1,114 @@
+* {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+:root {
+	cursor: default;
+	font-family:
+		NanumSquareAc,
+		"Pretendard Variable",
+		Pretendard,
+		-apple-system,
+		BlinkMacSystemFont,
+		system-ui,
+		Roboto,
+		"Helvetica Neue",
+		"Segoe UI",
+		"Apple SD Gothic Neo",
+		"Noto Sans KR",
+		"Malgun Gothic",
+		"Apple Color Emoji",
+		"Segoe UI Emoji",
+		"Segoe UI Symbol",
+		sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.105;
+	overflow-wrap: break-word;
+	tab-size: 4;
+	-webkit-tap-highlight-color: transparent;
+	text-size-adjust: 100%;
+	word-break: break-word;
+	word-break: keep-all;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+fieldset,
+img,
+textarea,
+iframe {
+	border: 0;
+}
+
+button {
+	appearance: none;
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+input,
+button,
+select {
+	vertical-align: middle;
+}
+
+a {
+	text-decoration: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"] {
+	background-color: #fff;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+input[type="search"] {
+	&::-ms-clear,
+	&::-ms-reveal {
+		display: none;
+	}
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+}
