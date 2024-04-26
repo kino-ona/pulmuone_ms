@@ -50,7 +50,8 @@
 
 				.roundBox {
 					aspect-ratio: 1;
-					flex: 0.754 1 0%;
+					//flex: 0.754 1 0%;
+					flex: 0.626 1 0%;
 				}
 			}
 
@@ -73,7 +74,8 @@
 		align-items: flex-end;
 		column-gap: 60px;
 		display: grid;
-		grid-template-columns: 57.54% 1fr;
+		//grid-template-columns: 57.54% 1fr;
+		grid-template-columns: 50.88% 1fr;
 
 		.roundBox {
 			img {
@@ -192,6 +194,22 @@
 
 		.roundBox {
 			clip-path: inset(0 round 40px);
+		}
+	}
+	@include breakpoints.sm {
+		&__more {
+			flex-direction: column;
+		}
+		&__button:not(:first-child) {
+			margin-top: 8px;
+		}
+	}
+	@include breakpoints.xs {
+		&__more {
+			flex-direction: column;
+		}
+		&__button:not(:first-child) {
+			margin-top: 8px;
 		}
 	}
 }
@@ -335,6 +353,7 @@
 			"fund person";
 	}
 	&__item {
+		position: relative;
 		box-sizing: border-box;
 		padding: 60px;
 		border-radius: 40px;
@@ -374,7 +393,23 @@
 		}
 	}
 	&__lottie {
-		&--sales {
+		&--bottom {
+		}
+		&--left {
+			// position: absolute;
+			// top: 0;
+			// left: 0;
+		}
+	}
+
+	@include breakpoints.sm {
+		&__list {
+			display: block;
+		}
+	}
+	@include breakpoints.xs {
+		&__list {
+			display: block;
 		}
 	}
 }
@@ -389,18 +424,15 @@
 			&-wrapper {
 				transition-timing-function: linear !important;
 			}
-
 			&-slide {
 				position: relative;
 				height: 304px;
 				width: 304px;
 				cursor: pointer;
-
 				img {
 					height: 100%;
 					width: 100%;
 				}
-
 				&:hover {
 					.swiperLayer {
 						position: absolute;
@@ -415,7 +447,6 @@
 				}
 			}
 		}
-
 		.roundBox {
 			clip-path: inset(0 round 32px);
 		}
