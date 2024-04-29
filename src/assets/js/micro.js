@@ -1,36 +1,49 @@
 "use strict";
 
-const archiveSwiper = new Swiper(".archive__swiper", {
-	autoplay: {
-		delay: 0,
-		disableOnInteraction: false,
-		pauseOnMouseEnter: true
-	},
-	speed: 6000,
-	loop: true,
-	slidesPerView: "auto",
-	spaceBetween: 20,
-	allowTouchMove: false
+//archive swiper
+const archiveBox = document.querySelector(".archive_box");
+const archiveContainers = document.querySelectorAll(".archive__swiper");
+const archiveList = [];
 
-	// breakpoints: {
-	// 	1280: {
-	//
-	// 	}
-	// }
+archiveContainers.forEach((container, index) => {
+	const archiveSwiper = new Swiper(container, {
+		autoplay: {
+			delay: 0,
+			disableOnInteraction: false
+			//pauseOnMouseEnter: true
+		},
+		speed: 5000,
+		loop: true,
+		slidesPerView: "auto",
+		spaceBetween: 20,
+		allowTouchMove: false
+	});
+	archiveList.push(archiveSwiper);
 });
 
-//아카이브 슬라이드
-const archiveArea = document.querySelector(".archive_box");
+function stopAllSwipers() {
+	archiveList.forEach((archiveSwiper) => {
+		archiveSwiper.autoplay.stop();
+	});
+}
 
-// archiveArea.addEventListener("mouseenter", () => {
-// 	//let activeSlide = document.querySelector(".swiper-slide-active").dataset.swiperSlideIndex;
-// 	//archiveSwiper.slideTo(activeSlide);
-// 	archiveSwiper.autoplay.stop();
-// });
+function startAllSwipers() {
+	archiveList.forEach((archiveSwiper) => {
+		archiveSwiper.autoplay.start();
+	});
+}
 
-// archiveArea.addEventListener("mouseleave", () => {
-// 	archiveSwiper.autoplay.start();
-// });
+archiveBox.addEventListener("mouseenter", () => {
+	archiveContainers.forEach((container) => {
+		stopAllSwipers();
+	});
+});
+
+archiveBox.addEventListener("mouseleave", () => {
+	archiveContainers.forEach((container) => {
+		startAllSwipers();
+	});
+});
 
 //lottie
 let animation1 = bodymovin.loadAnimation({
