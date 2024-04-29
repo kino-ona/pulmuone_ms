@@ -301,7 +301,11 @@
 			.prologue {
 				&__button {
 					font-size: 18px;
+					padding: 30px;
 				}
+			}
+			.roundBox {
+				clip-path: inset(0 round 30px);
 			}
 		}
 	}
@@ -672,5 +676,17 @@
 	font-weight: 700;
 	&--black {
 		background: #000;
+	}
+}
+
+.youtube {
+	position: relative;
+	padding-bottom: 56.25%;
+	&__box {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
 	}
 }
