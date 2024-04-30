@@ -1,7 +1,7 @@
 "use strict";
 
 //archive swiper
-const archiveBox = document.querySelector(".archive_box");
+const archiveBox = document.querySelector(".archive__pcBox");
 const archiveContainers = document.querySelectorAll(".archive__swiper");
 const archiveList = [];
 
