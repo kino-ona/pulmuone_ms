@@ -9,14 +9,16 @@
 	<link rel="shortcut icon" href="https://www.pulmuone.co.kr/pulmuone/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="./assets/css/micro.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript" src="./assets/js/jquery.fullPage.js"></script>
-	<!-- <script defer src="./assets/js/micro.js"></script> -->
+	<script type="text/javascript" src="./assets/js/scrolloverflow.js"></script>
+	<!-- <script type="text/javascript" src="./assets/js/jquery.fullPage.js"></script> -->
+	<script type="text/javascript" src="./assets/js/jquery.fullpage.extensions.min.js"></script>
+	<script defer src="./assets/js/micro.js"></script>
 </head>
 
 <body>
-	<div class="wrapper" style="height: 200vh;">
+	<div class="wrapper">
 		<div id="fullpage">
-			<article class="kv section">
+			<article class="kv section fp-noscroll">
 				<div class="kv__container">
 					<div class="kv__video">
 						<video loop muted data-autoplay>
@@ -33,7 +35,7 @@
 					</h2>
 				</div>
 			</article>
-			<article class="intro section active">
+			<article class="intro section fp-noscroll">
 				<div class="intro__container">
 					<div class="intro__figure">
 						<div class="intro__legend">
@@ -41,14 +43,246 @@
 						</div>
 						<div class="intro__logo"></div>
 					</div>
+					<div class="intro__text">
+						<span>&ldquo;풀무원이란 이름은 농장</span> <span class="intro__ico intro__ico--farm"></span> <span>에서 시작했지만</span>,<br>
+						<span>풀무원</span> <span class="intro__ico intro__ico--logo"></span> <span>이 그 이름을 키웠으니 잘 써라,</span><br>
+						<span>다만 모든 제품에</span> <em>&lsquo;이웃사랑과</em> <span class="intro__ico intro__ico--heart"></span> <em>생명존중</em> <span class="intro__ico intro__ico--life"></span> <span><em>&rsquo;</em>의 정신이 깃들게 해라&rdquo;</span>
+					</div>
 				</div>
 			</article>
-			<article class="history section">
-				<div class="history__container">
-
+			<article class="history section fp-noscroll">
+				<!-- <div class="history-swiper swiper">
+					<div class="history-swiper__wrapper swiper-wrapper">
+						<div class="history-swiper__slide swiper-slide">
+							<div class="history__container">
+								<div class="trees">
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+								<p class="history__title">풀무원의 <span>40년 히스토리</span></p>
+								<p class="history__desc">
+									1981년 5월 12일 서울 강남의 압구정동에 작은 채소 가게가 문을 열었습니다.<br>
+									이름은 '풀무원농장 무공해 농산물 직판장' 원경선 원장의 풀무원농장과 정농회 농부들이<br>
+									기른 유기농산물을 팔았던 이곳은 한국 최초의 유기농 가게였으며 기업 풀무원의 모태였습니다.<br>
+									그리고 1984년 5월 12일 ‘풀무원식품’이 법인으로 첫 발을 내딛었습니다.<br><br>
+									유기농식품기업에서 출발하여, 이웃과 생명을 위하는 바른먹거리로, 그리고 나와 지구를 위한 지속가능 기업으로.<br>ㅂ
+									식품산업의 가치기준과 패러다임을 바꿔온 풀무원의 지난 40년 발자취를 소개합니다.
+								</p>
+							</div>
+						</div>
+						<div class="history-swiper__slide swiper-slide">
+							<div class="board-swiper swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="board roundBox">
+											<div class="figure roundBox"></div>
+											<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+											<p class="desc">
+												풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+												풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="board roundBox">
+											<div class="figure"></div>
+											<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+											<p class="desc">
+												풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+												풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+											</p>
+										</div>
+										<div class="board roundBox">
+											<div class="figure"></div>
+											<p class="title">1984.05 풀무원식품 창립</p>
+											<p class="desc">
+												풀무원이 &lsquo;가게&rsquo;에서 &lsquo;회사&rsquo;로 발돋움했습니다.<br>
+												풀무원식품이라는 법인명으로 직원 35명과 함께 시작했습니다. 원경선 원장님은 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 바탕으로 제품을 만들고 보급해야 한다고 늘 당부하셨고, 풀무원은 원경선 원장님의 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 브랜드 정신으로 삼고 풀무원이 생산하는 모든 제품과 서비스에 담고 있습니다.</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="board roundBox">
+											<div class="figure roundBox"></div>
+											<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+											<p class="desc">
+												풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+												풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="board roundBox">
+											<div class="figure"></div>
+											<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+											<p class="desc">
+												풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+												풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+											</p>
+										</div>
+										<div class="board roundBox">
+											<div class="figure"></div>
+											<p class="title">1984.05 풀무원식품 창립</p>
+											<p class="desc">
+												풀무원이 &lsquo;가게&rsquo;에서 &lsquo;회사&rsquo;로 발돋움했습니다.<br>
+												풀무원식품이라는 법인명으로 직원 35명과 함께 시작했습니다. 원경선 원장님은 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 바탕으로 제품을 만들고 보급해야 한다고 늘 당부하셨고, 풀무원은 원경선 원장님의 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 브랜드 정신으로 삼고 풀무원이 생산하는 모든 제품과 서비스에 담고 있습니다.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<div class="slide fp-noscroll">
+					<div class="history__container">
+						<div class="trees">
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+						<p class="history__title">풀무원의 <span>40년 히스토리</span></p>
+						<p class="history__desc">
+							1981년 5월 12일 서울 강남의 압구정동에 작은 채소 가게가 문을 열었습니다.<br>
+							이름은 '풀무원농장 무공해 농산물 직판장' 원경선 원장의 풀무원농장과 정농회 농부들이<br>
+							기른 유기농산물을 팔았던 이곳은 한국 최초의 유기농 가게였으며 기업 풀무원의 모태였습니다.<br>
+							그리고 1984년 5월 12일 ‘풀무원식품’이 법인으로 첫 발을 내딛었습니다.<br><br>
+							유기농식품기업에서 출발하여, 이웃과 생명을 위하는 바른먹거리로, 그리고 나와 지구를 위한 지속가능 기업으로.<br>ㅂ
+							식품산업의 가치기준과 패러다임을 바꿔온 풀무원의 지난 40년 발자취를 소개합니다.
+						</p>
+					</div>
+				</div>
+				<div class="slide fp-noscroll">
+					<div class="swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox"></div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_01.png" alt="">
+									</div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_02.png" alt="">
+									</div>
+									<p class="title">1984.05 풀무원식품 창립</p>
+									<p class="desc">
+										풀무원이 &lsquo;가게&rsquo;에서 &lsquo;회사&rsquo;로 발돋움했습니다.<br>
+										풀무원식품이라는 법인명으로 직원 35명과 함께 시작했습니다. 원경선 원장님은 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 바탕으로 제품을 만들고 보급해야 한다고 늘 당부하셨고, 풀무원은 원경선 원장님의 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 브랜드 정신으로 삼고 풀무원이 생산하는 모든 제품과 서비스에 담고 있습니다.</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox"></div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_01.png" alt="">
+									</div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_02.png" alt="">
+									</div>
+									<p class="title">1984.05 풀무원식품 창립</p>
+									<p class="desc">
+										풀무원이 &lsquo;가게&rsquo;에서 &lsquo;회사&rsquo;로 발돋움했습니다.<br>
+										풀무원식품이라는 법인명으로 직원 35명과 함께 시작했습니다. 원경선 원장님은 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 바탕으로 제품을 만들고 보급해야 한다고 늘 당부하셨고, 풀무원은 원경선 원장님의 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 브랜드 정신으로 삼고 풀무원이 생산하는 모든 제품과 서비스에 담고 있습니다.</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox"></div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_01.png" alt="">
+									</div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_02.png" alt="">
+									</div>
+									<p class="title">1984.05 풀무원식품 창립</p>
+									<p class="desc">
+										풀무원이 &lsquo;가게&rsquo;에서 &lsquo;회사&rsquo;로 발돋움했습니다.<br>
+										풀무원식품이라는 법인명으로 직원 35명과 함께 시작했습니다. 원경선 원장님은 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 바탕으로 제품을 만들고 보급해야 한다고 늘 당부하셨고, 풀무원은 원경선 원장님의 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 브랜드 정신으로 삼고 풀무원이 생산하는 모든 제품과 서비스에 담고 있습니다.</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox"></div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_01.png" alt="">
+									</div>
+									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
+									<p class="desc">
+										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
+										풀무원 농장은 전쟁 고아를 비롯해 오갈 데 없는 이들과 함께 살아가는 공동체였습니다. 원경선 원장님은 1976년 한국 최초 유기농민 단체인 정농회를 설립하고 유기농업의 확산을 위해 노력하셨습니다. 그리고 1981년 5월 정농회가 생산한 유기 농산물을 판매하는 한국 최초의 유기농산물 가게인 &lsquo;풀무원 농장 무공해 농산물 직판장&rsquo;이 문을 열었습니다.
+									</p>
+								</div>
+								<div class="board roundBox">
+									<div class="figure roundBox">
+										<img src="./assets/images/img_history_slide02_02.png" alt="">
+									</div>
+									<p class="title">1984.05 풀무원식품 창립</p>
+									<p class="desc">
+										풀무원이 &lsquo;가게&rsquo;에서 &lsquo;회사&rsquo;로 발돋움했습니다.<br>
+										풀무원식품이라는 법인명으로 직원 35명과 함께 시작했습니다. 원경선 원장님은 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 바탕으로 제품을 만들고 보급해야 한다고 늘 당부하셨고, 풀무원은 원경선 원장님의 &lsquo;이웃사랑과 생명존중&rsquo; 정신을 브랜드 정신으로 삼고 풀무원이 생산하는 모든 제품과 서비스에 담고 있습니다.</p>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</article>
-			<!-- <main class="main">
+			<main class="main section" data-centered="false">
 				<div class="contents">
 					<section class="wraping">
 						<header class="wraping__header">
@@ -242,11 +476,11 @@
 						</div>
 					</section>
 				</div>
-			</main> -->
+			</main>
 		</div>
 	</div>
 
-	<!-- <div id="glance01" class="modal modal--slide glance" aria-hidden="true">
+	<div id="glance01" class="modal modal--slide glance" aria-hidden="true">
 		<div class="modal__overlay" tabindex="-1" data-micromodal-close>
 			<div role="dialog" class="modal__container roundBox" aria-modal="true" aria-labelledby="glance01Title">
 				<div class="modal__contents">
@@ -280,43 +514,187 @@
 				<button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 			</div>
 		</div>
-	</div> -->
+	</div>
 </body>
 
 <script>
 	$(document).ready(function () {
+		// let prevent;
+		// const FN = document.getElementById("fullpage");
+
+		let wheeling;
+
 		$('#fullpage').fullpage({
-			afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
-				// console.log(anchorLink);
-				console.log(index);
+			scrollingSpeed: 600,
+			controlArrows: false,
+			easingcss3: "linear",
+			scrollOverflow: true,
+			loopHorizontal: false,
+			// recordHistory: false,
+			// afterRender: function () {
+
+			// 	if ($("#fullpage .section.active").index() >= 1) {
+			// 		$(".intro").addClass("intro--start");
+			// 	}
+
+			// 	if ($("#fullpage .section.active").index() === 2) {
+			// 		$.fn.fullpage.setAllowScrolling(false, "down");
+
+			// 		$(".history").on("wheel touchmove", function (event) {
+			// 			if (event.originalEvent.deltaY > 0) {
+			// 				$.fn.fullpage.moveSlideRight();
+			// 			} else if (event.originalEvent.deltaY < 0) {
+			// 				if (historyInnerSwiper.isBeginning) {
+			// 					$.fn.fullpage.moveSlideLeft();
+			// 				}
+			// 			}
+			// 		});
+			// 	}
+
+			// },
+			onLeave: function (index, nextIndex, direction) {
+				console.log(nextIndex);
+				console.log(direction);
+				if (nextIndex === 1 && direction === "up") {
+					$(".intro").addClass("intro--back");
+					$(".intro").removeClass("intro--start");
+				}
+
+				if (nextIndex === 2 && direction === "down") {
+					$(".intro").removeClass("intro--back");
+					$(".intro").addClass("intro--start");
+				}
+
+				if (nextIndex === 4 && direction === "down") {
+					historyInnerSwiper.mousewheel.disable();
+				}
+
+				if (nextIndex === 2 && direction === "up") {
+					// $.fn.fullpage.moveTo(2, 1);
+					// console.log("ww");
+					// historyInnerSwiper.destroy();
+					$(".history .fp-slidesContainer").css({
+						"transition": "none",
+						"transform": "translate3d(0px, 0px, 0px)"
+					});
+					$(".history .slide:nth-child(1)").addClass("active").siblings(".slide").removeClass("active");
+					historyInnerSwiper.slideTo(0, false);
+					historyInnerSwiper.mousewheel.enable();
+				}
+			},
+			afterLoad: function (anchorLink, index) {
+
+				if (index !== 3) {
+					$.fn.fullpage.setAllowScrolling(true, "all");
+					// historyInnerSwiper.mousewheel.disable();
+				}
+
+				if (index === 3) {
+					$.fn.fullpage.setAllowScrolling(false, "down");
+					$(".history").on("wheel touchmove", function (event) {
+						if (event.originalEvent.deltaY > 0) {
+							$.fn.fullpage.moveSlideRight();
+						} else if (event.originalEvent.deltaY < 0) {
+							if (historyInnerSwiper.isBeginning) {
+								$.fn.fullpage.moveSlideLeft();
+							}
+						}
+					});
+				}
+			},
+			onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
+				if (nextSlideIndex === 1) {
+					$.fn.fullpage.setAllowScrolling(false, "up");
+				} else {
+					$.fn.fullpage.setAllowScrolling(true, "up");
+				}
 
 			},
-			onLeave: function (index, nextIndex, direction) {
-				//목적지가 세번째 구역인 경우 스크롤되지 않음
+			afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
 
-				console.log(index);
-				// if (index === 2) {
-				// 	$(".intro__legend").addClass("intro__legend--reverse");
+			}
+		});
+
+		// const historySwiper = new Swiper(".history .history-swiper", {
+		// 	// allowTouchMove: false,
+		// 	speed: 600,
+		// 	mousewheel: {
+		// 		enabled: true
+		// 	},
+		// 	on: {
+		// 		slideChangeTransitionStart: function (swiper) {
+		// 			$(window).on("wheel mousewheel", function (e) {
+		// 				if (e.originalEvent.deltaY > 0) {
+		// 					e.preventDefault();
+		// 					e.stopPropagation();
+		// 					return false;
+		// 				} else if (e.originalEvent.wheelDeltaY < 0) {
+		// 					e.preventDefault();
+		// 					return;
+		// 				}
+		// 			});
+		// 		},
+		// 		slideChangeTransitionEnd: function (swiper) {
+
+		// 		}
+		// 	}
+		// });
+
+		// var prevTime = new Date().getTime();
+		// var scrollings = [];
+		// var canScroll = true;
+
+		// let wheel = true;
+
+		const historyInnerSwiper = new Swiper(".history .slide .swiper", {
+			// init: false,
+			allowTouchMove: false,
+			slidesPerView: "auto",
+			spaceBetween: 20,
+			freeMode: {
+				enabled: true
+			},
+			mousewheel: {
+				enabled: true,
+				releaseOnEdges: true,
+				// forceToAxis: true
+			},
+			on: {
+				reachEnd: function (swiper) {
+					$.fn.fullpage.setAllowScrolling(true, "down");
+				},
+				// slideChange: function (swiper) {
+				// 	let currentSlide = swiper.slides[swiper.activeIndex];
+				// 	swiper.on("reachEnd", function () {
+				// 		// console.log(0);
+				// 	});
+				// },
+				// scroll: function (swiper, event) {
+				// 	console.log(swiper.slides[swiper.activeIndex].scrollHeight);
+				// 	console.log(swiper.slides[swiper.activeIndex].scrollTop);
+				// 	console.log(swiper.slides[swiper.activeIndex].clientHeight);
+				// 	console.log("-------------------------------");
 				// }
-				$(".intro__legend").addClass("intro__legend--reverse");
 			}
 		});
 	});
 
-	// window.addEventListener("DOMContentLoaded", function() {
-	// 	MicroModal.init({
-	// 		openClass: 'modal--open',
-	// 		disableScroll: true,
-	// 		disableFocus: false,
-	// 		awaitOpenAnimation: true,
-	// 		awaitCloseAnimation: true
-	// 	});
-	// });
+	window.addEventListener("DOMContentLoaded", function () {
+		MicroModal.init({
+			openClass: 'modal--open',
+			disableScroll: true,
+			disableFocus: false,
+			awaitOpenAnimation: true,
+			awaitCloseAnimation: true
+		});
+	});
 
-	// window.addEventListener("load", function() {
-	// 	awardTab = new Tab(document.querySelector(".award [role=tablist]"));
-	// 	awardTab.setSelectedTab(awardTab.tabs[1], false);
-	// })
+	window.addEventListener("load", function () {
+		awardTab = new Tab(document.querySelector(".award [role=tablist]"));
+		awardTab.setSelectedTab(awardTab.tabs[1], false);
+	});
+
+
 </script>
 
 </html>
