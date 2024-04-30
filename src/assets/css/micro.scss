@@ -457,6 +457,34 @@
 			width: 19.22vw;
 		}
 	}
+	@include breakpoints.xl {
+		&__container {
+			padding: 0 20px 50px;
+		}
+		&__title {
+			display: block;
+			font-size: 8.35vw;
+			font-weight: 800;
+			> span {
+				display: block;
+				&:not(.anniversary, .kv__text) {
+					padding-left: 30.27vw;
+				}
+			}
+			.kv {
+				&__text {
+					margin-bottom: 16px;
+					font-size: 6.66vw;
+					font-weight: 700;
+				}
+			}
+			.anniversary {
+				width: 24.72vw;
+				height: 17.22vw;
+				left: 0;
+			}
+		}
+	}
 }
 
 .intro {
@@ -623,6 +651,48 @@
 
 		em {
 			font-weight: 800;
+		}
+	}
+
+	@include breakpoints.xl {
+		&__text {
+			padding: 0 19px;
+			font-size: 22px;
+			.intro {
+				&__legend {
+					width: 265px;
+					height: 270px;
+				}
+				&__logo {
+					width: 318px;
+					height: 42px;
+				}
+				&__ico {
+					&--farm {
+						width: 42px;
+						height: 37px;
+					}
+					&--logo {
+						width: 66px;
+						height: 28px;
+						&::before {
+							margin: -2px 0 0 -29px;
+							width: 56px;
+							height: 7px;
+						}
+					}
+					&--heart {
+						margin-top: 5px;
+						width: 34px;
+						height: 32px;
+					}
+					&--life {
+						margin-top: 3px;
+						width: 39px;
+						height: 37px;
+					}
+				}
+			}
 		}
 	}
 }
