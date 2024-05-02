@@ -1112,7 +1112,7 @@
 
 	&__swiper {
 		&:not(:first-child) {
-			margin-top: 20px;
+			margin-top: 10px;
 		}
 
 		.swiper {
@@ -1123,7 +1123,9 @@
 			&-slide {
 				cursor: pointer;
 				height: 304px;
+				margin: 10px;
 				position: relative;
+				transition: transform 0.3s;
 				width: 304px;
 
 				img {
