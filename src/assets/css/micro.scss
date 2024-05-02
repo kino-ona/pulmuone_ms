@@ -164,46 +164,7 @@
 			clip-path: inset(0 round 28px);
 		}
 	}
-	@include breakpoints.lg {
-		.tab {
-			&__list {
-				font-size: 14px;
-				column-gap: 40px;
-			}
-		}
-	}
-	@include breakpoints.md {
-		.tab {
-			&__list {
-				justify-content: left;
-				overflow-x: scroll;
-			}
-			&__button {
-				flex: none;
-			}
-		}
-		&__item {
-			grid-template-columns: 58px 1fr;
-			font-size: 14px;
-			line-height: 1.6;
-		}
-		&__desc {
-			font-size: 14px;
-			line-height: 1.4;
-		}
-		.bullet {
-			&__item {
-				font-size: 14px;
-				line-height: 1.6;
-				&--square {
-					&::before {
-						top: 9px;
-					}
-				}
-			}
-		}
-	}
-	@include breakpoints.sm {
+	@include breakpoints.xl {
 		.tab {
 			&__list {
 				justify-content: left;
@@ -237,62 +198,6 @@
 		}
 		&__desc {
 			font-size: 14px;
-		}
-		&__list {
-			overflow-y: scroll;
-			max-height: 377px;
-		}
-		&__item {
-			grid-template-columns: 58px 1fr;
-			font-size: 14px;
-			line-height: 1.6;
-		}
-		.bullet {
-			&__item {
-				line-height: 1.6;
-				&--square {
-					&::before {
-						top: 9px;
-					}
-				}
-			}
-		}
-	}
-	@include breakpoints.xs {
-		.tab {
-			&__list {
-				justify-content: left;
-				overflow-x: scroll;
-				column-gap: 20px;
-			}
-			&__button {
-				flex: none;
-				font-size: 15px;
-			}
-			&__panel {
-				padding: 32px 20px 20px;
-				height: 680px;
-				@for $i from 1 through 6 {
-					&:nth-child(#{$i}) {
-						background-image: url("../images/bg_mo_award0#{$i}.jpg");
-					}
-				}
-				&:nth-child(1),
-				&:nth-child(2),
-				&:nth-child(4),
-				&:nth-child(5),
-				&:nth-child(6) {
-					color: $white;
-				}
-			}
-		}
-		&__title {
-			font-size: 16px;
-			margin-bottom: 20px;
-		}
-		&__desc {
-			font-size: 14px;
-			line-height: 1.4;
 		}
 		&__list {
 			overflow-y: scroll;
@@ -350,21 +255,7 @@
 			clip-path: inset(0 round 40px);
 		}
 	}
-	@include breakpoints.lg {
-		&__more {
-			.prologue {
-				&__button {
-					font-size: 18px;
-					padding: 30px;
-				}
-			}
-			.roundBox {
-				clip-path: inset(0 round 30px);
-			}
-		}
-	}
-
-	@mixin prologueMoblile {
+	@include breakpoints.xl {
 		&__more {
 			flex-direction: column;
 			.prologue {
@@ -392,15 +283,6 @@
 				clip-path: inset(0 round 12px);
 			}
 		}
-	}
-	@include breakpoints.md {
-		@include prologueMoblile;
-	}
-	@include breakpoints.sm {
-		@include prologueMoblile;
-	}
-	@include breakpoints.xs {
-		@include prologueMoblile;
 	}
 }
 
@@ -658,39 +540,39 @@
 		&__text {
 			padding: 0 19px;
 			font-size: 22px;
-			.intro {
-				&__legend {
-					width: 265px;
-					height: 270px;
+		}
+		.intro {
+			&__legend {
+				width: 265px;
+				height: 270px;
+			}
+			&__logo {
+				width: 318px;
+				height: 42px;
+			}
+			&__ico {
+				&--farm {
+					width: 42px;
+					height: 37px;
 				}
-				&__logo {
-					width: 318px;
-					height: 42px;
+				&--logo {
+					width: 66px;
+					height: 28px;
+					&::before {
+						margin: -2px 0 0 -29px;
+						width: 56px;
+						height: 7px;
+					}
 				}
-				&__ico {
-					&--farm {
-						width: 42px;
-						height: 37px;
-					}
-					&--logo {
-						width: 66px;
-						height: 28px;
-						&::before {
-							margin: -2px 0 0 -29px;
-							width: 56px;
-							height: 7px;
-						}
-					}
-					&--heart {
-						margin-top: 5px;
-						width: 34px;
-						height: 32px;
-					}
-					&--life {
-						margin-top: 3px;
-						width: 39px;
-						height: 37px;
-					}
+				&--heart {
+					margin-top: 5px;
+					width: 34px;
+					height: 32px;
+				}
+				&--life {
+					margin-top: 3px;
+					width: 39px;
+					height: 37px;
 				}
 			}
 		}
@@ -836,7 +718,7 @@
 					display: grid;
 					flex: 1;
 					grid-template-columns: repeat(2, 1fr);
-
+					height: 50%;
 					&:nth-child(2) {
 						.figure {
 							grid-column: 2 / 3;
@@ -859,6 +741,93 @@
 				.board {
 					.figure {
 						background: #f2f2f2 url("../images/vegetable.svg") no-repeat 50% 50% / calc(100% - 60px) calc(100% - 60px);
+					}
+				}
+			}
+		}
+	}
+	@include breakpoints.xl {
+		&__title {
+			font-size: 32px;
+			&::before {
+				width: 209px;
+				height: 64px;
+				left: 112px;
+				top: calc(50% - 1.94px);
+			}
+		}
+		&__desc {
+			padding: 0 20px;
+			font-size: 14px;
+		}
+		&__container {
+			.trees {
+				div {
+					&:nth-child(1) {
+						width: 100px;
+						height: 129px;
+						left: 0;
+						bottom: 0;
+					}
+					&:nth-child(2) {
+						width: 67px;
+						height: 88px;
+						bottom: 0;
+						left: 80px;
+					}
+					&:nth-child(3) {
+						width: 158px;
+						height: 202px;
+						bottom: 0;
+						right: 0;
+					}
+				}
+			}
+		}
+		.board {
+			padding: 20px 20px 28px 20px;
+			&.roundBox {
+				clip-path: inset(0 round 20px);
+			}
+			.figure {
+				max-height: 210px;
+				margin-bottom: 24px;
+				&.roundBox {
+					clip-path: inset(0 round 12px);
+				}
+			}
+			.title {
+				font-size: 16px;
+				line-height: 1;
+			}
+			.desc {
+				margin-top: 12px;
+				font-size: 14px;
+				line-height: 1.58;
+			}
+		}
+		.fp-tableCell {
+			display: block;
+		}
+		.swiper {
+			padding-left: 20px;
+			padding-right: 20px;
+			&-slide {
+				width: 100%;
+				&:nth-child(even) {
+					width: 200%;
+					flex-direction: row;
+					column-gap: 20px;
+					.board {
+						display: block;
+						height: 100%;
+						.figure {
+							margin-bottom: 24px;
+							max-height: 210px;
+						}
+						.desc {
+							margin-top: 12px;
+						}
 					}
 				}
 			}
@@ -955,7 +924,6 @@
 		transform: translateY(326px);
 	}
 }
-
 .growth {
 	$white: #fff;
 	&__list {
@@ -1021,29 +989,7 @@
 			aspect-ratio: 1;
 		}
 	}
-	@include breakpoints.lg {
-		.enter {
-			display: none;
-		}
-		&__list {
-			grid-template-rows: 1fr 1fr 1fr;
-		}
-		&__item {
-			padding: 40px;
-			&:nth-child(2),
-			&:nth-child(3) {
-				padding: 40px 35px 40px 41%;
-			}
-		}
-		&__emphasis {
-			font-size: 30px;
-			strong {
-				font-size: 50px;
-			}
-		}
-	}
-
-	@mixin growthMoblie {
+	@include breakpoints.xl {
 		&__list {
 			display: flex;
 			justify-content: left;
@@ -1086,15 +1032,6 @@
 				aspect-ratio: initial;
 			}
 		}
-	}
-	@include breakpoints.md {
-		@include growthMoblie;
-	}
-	@include breakpoints.sm {
-		@include growthMoblie;
-	}
-	@include breakpoints.xs {
-		@include growthMoblie;
 	}
 }
 
@@ -1177,7 +1114,7 @@
 		}
 	}
 
-	@include breakpoints.md {
+	@include breakpoints.xl {
 		&__pcBox {
 			display: none;
 		}
@@ -1194,6 +1131,7 @@
 			border-radius: 12px;
 			background-color: #fafafa;
 			text-align: center;
+			aspect-ratio: 1 / 1;
 		}
 		&__img {
 			display: inline-block;
