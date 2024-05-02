@@ -49,7 +49,6 @@
 
 				.roundBox {
 					aspect-ratio: 1;
-					//flex: 0.754 1 0%;
 					flex: 0.626 1 0%;
 				}
 			}
@@ -73,7 +72,6 @@
 		align-items: flex-end;
 		column-gap: 60px;
 		display: grid;
-		//grid-template-columns: 57.54% 1fr;
 		grid-template-columns: 50.88% 1fr;
 
 		.roundBox {
@@ -141,17 +139,19 @@
 			&:nth-child(6) {
 				color: $white;
 			}
+
 			.bullet {
 				&__item {
-					position: relative;
 					padding-left: 10px;
+					position: relative;
+
 					&--square {
 						&::before {
-							width: 2px;
-							height: 2px;
 							background-color: $white;
+							height: 2px;
 							left: 0;
 							top: 13px;
+							width: 2px;
 						}
 					}
 				}
@@ -165,22 +165,25 @@
 	@include breakpoints.xl {
 		.tab {
 			&__list {
+				column-gap: 20px;
 				justify-content: left;
 				overflow-x: scroll;
-				column-gap: 20px;
 			}
+
 			&__button {
 				flex: none;
 				font-size: 15px;
 			}
+
 			&__panel {
-				padding: 32px 20px 20px;
 				height: 680px;
+				padding: 32px 20px 20px;
 				@for $i from 1 through 6 {
 					&:nth-child(#{$i}) {
 						background-image: url("../images/bg_mo_award0#{$i}.jpg");
 					}
 				}
+
 				&:nth-child(1),
 				&:nth-child(2),
 				&:nth-child(4),
@@ -190,25 +193,31 @@
 				}
 			}
 		}
+
 		&__title {
 			font-size: 16px;
 			margin-bottom: 20px;
 		}
+
 		&__desc {
 			font-size: 14px;
 		}
+
 		&__list {
-			overflow-y: scroll;
 			max-height: 377px;
+			overflow-y: scroll;
 		}
+
 		&__item {
-			grid-template-columns: 58px 1fr;
 			font-size: 14px;
+			grid-template-columns: 58px 1fr;
 			line-height: 1.6;
 		}
+
 		.bullet {
 			&__item {
 				line-height: 1.6;
+
 				&--square {
 					&::before {
 						top: 9px;
@@ -232,9 +241,9 @@
 				column-gap: 16px;
 				display: flex;
 				flex: 1;
+				font-size: 24px;
 				padding: 40px 50px;
 				text-align: left;
-				font-size: 24px; //yh 추가
 
 				span {
 					align-items: center;
@@ -256,27 +265,33 @@
 	@include breakpoints.xl {
 		&__more {
 			flex-direction: column;
+
 			.prologue {
 				&__button {
-					padding: 28px 20px;
 					font-size: 16px;
+					padding: 28px 20px;
+
 					.ico__50x50 {
-						width: 32px;
 						height: 32px;
+						width: 32px;
 					}
+
 					span {
-						width: 30px;
 						height: 30px;
+						width: 30px;
+
 						.ico__10x16 {
-							width: 7px;
 							height: 10px;
+							width: 7px;
 						}
 					}
 				}
+
 				&__button:not(:first-child) {
 					margin-top: 8px;
 				}
 			}
+
 			.roundBox {
 				clip-path: inset(0 round 12px);
 			}
@@ -341,27 +356,32 @@
 		&__container {
 			padding: 0 20px 50px;
 		}
+
 		&__title {
 			display: block;
 			font-size: 8.35vw;
 			font-weight: 800;
+
 			> span {
 				display: block;
+
 				&:not(.anniversary, .kv__text) {
 					padding-left: 30.27vw;
 				}
 			}
+
 			.kv {
 				&__text {
-					margin-bottom: 16px;
 					font-size: 6.66vw;
 					font-weight: 700;
+					margin-bottom: 16px;
 				}
 			}
+
 			.anniversary {
-				width: 24.72vw;
 				height: 17.22vw;
 				left: 0;
+				width: 24.72vw;
 			}
 		}
 	}
@@ -536,41 +556,48 @@
 
 	@include breakpoints.xl {
 		&__text {
-			padding: 0 19px;
 			font-size: 22px;
+			padding: 0 19px;
 		}
+
 		.intro {
 			&__legend {
-				width: 265px;
 				height: 270px;
+				width: 265px;
 			}
+
 			&__logo {
-				width: 318px;
 				height: 42px;
+				width: 318px;
 			}
+
 			&__ico {
 				&--farm {
-					width: 42px;
 					height: 37px;
+					width: 42px;
 				}
+
 				&--logo {
-					width: 66px;
 					height: 28px;
+					width: 66px;
+
 					&::before {
+						height: 7px;
 						margin: -2px 0 0 -29px;
 						width: 56px;
-						height: 7px;
 					}
 				}
+
 				&--heart {
+					height: 32px;
 					margin-top: 5px;
 					width: 34px;
-					height: 32px;
 				}
+
 				&--life {
+					height: 37px;
 					margin-top: 3px;
 					width: 39px;
-					height: 37px;
 				}
 			}
 		}
@@ -717,6 +744,7 @@
 					flex: 1;
 					grid-template-columns: repeat(2, 1fr);
 					height: 50%;
+
 					&:nth-child(2) {
 						.figure {
 							grid-column: 2 / 3;
@@ -747,82 +775,100 @@
 	@include breakpoints.xl {
 		&__title {
 			font-size: 32px;
+
 			&::before {
-				width: 209px;
 				height: 64px;
 				left: 112px;
 				top: calc(50% - 1.94px);
+				width: 209px;
 			}
 		}
+
 		&__desc {
-			padding: 0 20px;
 			font-size: 14px;
+			padding: 0 20px;
 		}
+
 		&__container {
 			.trees {
 				div {
 					&:nth-child(1) {
-						width: 100px;
+						bottom: 0;
 						height: 129px;
 						left: 0;
-						bottom: 0;
+						width: 100px;
 					}
+
 					&:nth-child(2) {
-						width: 67px;
+						bottom: 0;
 						height: 88px;
-						bottom: 0;
 						left: 80px;
+						width: 67px;
 					}
+
 					&:nth-child(3) {
-						width: 158px;
-						height: 202px;
 						bottom: 0;
+						height: 202px;
 						right: 0;
+						width: 158px;
 					}
 				}
 			}
 		}
+
 		.board {
-			padding: 20px 20px 28px 20px;
+			padding: 20px 20px 28px;
+
 			&.roundBox {
 				clip-path: inset(0 round 20px);
 			}
+
 			.figure {
-				max-height: 210px;
 				margin-bottom: 24px;
+				max-height: 210px;
+
 				&.roundBox {
 					clip-path: inset(0 round 12px);
 				}
 			}
+
 			.title {
 				font-size: 16px;
 				line-height: 1;
 			}
+
 			.desc {
-				margin-top: 12px;
 				font-size: 14px;
 				line-height: 1.58;
+				margin-top: 12px;
 			}
 		}
+
 		.fp-tableCell {
 			display: block;
 		}
+
 		.swiper {
 			padding-left: 20px;
 			padding-right: 20px;
+
 			&-slide {
 				width: 100%;
+
 				&:nth-child(even) {
-					width: 200%;
-					flex-direction: row;
 					column-gap: 20px;
+					flex-direction: row;
+					width: 200%;
+
 					.board {
 						display: block;
 						height: 100%;
+
 						.figure {
 							margin-bottom: 24px;
 							max-height: 210px;
 						}
+
 						.desc {
 							margin-top: 12px;
 						}
@@ -922,112 +968,126 @@
 		transform: translateY(326px);
 	}
 }
+
 .growth {
 	$white: #fff;
+
 	&__list {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1.316fr 1fr;
 		grid-gap: 20px;
-		grid-template-areas:
-			"sales rnd"
-			"sales person"
-			"fund person";
+		grid-template: "sales rnd" 1fr "sales person" 1.316fr "fund person" 1fr / 1fr 1fr;
 	}
+
 	&__item {
-		position: relative;
+		border-radius: 40px;
 		box-sizing: border-box;
 		padding: 60px;
-		border-radius: 40px;
+		position: relative;
 
 		&:nth-child(1) {
-			grid-area: sales;
 			background-color: #12c139;
+			grid-area: sales;
 		}
+
 		&:nth-child(2) {
+			background-color: #f78806;
 			grid-area: rnd;
 			padding-left: 46.84%;
-			background-color: #f78806;
 		}
+
 		&:nth-child(3) {
+			background-color: #0694f7;
 			grid-area: fund;
 			padding-left: 46.84%;
-			background-color: #0694f7;
 		}
+
 		&:nth-child(4) {
-			grid-area: person;
 			background-color: #fdc300;
+			grid-area: person;
 		}
 	}
+
 	&__title {
+		color: $white;
 		font-size: 24px;
 		font-weight: 700;
-		color: $white;
 	}
+
 	&__decs {
 		color: $white;
 		margin-top: 4px;
 	}
+
 	&__emphasis {
-		margin-top: 12px;
+		color: $white;
 		font-size: 40px;
 		font-weight: 700;
-		color: $white;
+		margin-top: 12px;
+
 		strong {
 			font-size: 80px;
 			font-weight: 800;
 		}
 	}
+
 	&__lottie {
 		&--left {
-			position: absolute;
+			aspect-ratio: 1;
 			bottom: 0;
 			left: 0;
+			position: absolute;
 			width: 35.44%;
-			aspect-ratio: 1;
 		}
 	}
 	@include breakpoints.xl {
 		&__list {
-			display: flex;
-			justify-content: left;
-			flex: 1;
 			column-gap: 8px;
+			display: flex;
+			flex: 1;
+			justify-content: left;
 			overflow-x: scroll;
 		}
+
 		&__item {
-			width: 100%;
-			flex: none;
-			padding: 28px 0 0 0;
 			border-radius: 20px;
+			flex: none;
+			padding: 28px 0 0;
+			width: 100%;
+
 			&:nth-child(2),
 			&:nth-child(3) {
-				padding: 28px 0 0 0;
+				padding: 28px 0 0;
 			}
 		}
+
 		&__title {
-			padding: 0 28px;
 			font-size: 16px;
+			padding: 0 28px;
 		}
+
 		&__decs {
-			padding: 0 28px;
 			font-size: 14px;
-		}
-		&__emphasis {
 			padding: 0 28px;
+		}
+
+		&__emphasis {
 			font-size: 32px;
+			padding: 0 28px;
+
 			strong {
 				font-size: 48px;
 			}
 		}
+
 		&__lottie {
-			width: 100%;
-			max-height: 312px;
 			margin-top: 30px;
+			max-height: 312px;
+			width: 100%;
+
 			&--left {
+				aspect-ratio: initial;
 				position: static;
 				width: 100%;
-				aspect-ratio: initial;
 			}
 		}
 	}
@@ -1037,6 +1097,7 @@
 	&__mobileBox {
 		display: none;
 	}
+
 	&__swiper {
 		&:not(:first-child) {
 			margin-top: 20px;
@@ -1046,67 +1107,76 @@
 			&-wrapper {
 				transition-timing-function: linear !important;
 			}
+
 			&-slide {
-				position: relative;
-				height: 304px;
-				width: 304px;
 				cursor: pointer;
+				height: 304px;
+				position: relative;
+				width: 304px;
+
 				img {
 					height: 100%;
 					width: 100%;
 				}
+
 				&:hover {
 					.swiperLayer {
-						display: block;
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
-						padding: 40px 40px 30px 40px;
 						background: #8dc63f;
-						text-align: left;
 						color: #fff;
+						display: block;
+						height: 100%;
+						left: 0;
+						padding: 40px 40px 30px;
+						position: absolute;
+						text-align: left;
+						top: 0;
+						width: 100%;
+
 						&__title {
-							margin-bottom: 15px;
 							font-size: 20px;
 							font-weight: 800;
 							line-height: 1;
+							margin-bottom: 15px;
 						}
+
 						&__decsList {
 							font-size: 16px;
 							line-height: 1.6;
 						}
+
 						&__item {
-							position: relative;
 							padding-left: 10px;
+							position: relative;
+
 							&::after {
+								background-color: #fff;
+								border-radius: 2px;
 								content: "";
 								display: block;
-								position: absolute;
+								height: 4px;
 								left: 0;
+								position: absolute;
 								top: 10px;
 								width: 4px;
-								height: 4px;
-								border-radius: 2px;
-								background-color: #fff;
 							}
 						}
+
 						&__year {
-							position: absolute;
 							bottom: 30px;
-							right: 40px;
+							color: rgb(255 255 255 / 30%);
 							font-size: 70px;
-							line-height: 1;
 							font-weight: 800;
 							letter-spacing: -0.05em;
+							line-height: 1;
+							position: absolute;
+							right: 40px;
 							width: 164px;
-							color: rgba(255, 255, 255, 0.3);
 						}
 					}
 				}
 			}
 		}
+
 		.roundBox {
 			clip-path: inset(0 round 32px);
 		}
@@ -1116,55 +1186,64 @@
 		&__pcBox {
 			display: none;
 		}
+
 		&__mobileBox {
 			display: block;
 		}
+
 		&__product {
 			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
 			grid-gap: 4px;
+			grid-template-columns: 1fr 1fr 1fr;
 		}
+
 		&__btn {
-			display: block;
-			border-radius: 12px;
-			background-color: #fafafa;
-			text-align: center;
 			aspect-ratio: 1 / 1;
+			background-color: #fafafa;
+			border-radius: 12px;
+			display: block;
+			text-align: center;
 		}
+
 		&__img {
 			display: inline-block;
 		}
+
 		&__btnBox {
 			margin-top: 16px;
 			text-align: center;
 		}
+
 		.btn--white {
-			width: 100%;
 			border-radius: 12px;
+			width: 100%;
 		}
 	}
 }
 
 .event {
 	&__box {
-		padding: 80px;
 		background: #f2f2f2;
+		padding: 80px;
 	}
+
 	&__btnBox {
 		text-align: center;
 	}
 }
 
 .btn {
-	width: 165px;
-	height: 50px;
-	line-height: 50px;
 	border-radius: 100px;
 	color: #fff;
 	font-weight: 700;
+	height: 50px;
+	line-height: 50px;
+	width: 165px;
+
 	&--black {
 		background: #000;
 	}
+
 	&--white {
 		border: 1px solid #ddd;
 		color: #666;
@@ -1173,23 +1252,26 @@
 
 .youtube {
 	&__box {
-		position: relative;
 		padding-bottom: 56.21%;
+		position: relative;
 	}
+
 	&__position {
-		position: absolute;
+		height: 100%;
 		left: 0;
+		position: absolute;
 		top: 0;
 		width: 100%;
-		height: 100%;
 	}
+
 	&.modal {
 		display: block;
+
 		.youtube {
 			&__box {
 				display: block;
-				max-width: 1200px;
 				margin: 0 auto;
+				max-width: 1200px;
 			}
 		}
 	}
