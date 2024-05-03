@@ -1,5 +1,8 @@
 "use strict";
 
+let introWheelLock = false,
+	historyWheelLock = false;
+
 $("#fullpage").fullpage({
 	scrollingSpeed: 600,
 	controlArrows: false,
@@ -40,32 +43,37 @@ $("#fullpage").fullpage({
 				historySwiper.allowTouchMove = true;
 			}
 
-			$.fn.fullpage.setAllowScrolling(false, "down");
+			if ($(".intro").hasClass("intro--start")) {
+				$.fn.fullpage.setAllowScrolling(false, "up");
+				$.fn.fullpage.setAllowScrolling(true, "down");
+			} else {
+				$.fn.fullpage.setAllowScrolling(false, "down");
+				$.fn.fullpage.setAllowScrolling(true, "up");
+			}
 
 			// desktop intro wheel sequence
-			let wheelLock = false;
 
 			$(".intro").on("wheel", function (event) {
-				if (event.originalEvent.deltaY > 0 && !wheelLock) {
+				if (event.originalEvent.deltaY > 0 && !introWheelLock) {
 					if (!$(".intro").hasClass("intro--start")) {
 						$.fn.fullpage.setAllowScrolling(false, "up");
 						$(".intro").addClass("intro--start");
-						wheelLock = true;
+						introWheelLock = true;
 
 						setTimeout(function () {
 							$.fn.fullpage.setAllowScrolling(true, "down");
-							wheelLock = false;
+							introWheelLock = false;
 						}, 800);
 					}
-				} else if (event.originalEvent.deltaY < 0 && !wheelLock) {
+				} else if (event.originalEvent.deltaY < 0 && !introWheelLock) {
 					if ($(".intro").hasClass("intro--start")) {
 						$.fn.fullpage.setAllowScrolling(false, "down");
 						$(".intro").removeClass("intro--start");
-						wheelLock = true;
+						introWheelLock = true;
 
 						setTimeout(function () {
 							$.fn.fullpage.setAllowScrolling(true, "up");
-							wheelLock = false;
+							introWheelLock = false;
 						}, 800);
 					}
 				}
@@ -117,12 +125,10 @@ $("#fullpage").fullpage({
 			// history section slide
 			$(".history").on("wheel", function (event) {
 				if ($(window).width() > 1280) {
-					if (event.originalEvent.deltaY > 0) {
+					if (event.originalEvent.deltaY > 0 && !historyWheelLock) {
 						$.fn.fullpage.moveSlideRight();
-					} else if (event.originalEvent.deltaY < 0) {
-						if (historySwiper.isBeginning) {
-							$.fn.fullpage.moveSlideLeft();
-						}
+					} else if (event.originalEvent.deltaY < 0 && historyWheelLock) {
+						$.fn.fullpage.moveSlideLeft();
 					}
 				}
 			});
@@ -154,16 +160,23 @@ $("#fullpage").fullpage({
 				historySwiper.allowTouchMove = false;
 			}
 		}
+
+		console.log(slideIndex);
 	},
 	afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
+		if (slideIndex === 0) {
+			$.fn.fullpage.setAllowScrolling(true, "up");
+			historyWheelLock = false;
+		}
+
 		if (slideIndex === 1) {
 			$.fn.fullpage.setAllowScrolling(false, "up");
 			historySwiper.mousewheel.enable();
+			historyWheelLock = true;
+
 			if ($(window).width() <= 1280) {
 				historySwiper.allowTouchMove = true;
 			}
-		} else {
-			$.fn.fullpage.setAllowScrolling(true, "up");
 		}
 	}
 });
@@ -189,7 +202,22 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 		}
 	},
 	on: {
-		progress: function (swiper, progress) {},
+		init: function (swiper) {
+			$(document).on("mouseleave touchend", ".history .slide .swiper .scroll-element", function () {
+				if (swiper.isEnd) {
+					$.fn.fullpage.setAllowScrolling(false, "up");
+					setTimeout(function () {
+						$.fn.fullpage.setAllowScrolling(true, "down");
+					}, 800);
+				} else {
+					$.fn.fullpage.setAllowScrolling(false);
+				}
+
+				if (swiper.isEnd && !swiper.allowTouchMove) {
+					$.fn.fullpage.setAllowScrolling(true, "up");
+				}
+			});
+		},
 		breakpoint: function (swiper, breakpointParams) {
 			swiper.on("touchMove", function () {
 				$.fn.fullpage.setAllowScrolling(false, "left");
@@ -200,10 +228,32 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 				} else {
 					$.fn.fullpage.setAllowScrolling(false, "left");
 				}
+
+				if (swiper.isEnd) {
+					setTimeout(function () {
+						$.fn.fullpage.setAllowScrolling(true, "down");
+					}, 800);
+				} else {
+					$.fn.fullpage.setAllowScrolling(false, "down");
+				}
 			});
 		},
-		reachEnd: function (swiper) {
-			$.fn.fullpage.setAllowScrolling(true, "down");
+		scroll: function (swiper, event) {
+			if (swiper.isBeginning) {
+				setTimeout(function () {
+					historyWheelLock = true;
+				}, 250);
+			} else {
+				historyWheelLock = false;
+			}
+
+			if (swiper.isEnd) {
+				setTimeout(function () {
+					$.fn.fullpage.setAllowScrolling(true, "down");
+				}, 800);
+			} else {
+				$.fn.fullpage.setAllowScrolling(false, "down");
+			}
 		}
 	}
 });
