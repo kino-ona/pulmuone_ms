@@ -130,6 +130,20 @@ $("#fullpage").fullpage({
 
 		if (index === 4) {
 			$.fn.fullpage.setAllowScrolling(true, "up");
+
+			initArchiveSwiper();
+
+			let growthState = false;
+
+			$(".main").on("wheel touchmove", function (event) {
+				if ($(".growth").position().top <= 0 && !growthState) {
+					//실행내용 추가 예정
+					growthState = true;
+				} else if ($(".growth").position().top > 0 && growthState) {
+					//실행내용 추가 예정
+					growthState = false;
+				}
+			});
 		}
 	},
 	onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
@@ -194,47 +208,37 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 	}
 });
 
-//archive swiper
-const archiveBox = document.querySelector(".archive__pcBox");
-const archiveContainers = document.querySelectorAll(".archive__swiper");
-const archiveList = [];
+//archive pc swiper
+let archiveSwiper = undefined;
+let windowWidth = window.innerWidth;
 
-archiveContainers.forEach((container, index) => {
-	const archiveSwiper = new Swiper(container, {
-		autoplay: {
-			delay: 0,
-			disableOnInteraction: false
-			//pauseOnMouseEnter: true
-		},
-		speed: 5000,
-		loop: true,
-		slidesPerView: "auto",
-		spaceBetween: 20,
-		allowTouchMove: false
-	});
-	archiveList.push(archiveSwiper);
-});
+const initArchiveSwiper = () => {
+	if (windowWidth > 1280 && archiveSwiper == undefined) {
+		archiveSwiper = new Swiper(".archive__swiper", {
+			autoplay: {
+				delay: 1,
+				desableOnInteraction: false
+			},
+			speed: 8000,
+			loop: true,
+			loopedSlides: 1,
+			slidesPerView: "auto",
+			freemode: true
+		});
+	} else if (windowWidth <= 1280 && archiveSwiper !== undefined) {
+		archiveSwiper.destroy();
+		archiveSwiper = undefined;
+	}
+};
 
-function stopAllSwipers() {
-	archiveList.forEach((archiveSwiper) => {
-		archiveSwiper.autoplay.stop();
-	});
-}
+//archive mo more btn
+const archiveBtn = document.querySelector(".archive__mobileBox .archive__btnBox");
+const archiveList = document.querySelectorAll(".archive__mobileBox .archive__list");
 
-function startAllSwipers() {
-	archiveList.forEach((archiveSwiper) => {
-		archiveSwiper.autoplay.start();
+archiveBtn.addEventListener("click", function () {
+	archiveList.forEach(function (list) {
+		list.style.display = "block";
 	});
-}
-
-archiveBox.addEventListener("mouseenter", () => {
-	archiveContainers.forEach((container) => {
-		stopAllSwipers();
-	});
-});
-
-archiveBox.addEventListener("mouseleave", () => {
-	archiveContainers.forEach((container) => {
-		startAllSwipers();
-	});
+	this.style.display = "none";
+	$.fn.fullpage.reBuild();
 });
