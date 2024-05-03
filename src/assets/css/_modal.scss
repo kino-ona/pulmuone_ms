@@ -46,14 +46,14 @@
 		justify-content: center;
 		padding: 0 50px;
 		position: fixed;
-		z-index: 10; //yh 추가
+		z-index: 10;
 	}
 
 	&__container {
 		background-color: #fff;
 		box-sizing: border-box;
 		flex: 1;
-		max-height: 80vh;
+		max-height: 95vh;
 		max-width: 1820px;
 		overflow-y: auto;
 	}
@@ -65,7 +65,7 @@
 	}
 
 	&__contents {
-		padding: 60px 70px 120px;
+		padding: 60px 70px 80px;
 		position: relative;
 
 		.modal {
