@@ -553,52 +553,18 @@
 	&--start {
 		.intro {
 			&__legend {
-				animation-delay: 1000ms, 1600ms;
-				animation-duration: 460ms, 600ms;
-				animation-fill-mode: forwards, forwards;
-				animation-name: introLegendStart, introLegendFinish;
-				animation-timing-function: ease-in-out, ease-in-out;
+				margin-top: -160px;
+				transform: scale(0.403);
 			}
 
 			&__logo {
-				animation-delay: 1000ms, 1600ms;
-				animation-duration: 460ms, 600ms;
-				animation-fill-mode: forwards, forwards;
-				animation-name: introLogoStart, introLogoFinish;
-				animation-timing-function: ease-in-out, ease-in-out;
+				margin-top: -160px;
+				transform: translate(calc(-50% + 40px), -78px) scale(0.2634);
 			}
 
 			&__text {
-				animation-delay: 1600ms;
-				animation-duration: 600ms;
-				animation-fill-mode: forwards;
-				animation-name: introText;
-				animation-timing-function: ease-in-out;
-			}
-		}
-	}
-
-	&--back {
-		.intro {
-			&__legend {
-				animation-duration: 300ms;
-				animation-fill-mode: forwards;
-				animation-name: introLegendBack;
-				animation-timing-function: ease-in-out;
-			}
-
-			&__logo {
-				animation-duration: 300ms;
-				animation-fill-mode: forwards;
-				animation-name: introLogoBack;
-				animation-timing-function: ease-in-out;
-			}
-
-			&__text {
-				animation-duration: 300ms;
-				animation-fill-mode: forwards;
-				animation-name: introTextBack;
-				animation-timing-function: ease-in-out;
+				opacity: 1;
+				transform: translateY(-100px);
 			}
 		}
 	}
@@ -614,14 +580,15 @@
 	&__figure {
 		align-items: flex-end;
 		display: flex;
-		margin-top: -104px;
 		position: relative;
 	}
 
 	&__legend {
-		height: 334px;
+		height: 540px;
 		position: relative;
-		width: 328px;
+		transform: scale(1);
+		transition: all 600ms ease-in-out;
+		width: 531px;
 		z-index: 1;
 
 		img {
@@ -632,11 +599,12 @@
 
 	&__logo {
 		background: url("../images/logo_old.svg") no-repeat 0 0 / 100% 100%;
-		height: 26px;
-		left: 0;
+		height: 230px;
+		left: 50%;
 		position: absolute;
-		transform: translateX(117px) translateY(-58px) scale(1);
-		width: 198px;
+		transform: translateX(-50%);
+		transition: all 600ms ease-in-out;
+		width: 91.35vw;
 	}
 
 	&__text {
@@ -646,6 +614,9 @@
 		opacity: 0;
 		text-align: center;
 		transform: translateY(326px);
+		transition-duration: 600ms;
+		transition-property: transform, opacity;
+		transition-timing-function: ease-in-out;
 
 		.intro {
 			&__ico {
@@ -715,6 +686,35 @@
 	}
 
 	@include breakpoints.xl {
+		&--start {
+			.intro {
+				&__legend {
+					margin-left: -40px;
+					margin-top: -80px;
+					transform: scale(0.6);
+				}
+
+				&__logo {
+					margin-top: -80px;
+					transform: translate(-50%, -48px) scale(0.6);
+				}
+
+				&__text {
+					transform: translateY(0);
+				}
+			}
+		}
+
+		&__legend {
+			height: 270px;
+			width: 265px;
+		}
+
+		&__logo {
+			height: 43px;
+			width: 88.33vw;
+		}
+
 		&__text {
 			font-size: 22px;
 			padding: 0 19px;
@@ -1037,96 +1037,6 @@
 				}
 			}
 		}
-	}
-}
-
-@keyframes introLegendStart {
-	0% {
-		transform: scale(1);
-	}
-
-	100% {
-		transform: scale(1.6189);
-	}
-}
-
-@keyframes introLegendFinish {
-	0% {
-		transform: scale(1.6189);
-	}
-
-	100% {
-		transform: scale(0.6524);
-	}
-}
-
-@keyframes introLogoStart {
-	0% {
-		left: 0;
-		transform: translateX(117px) translateY(-58px) scale(1);
-	}
-
-	100% {
-		left: 50%;
-		transform: translateX(-50%) translateY(0) scale(8.8586);
-	}
-}
-
-@keyframes introLogoFinish {
-	0% {
-		left: 50%;
-		transform: translateX(-50%) translateY(0) scale(8.8586);
-	}
-
-	100% {
-		left: 50%;
-		transform: translateX(-50%) translateY(-76px) scale(2.3333);
-	}
-}
-
-@keyframes introText {
-	0% {
-		opacity: 0;
-		transform: translateY(326px);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes introLegendBack {
-	0% {
-		transform: scale(0.6524);
-	}
-
-	100% {
-		transform: scale(1);
-	}
-}
-
-@keyframes introLogoBack {
-	0% {
-		left: 50%;
-		transform: translateX(-50%) translateY(-76px) scale(2.3333);
-	}
-
-	100% {
-		left: 0;
-		transform: translateX(117px) translateY(-58px) scale(1);
-	}
-}
-
-@keyframes introTextBack {
-	0% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	100% {
-		opacity: 0;
-		transform: translateY(326px);
 	}
 }
 
