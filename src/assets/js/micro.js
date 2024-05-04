@@ -13,7 +13,10 @@ $("#fullpage").fullpage({
 	normalScrollElements: ".scroll-element",
 	scrollOverflow: true,
 	scrollOverflowOptions: {
-		probeType: 3
+		probeType: 3,
+		disablePointer: true,
+		disableTouch: false,
+		disableMouse: false
 	},
 	afterRender: function () {
 		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
@@ -24,6 +27,22 @@ $("#fullpage").fullpage({
 
 		iscroll.on("scroll", function () {
 			console.log(1);
+		});
+
+		$(".main .scroll-element--vertical").on("mouseenter", function (event) {
+			iscroll.wheelOff();
+		});
+
+		$(".main .scroll-element--vertical").on("mouseleave", function (event) {
+			iscroll.wheelOn();
+		});
+
+		$(".main .scroll-element--vertical").on("touchstart", function (event) {
+			iscroll.disable();
+		});
+
+		$(".main .scroll-element--vertical").on("touchend", function (event) {
+			iscroll.enable();
 		});
 	},
 	onLeave: function (index, nextIndex, direction) {
