@@ -12,6 +12,20 @@ $("#fullpage").fullpage({
 	lockAnchors: true,
 	normalScrollElements: ".scroll-element",
 	scrollOverflow: true,
+	scrollOverflowOptions: {
+		probeType: 3
+	},
+	afterRender: function () {
+		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
+
+		iscroll.on("scrollEnd", function () {
+			console.log(0);
+		});
+
+		iscroll.on("scroll", function () {
+			console.log(1);
+		});
+	},
 	onLeave: function (index, nextIndex, direction) {
 		if (nextIndex === 2 && direction === "up") {
 			$.fn.fullpage.setAllowScrolling(false, "up");
@@ -160,8 +174,6 @@ $("#fullpage").fullpage({
 				historySwiper.allowTouchMove = false;
 			}
 		}
-
-		console.log(slideIndex);
 	},
 	afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
 		if (slideIndex === 0) {
