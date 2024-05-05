@@ -16,7 +16,7 @@ $("#fullpage").fullpage({
 		probeType: 3,
 		disablePointer: true,
 		disableTouch: false,
-		disableMouse: false
+		disableMouse: true
 	},
 	afterRender: function () {
 		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
