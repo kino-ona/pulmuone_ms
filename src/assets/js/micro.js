@@ -214,13 +214,20 @@ $("#fullpage").fullpage({
 	afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
 		if (slideIndex === 0) {
 			$.fn.fullpage.setAllowScrolling(true, "up");
-			historyWheelLock = false;
+
+			setTimeout(function () {
+				historyWheelLock = false;
+			}, 800);
 		}
 
 		if (slideIndex === 1) {
 			$.fn.fullpage.setAllowScrolling(false, "up");
+
 			historySwiper.mousewheel.enable();
-			historyWheelLock = true;
+
+			setTimeout(function () {
+				historyWheelLock = true;
+			}, 800);
 
 			if ($(window).width() <= 1280) {
 				historySwiper.allowTouchMove = true;
@@ -241,7 +248,7 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 		momentumBounce: false
 	},
 	mousewheel: {
-		// enabled: false,
+		enabled: false,
 		sensitivity: 4
 	},
 	breakpoints: {
@@ -290,7 +297,7 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 			if (swiper.isBeginning) {
 				setTimeout(function () {
 					historyWheelLock = true;
-				}, 250);
+				}, 800);
 			} else {
 				historyWheelLock = false;
 			}
