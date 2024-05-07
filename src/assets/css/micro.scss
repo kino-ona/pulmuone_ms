@@ -1141,7 +1141,7 @@
 		color: $white;
 		font-size: 40px;
 		font-weight: 700;
-		margin-top: 12px;
+		margin: 12px 0 30px;
 
 		strong {
 			font-size: 80px;
@@ -1149,13 +1149,19 @@
 		}
 	}
 
-	&__lottie {
+	&__image {
 		&--left {
 			aspect-ratio: 1;
 			bottom: 0;
 			left: 0;
 			position: absolute;
 			width: 35.44%;
+		}
+	}
+
+	&__video {
+		&--mobile {
+			display: none;
 		}
 	}
 	@include breakpoints.xl {
@@ -1170,7 +1176,8 @@
 		&__item {
 			border-radius: 20px;
 			flex: none;
-			padding: 28px 0 0;
+			padding: 28px 0 100%;
+			position: relative;
 			width: 100%;
 
 			&:nth-child(2),
@@ -1198,7 +1205,7 @@
 			}
 		}
 
-		&__lottie {
+		&__image {
 			margin-top: 30px;
 			max-height: 312px;
 			width: 100%;
@@ -1207,6 +1214,24 @@
 				aspect-ratio: initial;
 				position: static;
 				width: 100%;
+			}
+		}
+
+		&__video {
+			&--pc {
+				display: none;
+			}
+
+			&--mobile {
+				bottom: 0;
+				display: block;
+				left: 0;
+				position: absolute;
+				width: 100%;
+
+				video {
+					width: 100%;
+				}
 			}
 		}
 	}
