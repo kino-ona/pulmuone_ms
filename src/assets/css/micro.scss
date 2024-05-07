@@ -29,14 +29,6 @@
 	}
 
 	@include breakpoints.xl {
-		&.fp-table {
-			display: block;
-
-			.fp-tableCell {
-				display: block;
-			}
-		}
-
 		.contents {
 			padding: 80px 0;
 
@@ -901,6 +893,10 @@
 
 	.slide {
 		position: relative;
+
+		.fp-tableCell {
+			display: block;
+		}
 	}
 
 	.swiper {
@@ -1158,14 +1154,12 @@
 
 			.title {
 				font-size: 16px;
-				line-height: 1;
 			}
 
 			.desc {
 				font-size: 14px;
 				line-height: 1.58;
 				margin-top: 12px;
-				overflow-y: auto;
 			}
 		}
 
