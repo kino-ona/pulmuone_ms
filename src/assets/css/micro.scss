@@ -1111,13 +1111,13 @@
 		&:nth-child(2) {
 			background-color: #f78806;
 			grid-area: rnd;
-			padding-left: 46.84%;
+			padding-left: 45%;
 		}
 
 		&:nth-child(3) {
 			background-color: #0694f7;
 			grid-area: fund;
-			padding-left: 46.84%;
+			padding-left: 45%;
 		}
 
 		&:nth-child(4) {
@@ -1151,11 +1151,12 @@
 
 	&__image {
 		&--left {
-			aspect-ratio: 1;
+			border-radius: 40px 0 0 40px;
 			bottom: 0;
+			height: 100%;
 			left: 0;
+			max-width: 41%;
 			position: absolute;
-			width: 35.44%;
 		}
 	}
 
