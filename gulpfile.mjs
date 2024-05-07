@@ -138,7 +138,7 @@ export function server(done) {
 
 // clean
 export function clean(done) {
-	deleteSync(['dist/**/*', '!dist/assets', 'dist/assets/**', '!dist/assets/fonts', '!dist/path/**', '!dist/path.html']);
+	deleteSync(["dist/**/*", "!dist/assets", "dist/assets/**", "!dist/assets/fonts", "!dist/path/**", "!dist/path.html", "!dist/video", "!dist/lottie"]);
 	done();
 }
 

@@ -17,8 +17,8 @@
 			<article class="kv section fp-noscroll">
 				<div class="kv__container">
 					<div class="kv__video">
-						<video loop muted data-autoplay>
-							<source data-src="./company.mp4" type="video/mp4" />
+						<video loop muted data-autoplay playsinline>
+							<source data-src="./video/company.mp4" type="video/mp4" />
 						</video>
 					</div>
 					<h2 class="kv__title">
@@ -40,9 +40,9 @@
 						<div class="intro__logo"></div>
 					</div>
 					<div class="intro__text">
-						<span>&ldquo;풀무원이란 이름은 농장</span> <span class="intro__ico intro__ico--farm"></span> <span>에서 시작했지만</span>,<br>
-						<span>풀무원</span> <span class="intro__ico intro__ico--logo"></span> <span>이 그 이름을 키웠으니 잘 써라,</span><br>
-						<span>다만 모든 제품에</span> <em>&lsquo;이웃사랑과</em> <span class="intro__ico intro__ico--heart"></span> <em>생명존중</em> <span class="intro__ico intro__ico--life"></span> <span><em>&rsquo;</em>의 정신이 깃들게 해라&rdquo;</span>
+						<span>&ldquo;풀무원이란 이름은 농장</span> <span class="intro__ico intro__ico--farm"><lottie-player autoplay loop mode="bounce" src="./lottie/lottie_farm.json"></span> <span>에서 시작했지만</span>,<br>
+						<span>풀무원</span> <span class="intro__ico intro__ico--logo"><lottie-player autoplay loop mode="bounce" src="./lottie/lottie_logo.json"></lottie-player></span> <span>이 그 이름을 키웠으니 잘 써라,</span><br>
+						<span>다만 모든 제품에</span> <em>&lsquo;이웃사랑과</em> <span class="intro__ico intro__ico--heart"><lottie-player autoplay loop mode="bounce" src="./lottie/lottie_heart.json"></lottie-player></span> <em>생명존중</em> <span class="intro__ico intro__ico--life"><lottie-player autoplay loop mode="bounce" src="./lottie/lottie_life.json"></lottie-player></span> <span><em>&rsquo;</em>의 정신이 깃들게 해라&rdquo;</span>
 					</div>
 				</div>
 			</article>
@@ -70,7 +70,11 @@
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
 								<div class="board roundBox">
-									<div class="figure roundBox"></div>
+									<div class="figure roundBox">
+										<video loop muted autoplay playsinline>
+											<source data-src="./video/card01.mp4" type="video/mp4" />
+										</video>
+									</div>
 									<p class="title">1981.05 풀무원 무공해 농산물 직판장 개설</p>
 									<p class="desc scroll-element">
 										풀무원의 시작은 故원경선 원장님이 1955년 설립하고 운영하신 풀무원 농장으로 거슬러 올라갑니다.<br>
@@ -115,7 +119,11 @@
 									</p>
 								</div>
 								<div class="board roundBox">
-									<div class="figure roundBox"></div>
+									<div class="figure roundBox">
+										<div class="img">
+											<img data-src="./assets/images/img_history_slide04_02_logo.jpg" alt="">
+										</div>
+									</div>
 									<p class="title">1984.05 풀무원식품 창립</p>
 									<p class="desc scroll-element">
 										풀무원이 &lsquo;가게&rsquo;에서 &lsquo;회사&rsquo;로 발돋움했습니다.<br>
@@ -191,7 +199,7 @@
 						<div class="youtube">
 							<div class="youtube__box">
 								<div class="youtube__position">
-									<video loop muted data-autoplay>
+									<video loop muted data-autoplay playsinline>
 										<source data-src="./company.mp4" type="video/mp4" />
 									</video>
 								</div>
@@ -401,7 +409,7 @@
 									<p class="growth__title">매출</p>
 									<p class="growth__decs">6평 짜리 채소 판매 회사에서 글로벌 종합식품기업으로</p>
 									<p class="growth__emphasis">
-										<strong>38,000</strong>%
+										<strong id="growth01">38,000</strong>%
 									</p>
 									<div class=growth__video--pc>
 										<video loop muted data-autoplay>
@@ -418,7 +426,7 @@
 									<p class="growth__title">R&D</p>
 									<p class="growth__decs">바른먹거리와 최고의 제품을 만들기 위한 업계<br class="enter">최고 수준의 연구개발비</p>
 									<p class="growth__emphasis">
-										<strong>3,500</strong>억
+										<strong id="growth02">3,500</strong>억
 									</p>
 									<div class=growth__video--pc>
 										<img data-src="./assets/images/image_growth_item_02.png" alt="" class="growth__image growth__image--left">
@@ -433,7 +441,7 @@
 									<p class="growth__title">지구사랑기금</p>
 									<p class="growth__decs">1993년부터 판매액의 0.1%를 '지구사랑 기금'으로 적립 중</p>
 									<p class="growth__emphasis">
-										<strong>181</strong>억
+										<strong id="growth03">181</strong>억
 									</p>
 									<div class=growth__video--pc>
 										<img data-src="./assets/images/image_growth_item_03.png" alt="" class="growth__image growth__image--left">
@@ -448,7 +456,7 @@
 									<p class="growth__title">구성원수</p>
 									<p class="growth__decs">약 7천명의 직원과 31개의 계열사</p>
 									<p class="growth__emphasis">
-										<strong>7,000</strong>명
+										<strong id="growth04">7,000</strong>명
 									</p>
 									<div class=growth__video--pc>
 										<video loop muted data-autoplay>
@@ -1190,7 +1198,6 @@
 		</div>
 	</div>
 	<!-- //popup : mobile 제품 아카이브 40 종 -->
-
 </body>
 
 <script>
@@ -1202,9 +1209,7 @@
 			awaitOpenAnimation: true,
 			awaitCloseAnimation: true
 		});
-
 	});
-
 </script>
 
 </html>

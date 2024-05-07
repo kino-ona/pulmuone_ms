@@ -44,6 +44,24 @@ $("#fullpage").fullpage({
 		$(".main .scroll-element--vertical").on("touchend", function (event) {
 			iscroll.enable();
 		});
+
+		const growthCountObj = {
+			duration: 1,
+			startVal: 0,
+			useEasing: false
+		};
+
+		const growthCount01 = new countUp.CountUp("growth01", 38000, growthCountObj);
+		growthCount01.start();
+
+		const growthCount02 = new countUp.CountUp("growth02", 3500, growthCountObj);
+		growthCount02.start();
+
+		const growthCount03 = new countUp.CountUp("growth03", 181, growthCountObj);
+		growthCount03.start();
+
+		const growthCount04 = new countUp.CountUp("growth04", 7000, growthCountObj);
+		growthCount04.start();
 	},
 	onLeave: function (index, nextIndex, direction) {
 		if (nextIndex === 2 && direction === "up") {
@@ -223,7 +241,7 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 		momentumBounce: false
 	},
 	mousewheel: {
-		enabled: false,
+		// enabled: false,
 		sensitivity: 4
 	},
 	breakpoints: {
