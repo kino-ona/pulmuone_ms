@@ -1,14 +1,10 @@
-/*!
-* Customized version of iScroll.js 0.0.8
-* It fixes bugs affecting its integration with fullpage.js
-*/
-/*! iScroll v5.2.0 ~ (c) 2008-2016 Matteo Spinelli ~ http://cubiq.org/license */
+/*! iScroll v5.2.0-snapshot ~ (c) 2008-2017 Matteo Spinelli ~ http://cubiq.org/license */
 (function (window, document, Math) {
-var rAF = window.requestAnimationFrame  ||
-    window.webkitRequestAnimationFrame  ||
-    window.mozRequestAnimationFrame     ||
-    window.oRequestAnimationFrame       ||
-    window.msRequestAnimationFrame      ||
+var rAF = window.requestAnimationFrame	||
+    window.webkitRequestAnimationFrame	||
+    window.mozRequestAnimationFrame		||
+    window.oRequestAnimationFrame		||
+    window.msRequestAnimationFrame		||
     function (callback) { window.setTimeout(callback, 1000 / 60); };
 
 var utils = (function () {
@@ -91,6 +87,7 @@ var utils = (function () {
         hasPerspective: _prefixStyle('perspective') in _elementStyle,
         hasTouch: 'ontouchstart' in window,
         hasPointer: !!(window.PointerEvent || window.MSPointerEvent), // IE10 is prefixed
+
         hasTransition: _prefixStyle('transition') in _elementStyle
     });
 
@@ -99,15 +96,15 @@ var utils = (function () {
     - galaxy S2 is ok
     - 2.3.6 : `AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1`
     - 4.0.4 : `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S3 is badAndroid (stock brower, webview)
-     `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S4 is badAndroid (stock brower, webview)
-     `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S5 is OK
-     `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
-   - galaxy S6 is OK
-     `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
-  */
+    - galaxy S3 is badAndroid (stock brower, webview)
+        `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+    - galaxy S4 is badAndroid (stock brower, webview)
+        `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+    - galaxy S5 is OK
+        `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
+    - galaxy S6 is OK
+        `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
+    */
     me.isBadAndroid = (function() {
         var appVersion = window.navigator.appVersion;
         // Android browser is not a chrome browser.
@@ -128,7 +125,8 @@ var utils = (function () {
         transitionTimingFunction: _prefixStyle('transitionTimingFunction'),
         transitionDuration: _prefixStyle('transitionDuration'),
         transitionDelay: _prefixStyle('transitionDelay'),
-        transformOrigin: _prefixStyle('transformOrigin')
+        transformOrigin: _prefixStyle('transformOrigin'),
+        touchAction: _prefixStyle('touchAction')
     });
 
     me.hasClass = function (e, c) {
@@ -208,7 +206,7 @@ var utils = (function () {
             }
         },
         circular: {
-            style: 'cubic-bezier(0.1, 0.57, 0.1, 1)',   // Not properly "circular" but this looks better, it should be (0.075, 0.82, 0.165, 1)
+            style: 'cubic-bezier(0.1, 0.57, 0.1, 1)',	// Not properly "circular" but this looks better, it should be (0.075, 0.82, 0.165, 1)
             fn: function (k) {
                 return Math.sqrt( 1 - ( --k * k ) );
             }
@@ -282,12 +280,45 @@ var utils = (function () {
         }
     };
 
+    me.getTouchAction = function(eventPassthrough, addPinch) {
+        var touchAction = 'none';
+        if ( eventPassthrough === 'vertical' ) {
+            touchAction = 'pan-y';
+        } else if (eventPassthrough === 'horizontal' ) {
+            touchAction = 'pan-x';
+        }
+        if (addPinch && touchAction != 'none') {
+            // add pinch-zoom support if the browser supports it, but if not (eg. Chrome <55) do nothing
+            touchAction += ' pinch-zoom';
+        }
+        return touchAction;
+    };
+
+    me.getRect = function(el) {
+        if (el instanceof SVGElement) {
+            var rect = el.getBoundingClientRect();
+            return {
+                top : rect.top,
+                left : rect.left,
+                width : rect.width,
+                height : rect.height
+            };
+        } else {
+            return {
+                top : el.offsetTop,
+                left : el.offsetLeft,
+                width : el.offsetWidth,
+                height : el.offsetHeight
+            };
+        }
+    };
+
     return me;
 })();
 function IScroll (el, options) {
     this.wrapper = typeof el == 'string' ? document.querySelector(el) : el;
     this.scroller = this.wrapper.children[0];
-    this.scrollerStyle = this.scroller.style;       // cache style for better performance
+    this.scrollerStyle = this.scroller.style;		// cache style for better performance
 
     this.options = {
 
@@ -312,7 +343,7 @@ function IScroll (el, options) {
         bounceEasing: '',
 
         preventDefault: true,
-        preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|LABEL)$/ },
+        preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ },
 
         HWCompositing: true,
         useTransition: true,
@@ -362,6 +393,9 @@ function IScroll (el, options) {
 
     this.options.invertWheelDirection = this.options.invertWheelDirection ? -1 : 1;
 
+    if ( this.options.probeType == 3 ) {
+        this.options.useTransition = false;	}
+
 // INSERT POINT: NORMALIZATION
 
     // Some defaults
@@ -381,7 +415,7 @@ function IScroll (el, options) {
 }
 
 IScroll.prototype = {
-    version: '5.2.0',
+    version: '5.2.0-snapshot',
 
     _init: function () {
         this._initEvents();
@@ -409,7 +443,7 @@ IScroll.prototype = {
     destroy: function () {
         this._initEvents(true);
         clearTimeout(this.resizeTimeout);
-        this.resizeTimeout = null;
+            this.resizeTimeout = null;
         this._execEvent('destroy');
     },
 
@@ -428,16 +462,16 @@ IScroll.prototype = {
     _start: function (e) {
         // React to left mouse button only
         if ( utils.eventType[e.type] != 1 ) {
-          // for button property
-          // http://unixpapa.com/js/mouse.html
-          var button;
+            // for button property
+            // http://unixpapa.com/js/mouse.html
+            var button;
         if (!e.which) {
-          /* IE case */
-          button = (e.button < 2) ? 0 :
-                   ((e.button == 4) ? 1 : 2);
+            /* IE case */
+            button = (e.button < 2) ? 0 :
+                    ((e.button == 4) ? 1 : 2);
         } else {
-          /* All others */
-          button = e.button;
+            /* All others */
+            button = e.button;
         }
             if ( button !== 0 ) {
                 return;
@@ -455,10 +489,10 @@ IScroll.prototype = {
         var point = e.touches ? e.touches[0] : e,
             pos;
 
-        this.initiated  = utils.eventType[e.type];
-        this.moved      = false;
-        this.distX      = 0;
-        this.distY      = 0;
+        this.initiated	= utils.eventType[e.type];
+        this.moved		= false;
+        this.distX		= 0;
+        this.distY		= 0;
         this.directionX = 0;
         this.directionY = 0;
         this.directionLocked = 0;
@@ -491,24 +525,24 @@ IScroll.prototype = {
             return;
         }
 
-        if ( this.options.preventDefault ) {    // increases performance on Android? TODO: check!
+        if ( this.options.preventDefault ) {	// increases performance on Android? TODO: check!
             e.preventDefault();
         }
 
-        var point       = e.touches ? e.touches[0] : e,
-            deltaX      = point.pageX - this.pointX,
-            deltaY      = point.pageY - this.pointY,
-            timestamp   = utils.getTime(),
+        var point		= e.touches ? e.touches[0] : e,
+            deltaX		= point.pageX - this.pointX,
+            deltaY		= point.pageY - this.pointY,
+            timestamp	= utils.getTime(),
             newX, newY,
             absDistX, absDistY;
 
-        this.pointX     = point.pageX;
-        this.pointY     = point.pageY;
+        this.pointX		= point.pageX;
+        this.pointY		= point.pageY;
 
-        this.distX      += deltaX;
-        this.distY      += deltaY;
-        absDistX        = Math.abs(this.distX);
-        absDistY        = Math.abs(this.distY);
+        this.distX		+= deltaX;
+        this.distY		+= deltaY;
+        absDistX		= Math.abs(this.distX);
+        absDistY		= Math.abs(this.distY);
 
         // We need to move at least 10 pixels for the scrolling to initiate
         if ( timestamp - this.endTime > 300 && (absDistX < 10 && absDistY < 10) ) {
@@ -518,11 +552,11 @@ IScroll.prototype = {
         // If you are scrolling in one direction lock the other
         if ( !this.directionLocked && !this.options.freeScroll ) {
             if ( absDistX > absDistY + this.options.directionLockThreshold ) {
-                this.directionLocked = 'h';     // lock horizontally
+                this.directionLocked = 'h';		// lock horizontally
             } else if ( absDistY >= absDistX + this.options.directionLockThreshold ) {
-                this.directionLocked = 'v';     // lock vertically
+                this.directionLocked = 'v';		// lock vertically
             } else {
-                this.directionLocked = 'n';     // no lock
+                this.directionLocked = 'n';		// no lock
             }
         }
 
@@ -572,13 +606,19 @@ IScroll.prototype = {
         this._translate(newX, newY);
 
 /* REPLACE START: _move */
-
         if ( timestamp - this.startTime > 300 ) {
             this.startTime = timestamp;
             this.startX = this.x;
             this.startY = this.y;
+
+            if ( this.options.probeType == 1 ) {
+                this._execEvent('scroll');
+            }
         }
 
+        if ( this.options.probeType > 1 ) {
+            this._execEvent('scroll');
+        }
 /* REPLACE END: _move */
 
     },
@@ -612,7 +652,7 @@ IScroll.prototype = {
             return;
         }
 
-        this.scrollTo(newX, newY);  // ensures that the last position is rounded
+        this.scrollTo(newX, newY);	// ensures that the last position is rounded
 
         // we scrolled less than 10 pixels
         if ( !this.moved ) {
@@ -721,24 +761,25 @@ IScroll.prototype = {
     },
 
     refresh: function () {
-        var rf = this.wrapper.offsetHeight;     // Force reflow
+        utils.getRect(this.wrapper);		// Force reflow
 
-        this.wrapperWidth   = this.wrapper.clientWidth;
-        this.wrapperHeight  = this.wrapper.clientHeight;
+        this.wrapperWidth	= this.wrapper.clientWidth;
+        this.wrapperHeight	= this.wrapper.clientHeight;
 
+        var rect = utils.getRect(this.scroller);
 /* REPLACE START: refresh */
 
-        this.scrollerWidth  = this.scroller.offsetWidth;
-        this.scrollerHeight = this.scroller.offsetHeight;
+        this.scrollerWidth	= rect.width;
+        this.scrollerHeight	= rect.height;
 
-        this.maxScrollX     = this.wrapperWidth - this.scrollerWidth;
-        this.maxScrollY     = this.wrapperHeight - this.scrollerHeight;
+        this.maxScrollX		= this.wrapperWidth - this.scrollerWidth;
+        this.maxScrollY		= this.wrapperHeight - this.scrollerHeight;
 
 /* REPLACE END: refresh */
 
-        this.hasHorizontalScroll    = this.options.scrollX && this.maxScrollX < 0;
-        this.hasVerticalScroll      = this.options.scrollY && this.maxScrollY < 0;
-
+        this.hasHorizontalScroll	= this.options.scrollX && this.maxScrollX < 0;
+        this.hasVerticalScroll		= this.options.scrollY && this.maxScrollY < 0;
+        
         if ( !this.hasHorizontalScroll ) {
             this.maxScrollX = 0;
             this.scrollerWidth = this.wrapperWidth;
@@ -752,7 +793,17 @@ IScroll.prototype = {
         this.endTime = 0;
         this.directionX = 0;
         this.directionY = 0;
+        
+        if(utils.hasPointer && !this.options.disablePointer) {
+            // The wrapper should have `touchAction` property for using pointerEvent.
+            this.wrapper.style[utils.style.touchAction] = utils.getTouchAction(this.options.eventPassthrough, true);
 
+            // case. not support 'pinch-zoom'
+            // https://github.com/cubiq/iscroll/issues/1118#issuecomment-270057583
+            if (!this.wrapper.style[utils.style.touchAction]) {
+                this.wrapper.style[utils.style.touchAction] = utils.getTouchAction(this.options.eventPassthrough, false);
+            }
+        }
         this.wrapperOffset = utils.offset(this.wrapper);
 
         this._execEvent('refresh');
@@ -761,7 +812,7 @@ IScroll.prototype = {
 
 // INSERT POINT: _refresh
 
-    },
+    },	
 
     on: function (type, fn) {
         if ( !this._events[type] ) {
@@ -837,11 +888,13 @@ IScroll.prototype = {
         pos.top  -= this.wrapperOffset.top;
 
         // if offsetX/Y are true we center the element to the screen
+        var elRect = utils.getRect(el);
+        var wrapperRect = utils.getRect(this.wrapper);
         if ( offsetX === true ) {
-            offsetX = Math.round(el.offsetWidth / 2 - this.wrapper.offsetWidth / 2);
+            offsetX = Math.round(elRect.width / 2 - wrapperRect.width / 2);
         }
         if ( offsetY === true ) {
-            offsetY = Math.round(el.offsetHeight / 2 - this.wrapper.offsetHeight / 2);
+            offsetY = Math.round(elRect.height / 2 - wrapperRect.height / 2);
         }
 
         pos.left -= offsetX || 0;
@@ -1114,6 +1167,8 @@ IScroll.prototype = {
             return;
         }
 
+        e.preventDefault();
+
         var wheelDeltaX, wheelDeltaY,
             newX, newY,
             that = this;
@@ -1199,6 +1254,10 @@ IScroll.prototype = {
 
         this.scrollTo(newX, newY, 0);
 
+        if ( this.options.probeType > 1 ) {
+            this._execEvent('scroll');
+        }
+
 // INSERT POINT: _wheel
     },
 
@@ -1216,7 +1275,8 @@ IScroll.prototype = {
                 x = 0, y,
                 stepX = this.options.snapStepX || this.wrapperWidth,
                 stepY = this.options.snapStepY || this.wrapperHeight,
-                el;
+                el,
+                rect;
 
             this.pages = [];
 
@@ -1256,7 +1316,8 @@ IScroll.prototype = {
                 n = -1;
 
                 for ( ; i < l; i++ ) {
-                    if ( i === 0 || el[i].offsetLeft <= el[i-1].offsetLeft ) {
+                    rect = utils.getRect(el[i]);
+                    if ( i === 0 || rect.left <= utils.getRect(el[i-1]).left ) {
                         m = 0;
                         n++;
                     }
@@ -1265,16 +1326,16 @@ IScroll.prototype = {
                         this.pages[m] = [];
                     }
 
-                    x = Math.max(-el[i].offsetLeft, this.maxScrollX);
-                    y = Math.max(-el[i].offsetTop, this.maxScrollY);
-                    cx = x - Math.round(el[i].offsetWidth / 2);
-                    cy = y - Math.round(el[i].offsetHeight / 2);
+                    x = Math.max(-rect.left, this.maxScrollX);
+                    y = Math.max(-rect.top, this.maxScrollY);
+                    cx = x - Math.round(rect.width / 2);
+                    cy = y - Math.round(rect.height / 2);
 
                     this.pages[m][n] = {
                         x: x,
                         y: y,
-                        width: el[i].offsetWidth,
-                        height: el[i].offsetHeight,
+                        width: rect.width,
+                        height: rect.height,
                         cx: cx,
                         cy: cy
                     };
@@ -1490,7 +1551,7 @@ IScroll.prototype = {
             return;
         }
 
-        var snap = this.options.snap,   // we are using this alot, better to cache it
+        var snap = this.options.snap,	// we are using this alot, better to cache it
             newX = snap ? this.currentPage.pageX : this.x,
             newY = snap ? this.currentPage.pageY : this.y,
             now = utils.getTime(),
@@ -1587,7 +1648,7 @@ IScroll.prototype = {
             if ( now >= destTime ) {
                 that.isAnimating = false;
                 that._translate(destX, destY);
-
+                
                 if ( !that.resetPosition(that.options.bounceTime) ) {
                     that._execEvent('scrollEnd');
                 }
@@ -1604,11 +1665,16 @@ IScroll.prototype = {
             if ( that.isAnimating ) {
                 rAF(step);
             }
+
+            if ( that.options.probeType == 3 ) {
+                that._execEvent('scroll');
+            }
         }
 
         this.isAnimating = true;
         step();
     },
+
     handleEvent: function (e) {
         switch ( e.type ) {
             case 'touchstart':
@@ -1806,7 +1872,7 @@ Indicator.prototype = {
             utils.removeEvent(window, 'mouseup', this);
         }
 
-        if ( this.options.defaultScrollbars ) {
+        if ( this.options.defaultScrollbars && this.wrapper.parentNode ) {
             this.wrapper.parentNode.removeChild(this.wrapper);
         }
     },
@@ -1821,10 +1887,10 @@ Indicator.prototype = {
 
         this.initiated = true;
         this.moved = false;
-        this.lastPointX = point.pageX;
-        this.lastPointY = point.pageY;
+        this.lastPointX	= point.pageX;
+        this.lastPointY	= point.pageY;
 
-        this.startTime  = utils.getTime();
+        this.startTime	= utils.getTime();
 
         if ( !this.options.disableTouch ) {
             utils.addEvent(window, 'touchmove', this);
@@ -1861,6 +1927,15 @@ Indicator.prototype = {
         newY = this.y + deltaY;
 
         this._pos(newX, newY);
+
+
+        if ( this.scroller.options.probeType == 1 && timestamp - this.startTime > 300 ) {
+            this.startTime = timestamp;
+            this.scroller._execEvent('scroll');
+        } else if ( this.scroller.options.probeType > 1 ) {
+            this.scroller._execEvent('scroll');
+        }
+
 
 // INSERT POINT: indicator._move
 
@@ -1964,7 +2039,7 @@ Indicator.prototype = {
             }
         }
 
-        var r = this.wrapper.offsetHeight;  // force refresh
+        utils.getRect(this.wrapper);	// force refresh
 
         if ( this.options.listenX ) {
             this.wrapperWidth = this.wrapper.clientWidth;
