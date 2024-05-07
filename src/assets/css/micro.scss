@@ -930,6 +930,47 @@
 						background: url("../images/img_history_slide02_01.png") no-repeat;
 						background-size: cover;
 					}
+
+					& + .board {
+						.figure {
+							background: url("../images/img_history_slide02_02.png") no-repeat;
+							background-size: cover;
+						}
+					}
+				}
+			}
+
+			&:nth-child(3) {
+				.board {
+					.figure {
+						background: url("../images/img_history_slide03.png") no-repeat;
+						background-size: cover;
+					}
+				}
+			}
+
+			&:nth-child(4) {
+				.board {
+					.figure {
+						background: url("../images/img_history_slide04_01.png") no-repeat;
+						background-size: cover;
+					}
+
+					& + .board {
+						.figure {
+							background: url("../images/img_history_slide04_02.png") no-repeat;
+							background-size: cover;
+						}
+					}
+				}
+			}
+
+			&:nth-child(5) {
+				.board {
+					.figure {
+						background: url("../images/img_history_slide05.png") no-repeat;
+						background-size: cover;
+					}
 				}
 			}
 		}

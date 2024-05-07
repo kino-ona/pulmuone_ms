@@ -134,7 +134,6 @@ $("#fullpage").fullpage({
 			initArchiveSwiper();
 
 			let growthState = false;
-
 			$(".main").on("wheel touchmove", function (event) {
 				if ($(".growth").position().top <= 0 && !growthState) {
 					//실행내용 추가 예정
