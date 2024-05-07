@@ -13,21 +13,13 @@ $("#fullpage").fullpage({
 	normalScrollElements: ".scroll-element",
 	scrollOverflow: true,
 	scrollOverflowOptions: {
-		probeType: 3,
-		disablePointer: true,
-		disableTouch: false,
-		disableMouse: true
+		probeType: 3
+		// disablePointer: true,
+		// disableTouch: false,
+		// disableMouse: true
 	},
 	afterRender: function () {
 		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
-
-		iscroll.on("scrollEnd", function () {
-			console.log(0);
-		});
-
-		iscroll.on("scroll", function () {
-			console.log(1);
-		});
 
 		$(".main .scroll-element--vertical").on("mouseenter", function (event) {
 			iscroll.wheelOff();
@@ -43,6 +35,10 @@ $("#fullpage").fullpage({
 
 		$(".main .scroll-element--vertical").on("touchend", function (event) {
 			iscroll.enable();
+		});
+
+		$(".award .tab__button").on("click", function () {
+			iscroll.refresh();
 		});
 
 		const growthCountObj = {
@@ -189,17 +185,6 @@ $("#fullpage").fullpage({
 			$.fn.fullpage.setAllowScrolling(true, "up");
 
 			initArchiveSwiper();
-
-			let growthState = false;
-			$(".main").on("wheel touchmove", function (event) {
-				if ($(".growth").position().top <= 0 && !growthState) {
-					//실행내용 추가 예정
-					growthState = true;
-				} else if ($(".growth").position().top > 0 && growthState) {
-					//실행내용 추가 예정
-					growthState = false;
-				}
-			});
 		}
 	},
 	onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
@@ -287,7 +272,7 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 				if (swiper.isEnd) {
 					setTimeout(function () {
 						$.fn.fullpage.setAllowScrolling(true, "down");
-					}, 800);
+					}, 250);
 				} else {
 					$.fn.fullpage.setAllowScrolling(false, "down");
 				}
@@ -347,3 +332,5 @@ archiveBtn.addEventListener("click", function () {
 	this.style.display = "none";
 	$.fn.fullpage.reBuild();
 });
+
+console.log($(".board .scroll-element")[0].scrollHeight);
