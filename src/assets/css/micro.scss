@@ -1209,7 +1209,9 @@
 	&__list {
 		display: grid;
 		grid-gap: 20px;
-		grid-template: "sales rnd" 1fr "sales person" 1.316fr "fund person" 1fr / 1fr 1fr;
+		grid-template: "sales rnd" "sales person" "fund person";
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1.25fr 1fr;
 	}
 
 	&__item {
@@ -1219,8 +1221,13 @@
 		position: relative;
 
 		&:nth-child(1) {
-			background-color: #12c139;
 			grid-area: sales;
+
+			.growth__video {
+				&--pc {
+					z-index: -1;
+				}
+			}
 		}
 
 		&:nth-child(2) {
@@ -1236,8 +1243,13 @@
 		}
 
 		&:nth-child(4) {
-			background-color: #fdc300;
 			grid-area: person;
+
+			.growth__video {
+				&--pc {
+					z-index: -1;
+				}
+			}
 		}
 	}
 
@@ -1276,6 +1288,18 @@
 	}
 
 	&__video {
+		&--pc {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+
+			video {
+				border-radius: 40px;
+			}
+		}
+
 		&--mobile {
 			display: none;
 		}
@@ -1292,29 +1316,34 @@
 		&__item {
 			border-radius: 20px;
 			flex: none;
-			padding: 28px 0 100%;
+			padding: 0;
 			position: relative;
 			width: 100%;
 
 			&:nth-child(2),
 			&:nth-child(3) {
-				padding: 28px 0 0;
+				padding: 0;
 			}
+		}
+
+		&__textbox {
+			left: 0;
+			padding: 28px;
+			position: absolute;
+			top: 0;
+			width: 100%;
 		}
 
 		&__title {
 			font-size: 16px;
-			padding: 0 28px;
 		}
 
 		&__decs {
 			font-size: 14px;
-			padding: 0 28px;
 		}
 
 		&__emphasis {
 			font-size: 32px;
-			padding: 0 28px;
 
 			strong {
 				font-size: 48px;
@@ -1339,13 +1368,10 @@
 			}
 
 			&--mobile {
-				bottom: 0;
 				display: block;
-				left: 0;
-				position: absolute;
-				width: 100%;
 
 				video {
+					border-radius: 20px;
 					width: 100%;
 				}
 			}
