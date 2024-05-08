@@ -1205,13 +1205,12 @@
 		grid-gap: 20px;
 		grid-template: "sales rnd" "sales person" "fund person";
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1.25fr 1fr;
+		grid-template-rows: 1fr 1.6fr 1fr;
 	}
 
 	&__item {
 		border-radius: 40px;
 		box-sizing: border-box;
-		padding: 60px;
 		position: relative;
 
 		&:nth-child(1) {
@@ -1227,13 +1226,24 @@
 		&:nth-child(2) {
 			background-color: #f78806;
 			grid-area: rnd;
-			padding-left: 45%;
 		}
 
 		&:nth-child(3) {
 			background-color: #0694f7;
 			grid-area: fund;
-			padding-left: 45%;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			padding-bottom: 35.44%;
+
+			.growth {
+				&__textbox {
+					padding: 0 0 0 41%;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
 		}
 
 		&:nth-child(4) {
@@ -1245,6 +1255,14 @@
 				}
 			}
 		}
+	}
+
+	&__textbox {
+		left: 0;
+		padding: 7.5%;
+		position: absolute;
+		top: 0;
+		width: 100%;
 	}
 
 	&__title {
@@ -1262,7 +1280,7 @@
 		color: $white;
 		font-size: 40px;
 		font-weight: 700;
-		margin: 12px 0 30px;
+		margin-top: 12px;
 
 		strong {
 			font-size: 80px;
@@ -1284,9 +1302,6 @@
 	&__video {
 		&--pc {
 			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
 			width: 100%;
 
 			video {
