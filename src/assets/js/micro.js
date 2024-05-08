@@ -249,13 +249,15 @@ $("#fullpage").fullpage({
 });
 
 const historySwiper = new Swiper(".history .slide .swiper", {
+	// speed: 700,
 	slidesPerView: "auto",
 	spaceBetween: 20,
 	resistance: true,
 	resistanceRatio: 0,
 	// touchRatio: 4,
 	freeMode: {
-		enabled: false,
+		// enabled: false,
+		enabled: true,
 		momentum: false,
 		momentumBounce: false
 	},
@@ -265,53 +267,53 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 	},
 	breakpoints: {
 		1280: {
-			allowTouchMove: false,
-			freeMode: {
-				enabled: true
-			}
+			allowTouchMove: false
+			// freeMode: {
+			// 	enabled: true
+			// }
 		}
 	},
 	on: {
 		breakpoint: function (swiper, breakpointParams) {
-			// swiper.on("touchMove", function () {
-			// 	$.fn.fullpage.setAllowScrolling(false, "left");
-			// });
-			// swiper.on("touchEnd", function () {
-			// 	if (swiper.isBeginning) {
-			// 		$.fn.fullpage.setAllowScrolling(true, "left");
-			// 	} else {
-			// 		$.fn.fullpage.setAllowScrolling(false, "left");
-			// 	}
-			// 	if (swiper.isEnd) {
-			// 		setTimeout(function () {
-			// 			$.fn.fullpage.setAllowScrolling(true, "down");
-			// 		}, 250);
-			// 	} else {
-			// 		$.fn.fullpage.setAllowScrolling(false, "down");
-			// 	}
-			// });
+			swiper.on("touchMove", function () {
+				$.fn.fullpage.setAllowScrolling(false, "left");
+			});
+			swiper.on("touchEnd", function () {
+				if (swiper.isBeginning) {
+					$.fn.fullpage.setAllowScrolling(true, "left");
+				} else {
+					$.fn.fullpage.setAllowScrolling(false, "left");
+				}
+				if (swiper.isEnd) {
+					setTimeout(function () {
+						$.fn.fullpage.setAllowScrolling(true, "down");
+					}, 250);
+				} else {
+					$.fn.fullpage.setAllowScrolling(false, "down");
+				}
+			});
 		},
-		touchMove: function (swiper, event) {
-			$.fn.fullpage.setAllowScrolling(false, "left");
-		},
-		touchEnd: function (swiper, event) {
-			if (swiper.isBeginning) {
-				$.fn.fullpage.setAllowScrolling(true, "left");
-			}
+		// touchMove: function (swiper, event) {
+		// 	$.fn.fullpage.setAllowScrolling(false, "left");
+		// },
+		// touchEnd: function (swiper, event) {
+		// 	if (swiper.isBeginning) {
+		// 		$.fn.fullpage.setAllowScrolling(true, "left");
+		// 	}
 
-			if (swiper.isEnd) {
-				setTimeout(function () {
-					$.fn.fullpage.setAllowScrolling(true, "down");
-				}, 250);
-			} else {
-				$.fn.fullpage.setAllowScrolling(false, "down");
-			}
-		},
-		slideChangeTransitionEnd: function (swiper) {
-			if (swiper.isBeginning) {
-				$.fn.fullpage.setAllowScrolling(true, "left");
-			}
-		},
+		// 	if (swiper.isEnd) {
+		// 		setTimeout(function () {
+		// 			$.fn.fullpage.setAllowScrolling(true, "down");
+		// 		}, 250);
+		// 	} else {
+		// 		$.fn.fullpage.setAllowScrolling(false, "down");
+		// 	}
+		// },
+		// slideChangeTransitionEnd: function (swiper) {
+		// 	if (swiper.isBeginning) {
+		// 		$.fn.fullpage.setAllowScrolling(true, "left");
+		// 	}
+		// },
 		scroll: function (swiper, event) {
 			if (swiper.isBeginning) {
 				setTimeout(function () {
