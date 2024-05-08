@@ -1669,5 +1669,20 @@
 	font-size: 12px;
 	height: 192px;
 	justify-content: center;
-	row-gap: 20px;
+	width: 100%;
+	max-width: 100%;
+	> div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		row-gap: 20px;
+		max-width: 1640px;
+		img {
+			max-width: 117px;
+			margin: 0 auto;
+		}
+		p {
+			line-height: 1.2;
+		}
+	}
 }
