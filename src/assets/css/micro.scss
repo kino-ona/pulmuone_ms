@@ -1332,6 +1332,14 @@
 			&:nth-child(2),
 			&:nth-child(3) {
 				padding: 0;
+
+				.growth {
+					&__textbox {
+						padding: 28px;
+						top: 0;
+						transform: none;
+					}
+				}
 			}
 		}
 
