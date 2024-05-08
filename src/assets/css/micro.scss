@@ -12,6 +12,29 @@
 	perspective: 1000px;
 }
 
+.fullpage-wrapper {
+	.only {
+		&--pc {
+			display: block;
+		}
+
+		&--mobile {
+			display: none;
+		}
+	}
+	@include breakpoints.xl {
+		.only {
+			&--pc {
+				display: none;
+			}
+
+			&--mobile {
+				display: block;
+			}
+		}
+	}
+}
+
 .main {
 	.contents {
 		overflow-x: hidden;
@@ -22,7 +45,7 @@
 				margin-top: 150px;
 			}
 
-			&.wide {
+			&.pcwide {
 				max-width: none;
 
 				&__heaed {
@@ -40,6 +63,11 @@
 			.wraping {
 				&:not(:first-child) {
 					margin-top: 80px;
+				}
+
+				&.mobilewide {
+					margin-left: -20px;
+					margin-right: -20px;
 				}
 			}
 		}
@@ -742,6 +770,7 @@
 				}
 
 				&__text {
+					padding: 0 5px;
 					transform: translateY(0);
 				}
 			}
