@@ -38,7 +38,7 @@
 .main {
 	.contents {
 		overflow-x: hidden;
-		padding: 150px 0;
+		padding-top: 150px;
 
 		.wraping {
 			&:not(:first-child) {
@@ -58,7 +58,7 @@
 
 	@include breakpoints.xl {
 		.contents {
-			padding: 80px 0;
+			padding-top: 80px;
 
 			.wraping {
 				&:not(:first-child) {
@@ -314,16 +314,22 @@
 			padding: 60px 80px 55px;
 			position: relative;
 
-			@for $i from 1 through 6 {
+			@for $i from 1 through 7 {
 				&:nth-child(#{$i}) {
 					background-image: url("../images/bg_award0#{$i}.jpg");
 				}
 			}
 
-			&:nth-child(2),
-			&:nth-child(4),
-			&:nth-child(6) {
+			&:nth-child(1),
+			&:nth-child(3),
+			&:nth-child(5),
+			&:nth-child(6),
+			&:nth-child(7) {
 				color: $white;
+			}
+
+			&:nth-child(1) {
+				background-image: linear-gradient(101.17deg, rgb(0 0 0 / 45%) 36.79%, rgb(0 0 0 / 0%) 56.45%), url("../images/bg_award01.jpg");
 			}
 
 			.scroll-element {
@@ -395,18 +401,19 @@
 			&__panel {
 				height: 680px;
 				padding: 32px 20px 20px;
-				@for $i from 1 through 6 {
+
+				@for $i from 1 through 7 {
 					&:nth-child(#{$i}) {
 						background-image: url("../images/bg_mo_award0#{$i}.jpg");
 					}
 				}
 
-				&:nth-child(1),
-				&:nth-child(2),
-				&:nth-child(4),
-				&:nth-child(5),
-				&:nth-child(6) {
-					color: $white;
+				&:nth-child(1) {
+					background-image: linear-gradient(0.1deg, rgb(0 0 0 / 0%) 39.04%, rgb(0 0 0 / 60%) 90.62%), url("../images/bg_mo_award01.jpg");
+				}
+
+				&:nth-child(4) {
+					color: #fff;
 				}
 			}
 		}
@@ -449,7 +456,7 @@
 		.prologue {
 			&__button {
 				align-items: center;
-				background-color: #fafafa;
+				background-color: #f5f5f5;
 				column-gap: 16px;
 				display: flex;
 				flex: 1;
@@ -1648,4 +1655,15 @@
 			margin-top: 40px;
 		}
 	}
+}
+
+.copy {
+	align-items: center;
+	background-color: #f5f5f5;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	height: 192px;
+	justify-content: center;
+	row-gap: 20px;
 }

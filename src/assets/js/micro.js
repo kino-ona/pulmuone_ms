@@ -64,13 +64,13 @@ $("#fullpage").fullpage({
 			});
 		});
 
-		$(".main .scroll-element--vertical").on("mouseenter", function (event) {
-			iscroll.wheelOff();
-		});
+		// $(".main .scroll-element--vertical").on("mouseenter", function (event) {
+		// 	iscroll.wheelOff();
+		// });
 
-		$(".main .scroll-element--vertical").on("mouseleave", function (event) {
-			iscroll.wheelOn();
-		});
+		// $(".main .scroll-element--vertical").on("mouseleave", function (event) {
+		// 	iscroll.wheelOn();
+		// });
 
 		$(".main .scroll-element--vertical").on("touchstart", function (event) {
 			iscroll.disable();
@@ -253,57 +253,64 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 	spaceBetween: 20,
 	resistance: true,
 	resistanceRatio: 0,
-	touchRatio: 4,
+	// touchRatio: 4,
 	freeMode: {
-		enabled: true,
+		enabled: false,
 		momentum: false,
 		momentumBounce: false
 	},
 	mousewheel: {
-		// enabled: false,
+		enabled: false,
 		sensitivity: 4
 	},
 	breakpoints: {
 		1280: {
-			allowTouchMove: false
+			allowTouchMove: false,
+			freeMode: {
+				enabled: true
+			}
 		}
 	},
 	on: {
-		init: function (swiper) {
-			$(document).on("mouseleave touchend", ".history .slide .swiper .scroll-element", function () {
-				if (swiper.isEnd) {
-					$.fn.fullpage.setAllowScrolling(false, "up");
-					setTimeout(function () {
-						$.fn.fullpage.setAllowScrolling(true, "down");
-					}, 800);
-				} else {
-					$.fn.fullpage.setAllowScrolling(false);
-				}
-
-				if (swiper.isEnd && !swiper.allowTouchMove) {
-					$.fn.fullpage.setAllowScrolling(true, "up");
-				}
-			});
-		},
 		breakpoint: function (swiper, breakpointParams) {
-			swiper.on("touchMove", function () {
-				$.fn.fullpage.setAllowScrolling(false, "left");
-			});
-			swiper.on("touchEnd", function () {
-				if (swiper.isBeginning) {
-					$.fn.fullpage.setAllowScrolling(true, "left");
-				} else {
-					$.fn.fullpage.setAllowScrolling(false, "left");
-				}
+			// swiper.on("touchMove", function () {
+			// 	$.fn.fullpage.setAllowScrolling(false, "left");
+			// });
+			// swiper.on("touchEnd", function () {
+			// 	if (swiper.isBeginning) {
+			// 		$.fn.fullpage.setAllowScrolling(true, "left");
+			// 	} else {
+			// 		$.fn.fullpage.setAllowScrolling(false, "left");
+			// 	}
+			// 	if (swiper.isEnd) {
+			// 		setTimeout(function () {
+			// 			$.fn.fullpage.setAllowScrolling(true, "down");
+			// 		}, 250);
+			// 	} else {
+			// 		$.fn.fullpage.setAllowScrolling(false, "down");
+			// 	}
+			// });
+		},
+		touchMove: function (swiper, event) {
+			$.fn.fullpage.setAllowScrolling(false, "left");
+		},
+		touchEnd: function (swiper, event) {
+			if (swiper.isBeginning) {
+				$.fn.fullpage.setAllowScrolling(true, "left");
+			}
 
-				if (swiper.isEnd) {
-					setTimeout(function () {
-						$.fn.fullpage.setAllowScrolling(true, "down");
-					}, 250);
-				} else {
-					$.fn.fullpage.setAllowScrolling(false, "down");
-				}
-			});
+			if (swiper.isEnd) {
+				setTimeout(function () {
+					$.fn.fullpage.setAllowScrolling(true, "down");
+				}, 250);
+			} else {
+				$.fn.fullpage.setAllowScrolling(false, "down");
+			}
+		},
+		slideChangeTransitionEnd: function (swiper) {
+			if (swiper.isBeginning) {
+				$.fn.fullpage.setAllowScrolling(true, "left");
+			}
 		},
 		scroll: function (swiper, event) {
 			if (swiper.isBeginning) {
