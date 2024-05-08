@@ -9,16 +9,25 @@ $("#fullpage").fullpage({
 	easingcss3: "linear",
 	loopHorizontal: false,
 	touchSensitivity: 1,
-	lockAnchors: true,
 	normalScrollElements: ".scroll-element",
+	keyboardScrolling: false,
 	scrollOverflow: true,
 	scrollOverflowOptions: {
 		probeType: 3
+		// useTransition: false,
+		// useTransform: false
+		// HWCompositing: false
 		// disablePointer: true,
 		// disableTouch: false,
 		// disableMouse: true
 	},
 	afterRender: function () {
+		$(window).on("resize", function () {
+			$.fn.fullpage.reBuild();
+		});
+
+		initArchiveSwiper();
+
 		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
 
 		const growthCountObj = {
@@ -73,10 +82,6 @@ $("#fullpage").fullpage({
 
 		$(".main .scroll-element--vertical").on("touchend", function (event) {
 			iscroll.enable();
-		});
-
-		$(".award .tab__button").on("click", function () {
-			iscroll.refresh();
 		});
 	},
 	onLeave: function (index, nextIndex, direction) {
@@ -203,8 +208,6 @@ $("#fullpage").fullpage({
 
 		if (index === 4) {
 			$.fn.fullpage.setAllowScrolling(true, "up");
-
-			initArchiveSwiper();
 		}
 	},
 	onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
@@ -253,7 +256,7 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 		momentumBounce: false
 	},
 	mousewheel: {
-		enabled: false,
+		// enabled: false,
 		sensitivity: 4
 	},
 	breakpoints: {
@@ -352,5 +355,3 @@ archiveBtn.addEventListener("click", function () {
 	this.style.display = "none";
 	$.fn.fullpage.reBuild();
 });
-
-console.log($(".board .scroll-element")[0].scrollHeight);
