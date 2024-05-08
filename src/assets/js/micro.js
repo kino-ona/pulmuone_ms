@@ -83,6 +83,10 @@ $("#fullpage").fullpage({
 		$(".main .scroll-element--vertical").on("touchend", function (event) {
 			iscroll.enable();
 		});
+
+		$(".award .tab__button").on("click", function () {
+			iscroll.scrollTo(0, iscroll.y);
+		});
 	},
 	onLeave: function (index, nextIndex, direction) {
 		if (nextIndex === 2 && direction === "up") {
