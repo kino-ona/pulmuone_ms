@@ -271,10 +271,10 @@
 	.swiper-wrapper {
 		transition-duration: 0.3s !important;
 	}
-	@include breakpoints.xl {
-		.swiper-wrapper {
-			transition-duration: 0.6s !important;
-		}
-	}
+	// @include breakpoints.xl {
+	// 	.swiper-wrapper {
+	// 		transition-duration: 0.6s !important;
+	// 	}
+	// }
 }
 /* Slide styles end */

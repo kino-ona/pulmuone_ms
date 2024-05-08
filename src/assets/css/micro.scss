@@ -976,6 +976,8 @@
 	.swiper {
 		height: 100%;
 		padding: 30px 20px;
+		padding-top: 7%;
+		padding-bottom: 7%;
 
 		&-slide {
 			width: 890px;
@@ -1386,6 +1388,8 @@
 			flex: 1;
 			justify-content: left;
 			overflow-x: scroll;
+			padding-left: 20px;
+			padding-right: 20px;
 		}
 
 		&__item {
@@ -1393,7 +1397,7 @@
 			flex: none;
 			padding: 0;
 			position: relative;
-			width: 100%;
+			width: calc(100% - 40px);
 
 			&:nth-child(2),
 			&:nth-child(3) {

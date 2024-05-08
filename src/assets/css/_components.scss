@@ -55,7 +55,9 @@
 
 	@include breakpoints.xl {
 		&__header {
+			position: relative;
 			margin-bottom: 28px;
+			z-index: 1;
 
 			.title {
 				font-size: 26px;
