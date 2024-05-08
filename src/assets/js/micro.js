@@ -21,6 +21,44 @@ $("#fullpage").fullpage({
 	afterRender: function () {
 		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
 
+		const growthCountObj = {
+			duration: 1,
+			startVal: 0,
+			useEasing: false
+		};
+		const countNum = [38000, 3500, 181, 7000];
+
+		let targetTops = [];
+		let targetHeight = [];
+		let target = $(".growth__item");
+		target.each(function (index, item) {
+			let targetTop = $(item).position().top;
+			targetTops.push(targetTop);
+			targetHeight.push(targetTop + $(item).innerHeight());
+		});
+
+		let elementTop, elementBottom, viewportTop, viewportBottom;
+		function isScrolledIntoView(index) {
+			elementTop = targetTops[index];
+			elementBottom = targetHeight[index];
+			viewportTop = Math.abs(iscroll.y);
+			viewportBottom = viewportTop + $(".main").innerHeight();
+			return elementBottom > viewportTop && elementTop < viewportBottom;
+		}
+
+		iscroll.on("scroll", function () {
+			target.each(function (index, item) {
+				let countEl = $(item).find(".growth__emphasis > strong");
+				let countElId = countEl.attr("id");
+
+				if (isScrolledIntoView(index) == true && !countEl.hasClass("active")) {
+					let count = new countUp.CountUp(countElId, countNum[index], growthCountObj);
+					count.start();
+					countEl.addClass("active");
+				}
+			});
+		});
+
 		$(".main .scroll-element--vertical").on("mouseenter", function (event) {
 			iscroll.wheelOff();
 		});
@@ -40,24 +78,6 @@ $("#fullpage").fullpage({
 		$(".award .tab__button").on("click", function () {
 			iscroll.refresh();
 		});
-
-		const growthCountObj = {
-			duration: 1,
-			startVal: 0,
-			useEasing: false
-		};
-
-		const growthCount01 = new countUp.CountUp("growth01", 38000, growthCountObj);
-		growthCount01.start();
-
-		const growthCount02 = new countUp.CountUp("growth02", 3500, growthCountObj);
-		growthCount02.start();
-
-		const growthCount03 = new countUp.CountUp("growth03", 181, growthCountObj);
-		growthCount03.start();
-
-		const growthCount04 = new countUp.CountUp("growth04", 7000, growthCountObj);
-		growthCount04.start();
 	},
 	onLeave: function (index, nextIndex, direction) {
 		if (nextIndex === 2 && direction === "up") {
