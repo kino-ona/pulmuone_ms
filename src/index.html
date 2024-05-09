@@ -12,6 +12,7 @@
 </head>
 
 <body>
+	<header data-include-path="./assets/include/header.html"></header>
 	<div class="wrapper">
 		<div id="fullpage">
 			<article class="kv section fp-noscroll">
@@ -307,7 +308,7 @@
 								<button role="tab" id="awardTab02" class="tab__button" type="button" aria-controls="awardTabPanel02" aria-selected="false" tabindex="-1">풀무원 재단</button>
 								<button role="tab" id="awardTab03" class="tab__button" type="button" aria-controls="awardTabPanel03" aria-selected="false" tabindex="-1">뮤지엄김치간</button>
 								<button role="tab" id="awardTab04" class="tab__button" type="button" aria-controls="awardTabPanel04" aria-selected="false" tabindex="-1">풀무원투게더</button>
-								<button role="tab" id="awardTab05" class="tab__button" type="button" aria-controls="awardTabPanel05" aria-selected="false" tabindex="-1">깅화도 우리마을</button>
+								<button role="tab" id="awardTab05" class="tab__button" type="button" aria-controls="awardTabPanel05" aria-selected="false" tabindex="-1">강화도 우리마을</button>
 								<button role="tab" id="awardTab06" class="tab__button" type="button" aria-controls="awardTabPanel06" aria-selected="false" tabindex="-1">지구사랑기금</button>
 								<button role="tab" id="awardTab07" class="tab__button" type="button" aria-controls="awardTabPanel07" aria-selected="false" tabindex="-1">친환경 케어(Eco-Caring) 전략 선언</button>
 							</div>
@@ -1288,6 +1289,22 @@
 			awaitOpenAnimation: true,
 			awaitCloseAnimation: true
 		});
+
+		//header load
+		var allElements = document.getElementsByTagName('*');
+			Array.prototype.forEach.call(allElements, function(el) {
+				var includePath = el.dataset.includePath;
+				if (includePath) {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function () {
+						if (this.readyState == 4 && this.status == 200) {
+							el.outerHTML = this.responseText;
+						}
+					};
+					xhttp.open('GET', includePath, true);
+					xhttp.send();
+				}
+			});
 	});
 </script>
 

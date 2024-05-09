@@ -24,6 +24,31 @@ $("#fullpage").fullpage({
 	afterRender: function () {
 		initArchiveSwiper();
 
+		//mobile tab button center
+		if (windowWidth <= 1280) {
+			var $tabhmenu = $(".award .tab__list");
+			var tabMenuClick = function () {
+				$(".award .tab__list .tab__button").on("click", function (e) {
+					e.preventDefault();
+					var padding = 20;
+					var $element = $(this);
+					var tabOffset = $element.offset().left;
+					var tabWidth = $element.width();
+					var menuScrollLeft = $tabhmenu.scrollLeft() - padding;
+					var menuWidth = $tabhmenu.width();
+					var myScrollPos = tabOffset + tabWidth / 2 + menuScrollLeft - menuWidth / 4;
+
+					$tabhmenu.stop().animate(
+						{
+							scrollLeft: myScrollPos - menuWidth / 4
+						},
+						300
+					);
+				});
+			};
+			tabMenuClick();
+		}
+
 		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
 
 		const growthCountObj = {
