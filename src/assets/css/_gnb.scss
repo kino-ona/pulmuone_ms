@@ -1,6 +1,126 @@
 @use "./mixins";
+@use "./breakpoints";
 
+$white: #fff;
+$black: #000;
 
 .gnb {
-	
+	position: fixed;
+	width: 100%;
+	z-index: 9;
+
+	.wrapper {
+		align-items: center;
+		background-color: $white;
+		display: flex;
+		height: 63px;
+		justify-content: center;
+		justify-content: space-between;
+		padding: 0 80px;
+	}
+
+	&__logo {
+		background: {
+			image: url("../images/logo.svg");
+			position: 0 0;
+			repeat: no-repeat;
+			size: contain;
+		}
+
+		display: inline-block;
+		height: 33px;
+		width: 97px;
+	}
+
+	&__list {
+		display: flex;
+		gap: 80px;
+	}
+
+	&__item {
+		padding: 4px 12px;
+
+		&:hover {
+			background-color: $black;
+			border-radius: 100px;
+			transition: background-color 600ms ease-in-out;
+
+			.gnb__text {
+				color: $white;
+				transition: color 300ms ease-in-out;
+			}
+		}
+	}
+
+	&__text {
+		color: #010101;
+		display: inline-block;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 1.1;
+	}
+
+	&__link {
+		a {
+			align-items: center;
+			display: flex;
+			gap: 12px;
+		}
+	}
+
+	&.scroll {
+		.wrapper {
+			background-color: rgb(999 999 999 / 10%);
+		}
+
+		.gnb {
+			&__logo {
+				background: {
+					image: url("../images/logo_white.svg");
+				}
+			}
+
+			&__item {
+				&:hover {
+					background-color: $white;
+
+					.gnb__text {
+						color: $black;
+					}
+				}
+			}
+
+			&__text {
+				color: $white;
+			}
+
+			&__link {
+				path {
+					stroke: $white;
+				}
+			}
+		}
+	}
+
+	@include breakpoints.xl {
+		.wrapper {
+			height: 52px;
+			justify-content: center;
+		}
+
+		&__logo {
+			height: 20px;
+			width: 59px;
+		}
+
+		&__list,
+		&__link {
+			background-color: transparent;
+			display: none;
+			font-size: 0;
+			height: 0;
+			opacity: 0;
+			width: 0;
+		}
+	}
 }

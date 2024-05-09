@@ -12,8 +12,6 @@ $("#fullpage").fullpage({
 	normalScrollElements: ".scroll-element",
 	keyboardScrolling: false,
 	scrollOverflow: true,
-	css3: false,
-	// sectionsColor: ["#042d22"],
 	scrollOverflowOptions: {
 		probeType: 3,
 		bounce: false

@@ -335,16 +335,16 @@
 				}
 			}
 
-			&:nth-child(1),
-			&:nth-child(3),
+			&:nth-child(2),
+			&:nth-child(4),
 			&:nth-child(5),
 			&:nth-child(6),
 			&:nth-child(7) {
 				color: $white;
 			}
 
-			&:nth-child(1) {
-				background-image: linear-gradient(101.17deg, rgb(0 0 0 / 45%) 36.79%, rgb(0 0 0 / 0%) 56.45%), url("../images/bg_award01.jpg");
+			&:nth-child(7) {
+				background-image: linear-gradient(101.17deg, rgb(0 0 0 / 45%) 36.79%, rgb(0 0 0 / 0%) 56.45%), url("../images/bg_award07.jpg");
 			}
 
 			.scroll-element {
@@ -430,12 +430,12 @@
 					}
 				}
 
-				&:nth-child(1) {
-					background-image: linear-gradient(0.1deg, rgb(0 0 0 / 0%) 39.04%, rgb(0 0 0 / 60%) 90.62%), url("../images/bg_mo_award01.jpg");
+				&:nth-child(3) {
+					color: #fff;
 				}
 
-				&:nth-child(4) {
-					color: #fff;
+				&:nth-child(7) {
+					background-image: linear-gradient(0.1deg, rgb(0 0 0 / 0%) 39.04%, rgb(0 0 0 / 60%) 90.62%), url("../images/bg_mo_award07.jpg");
 				}
 			}
 		}
@@ -643,6 +643,7 @@
 
 .intro {
 	background-color: #042d22;
+	margin-top: -2px;
 
 	&--start {
 		.intro {
@@ -858,7 +859,22 @@
 
 .history {
 	background-color: #042d22;
+	margin-top: -2px;
 	position: relative;
+
+	&.active {
+		&::before {
+			background-color: #042d22;
+			bottom: -2px;
+			content: "";
+			display: block;
+			height: 2px;
+			left: 0;
+			position: absolute;
+			right: 0;
+			z-index: 5;
+		}
+	}
 
 	&__container {
 		align-items: center;
@@ -1808,6 +1824,22 @@
 
 		p {
 			line-height: 1.2;
+		}
+	}
+
+	@include breakpoints.xl {
+		height: 104px;
+
+		> div {
+			row-gap: 16px;
+
+			img {
+				width: 75px;
+			}
+
+			p {
+				letter-spacing: -0.05em;
+			}
 		}
 	}
 }
