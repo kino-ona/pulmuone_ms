@@ -12,8 +12,11 @@ $("#fullpage").fullpage({
 	normalScrollElements: ".scroll-element",
 	keyboardScrolling: false,
 	scrollOverflow: true,
+	css3: false,
+	// sectionsColor: ["#042d22"],
 	scrollOverflowOptions: {
-		probeType: 3
+		probeType: 3,
+		bounce: false
 		// useTransition: false,
 		// useTransform: false
 		// HWCompositing: false
@@ -89,20 +92,58 @@ $("#fullpage").fullpage({
 			});
 		});
 
-		// $(".main .scroll-element--vertical").on("mouseenter", function (event) {
-		// 	iscroll.wheelOff();
-		// });
+		$(".growth__list").on("touchstart", function (event) {
+			let swipe = event.originalEvent.touches,
+				start = swipe[0].pageY;
+			if ($(window).width() <= 1280) {
+				let swipe = event.originalEvent.touches,
+					start = swipe[0].pageY;
+				$(this)
+					.on("touchmove", function (event) {
+						let contact = event.originalEvent.touches,
+							end = contact[0].pageY,
+							distance = end - start;
 
-		// $(".main .scroll-element--vertical").on("mouseleave", function (event) {
-		// 	iscroll.wheelOn();
-		// });
+						if (distance < -30) {
+							// down
+							iscroll.scrollBy(0, distance * 2, 1000);
+						}
 
-		$(".main .scroll-element--vertical").on("touchstart", function (event) {
-			iscroll.disable();
+						if (distance > 30) {
+							// up
+							iscroll.scrollBy(0, distance * 2, 1000);
+						}
+					})
+					.one("touchend", function () {
+						$(this).off("touchmove touchend");
+					});
+			}
 		});
 
-		$(".main .scroll-element--vertical").on("touchend", function (event) {
-			iscroll.enable();
+		$(".award .tab__panel .scroll-element").on("touchstart", function (event) {
+			let swipe = event.originalEvent.touches,
+				start = swipe[0].pageY;
+			if ($(window).width() <= 1280) {
+				let swipe = event.originalEvent.touches,
+					start = swipe[0].pageY;
+				$(this)
+					.on("touchmove", function (event) {
+						let contact = event.originalEvent.touches,
+							end = contact[0].pageY,
+							distance = end - start;
+
+						if (distance < -30 && Math.round($(this).scrollTop()) + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+							iscroll.scrollBy(0, distance * 2, 1000);
+						}
+
+						if (distance > 30 && $(this).scrollTop() <= 0) {
+							iscroll.scrollTo(0, 0, 1000);
+						}
+					})
+					.one("touchend", function () {
+						$(this).off("touchmove touchend");
+					});
+			}
 		});
 
 		$(".award .tab__button").on("click", function () {
@@ -281,8 +322,6 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 	resistanceRatio: 0,
 	// touchRatio: 4,
 	freeMode: {
-		// enabled: false,
-		enabled: true,
 		momentum: false,
 		momentumBounce: false
 	},
@@ -293,9 +332,6 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 	breakpoints: {
 		1280: {
 			allowTouchMove: false
-			// freeMode: {
-			// 	enabled: true
-			// }
 		}
 	},
 	on: {
@@ -318,27 +354,6 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 				}
 			});
 		},
-		// touchMove: function (swiper, event) {
-		// 	$.fn.fullpage.setAllowScrolling(false, "left");
-		// },
-		// touchEnd: function (swiper, event) {
-		// 	if (swiper.isBeginning) {
-		// 		$.fn.fullpage.setAllowScrolling(true, "left");
-		// 	}
-
-		// 	if (swiper.isEnd) {
-		// 		setTimeout(function () {
-		// 			$.fn.fullpage.setAllowScrolling(true, "down");
-		// 		}, 250);
-		// 	} else {
-		// 		$.fn.fullpage.setAllowScrolling(false, "down");
-		// 	}
-		// },
-		// slideChangeTransitionEnd: function (swiper) {
-		// 	if (swiper.isBeginning) {
-		// 		$.fn.fullpage.setAllowScrolling(true, "left");
-		// 	}
-		// },
 		scroll: function (swiper, event) {
 			if (swiper.isBeginning) {
 				setTimeout(function () {
