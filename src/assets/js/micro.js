@@ -22,6 +22,9 @@ $("#fullpage").fullpage({
 		// disableTouch: false,
 		// disableMouse: true
 	},
+	afterResize: function () {
+		$.fn.fullpage.reBuild();
+	},
 	afterRender: function () {
 		initArchiveSwiper();
 
@@ -144,12 +147,11 @@ $("#fullpage").fullpage({
 			}
 		});
 
-		$(".award .tab__button").on("click", function () {
-			iscroll.scrollTo(0, iscroll.y);
-		});
-
-		$(window).on("resize", function () {
-			$.fn.fullpage.reBuild();
+		$(".award .tab__button").on("click", function (event) {
+			if (iscroll.moved) {
+				event.preventDefault;
+				return false;
+			}
 		});
 	},
 	onLeave: function (index, nextIndex, direction) {
