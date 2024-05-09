@@ -1844,4 +1844,20 @@
 			line-height: 1.2;
 		}
 	}
+
+	@include breakpoints.xl {
+		height: 104px;
+
+		> div {
+			row-gap: 16px;
+
+			img {
+				width: 75px;
+			}
+
+			p {
+				letter-spacing: -0.05em;
+			}
+		}
+	}
 }
