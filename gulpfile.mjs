@@ -82,7 +82,7 @@ export function js(done) {
 	return gulp.src(paths.js)
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(concat('micro.js'))
-		.pipe(process.env.NODE_ENV === 'development' ? uglify() : noop())
+		.pipe(process.env.NODE_ENV === 'production' ? uglify() : noop())
 		.pipe(gulp.dest(dist.js))
 		.pipe(browsersync.reload({ stream: true })),
 	done();
