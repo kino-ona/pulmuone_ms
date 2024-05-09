@@ -1843,3 +1843,30 @@
 		}
 	}
 }
+
+.quick {
+	bottom: 232px;
+	position: fixed;
+	right: 40px;
+
+	a {
+		background-color: rgb(0 0 0 / 30%);
+		border-radius: 100%;
+		display: block;
+		height: 80px;
+		position: relative;
+		width: 80px;
+
+		&::before {
+			background: url("../images/ico/ico_arrow_top.svg") no-repeat 0 0;
+			content: "";
+			display: block;
+			height: 40px;
+			left: 50%;
+			margin: -20px 0 0 -20px;
+			position: absolute;
+			top: 50%;
+			width: 40px;
+		}
+	}
+}
