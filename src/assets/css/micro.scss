@@ -951,6 +951,12 @@
 				height: 100%;
 				object-fit: cover;
 				width: 100%;
+				border-radius: 28px;
+				overflow: hidden;
+				@include breakpoints.xl {
+					width: auto;
+					margin: 0 auto;
+				}
 			}
 		}
 
@@ -986,11 +992,40 @@
 	.swiper {
 		height: 100%;
 		padding: 30px 20px;
-		padding-bottom: 7%;
-		padding-top: 7%;
+		// padding-top: 7%;
+		// padding-bottom: 7%;
 
 		&-slide {
-			width: 890px;
+			max-width: 890px;
+			
+			@media screen and (min-width: 1280px) and (max-height: 1000px) {
+				max-width: calc(33.3333% - 20px);
+				.board {
+					padding: 30px 40px 40px;
+					.headline {
+						font-size: 14px;
+					}
+					.title {
+						font-size: 16px;	
+					}
+					.desc {
+						font-size: 13px;
+					}
+				}
+			}
+			@media screen and (min-width: 1280px) and (max-height: 800px) {
+				.board {
+					.headline {
+						font-size: 13px;
+					}
+					.title {
+						font-size: 14px;	
+					}
+					.desc {
+						font-size: 12px;
+					}
+				}
+			}
 
 			&:nth-child(even) {
 				display: flex;
@@ -1024,12 +1059,28 @@
 					}
 				}
 			}
+			&:nth-child(1) {
+				.board {
+					.figure {
+						video {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							height: auto;
+						}
+					}
+				}
+			}
 
 			&:nth-child(2) {
 				.board {
 					&:nth-child(1) {
 						.figure {
 							background-image: url("../images/img_history_slide02_01.jpg");
+
+							@include breakpoints.xl {
+								background-position: center top;
+							}
 						}
 					}
 
@@ -1057,14 +1108,14 @@
 						}
 					}
 
-					&:nth-child(2) {
-						.figure {
-							.img {
-								height: 98px;
-								width: 277px;
-							}
-						}
-					}
+					// &:nth-child(2) {
+					// 	.figure {
+					// 		.img {
+					// 			height: 98px;
+					// 			width: 277px;
+					// 		}
+					// 	}
+					// }
 				}
 			}
 
@@ -1078,9 +1129,38 @@
 
 			&:nth-child(6) {
 				.board {
+					&:nth-child(1) {
+						.figure {
+							background-color: #DEEBFF;
+							video {
+								position: absolute;
+								top: 50%;
+								transform: translateY(-50%);
+								height: auto;
+								object-fit: contain;
+							}
+						}
+					}
 					&:nth-child(2) {
 						.figure {
 							background-image: url("../images/img_history_slide06_02.jpg");
+							background-size: contain;
+						}
+					}
+				}
+			}
+
+			&:nth-child(7) {
+				.board {
+					&:nth-child(1) {
+						.figure {
+							video {
+								position: absolute;
+								top: 50%;
+								transform: translateY(-50%);
+								height: auto;
+								object-fit: contain;
+							}
 						}
 					}
 				}
@@ -1096,22 +1176,24 @@
 				}
 			}
 
-			&:nth-child(9) {
-				.board {
-					.figure {
-						.img {
-							height: 259px;
-							width: 582px;
-						}
-					}
-				}
-			}
+			// &:nth-child(9) {
+			// 	.board {
+			// 		.figure {
+			// 			.img {
+			// 				height: 259px;
+			// 				width: 582px;
+			// 			}
+			// 		}
+			// 	}
+			// }
 
 			&:nth-child(10) {
 				.board {
 					&:nth-child(1) {
 						.figure {
 							background-image: url("../images/img_history_slide10_01.jpg");
+							background-size: contain;
+							background-color: #F1F8E9;
 						}
 					}
 
@@ -1138,6 +1220,18 @@
 							background-image: url("../images/img_history_slide12_01.jpg");
 						}
 					}
+					&:nth-child(2) {
+						.figure {
+							background-color: #F1F8E9;
+							video {
+								position: absolute;
+								top: 50%;
+								transform: translateY(-50%);
+								object-fit: contain;
+								height: auto;
+							}
+						}
+					}
 				}
 			}
 
@@ -1151,9 +1245,26 @@
 
 			&:nth-child(14) {
 				.board {
+					&:nth-child(1) {
+						.figure {
+							video  {
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%);
+								height: auto;
+								@include breakpoints.xl {
+									height: 100%;
+								}
+							}
+						}
+					}
 					&:nth-child(2) {
 						.figure {
 							background-image: url("../images/img_history_slide14_02.jpg");
+							@include breakpoints.xl {
+								background-size: contain;
+							}
 						}
 					}
 				}
@@ -1172,6 +1283,8 @@
 					&:nth-child(1) {
 						.figure {
 							background-image: url("../images/img_history_slide16_01.jpg");
+							background-size: contain;
+							background-color: #D1EED9;
 						}
 					}
 				}
