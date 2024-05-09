@@ -321,16 +321,16 @@
 				}
 			}
 
-			&:nth-child(1),
-			&:nth-child(3),
+			&:nth-child(2),
+			&:nth-child(4),
 			&:nth-child(5),
 			&:nth-child(6),
 			&:nth-child(7) {
 				color: $white;
 			}
 
-			&:nth-child(1) {
-				background-image: linear-gradient(101.17deg, rgb(0 0 0 / 45%) 36.79%, rgb(0 0 0 / 0%) 56.45%), url("../images/bg_award01.jpg");
+			&:nth-child(7) {
+				background-image: linear-gradient(101.17deg, rgb(0 0 0 / 45%) 36.79%, rgb(0 0 0 / 0%) 56.45%), url("../images/bg_award07.jpg");
 			}
 
 			.scroll-element {
@@ -416,12 +416,12 @@
 					}
 				}
 
-				&:nth-child(1) {
-					background-image: linear-gradient(0.1deg, rgb(0 0 0 / 0%) 39.04%, rgb(0 0 0 / 60%) 90.62%), url("../images/bg_mo_award01.jpg");
+				&:nth-child(3) {
+					color: #fff;
 				}
 
-				&:nth-child(4) {
-					color: #fff;
+				&:nth-child(7) {
+					background-image: linear-gradient(0.1deg, rgb(0 0 0 / 0%) 39.04%, rgb(0 0 0 / 60%) 90.62%), url("../images/bg_mo_award07.jpg");
 				}
 			}
 		}
@@ -629,6 +629,7 @@
 
 .intro {
 	background-color: #042d22;
+	margin-top: -2px;
 
 	&--start {
 		.intro {
@@ -844,7 +845,22 @@
 
 .history {
 	background-color: #042d22;
+	margin-top: -2px;
 	position: relative;
+
+	&.active {
+		&::before {
+			background-color: #042d22;
+			bottom: -2px;
+			content: "";
+			display: block;
+			height: 2px;
+			left: 0;
+			position: absolute;
+			right: 0;
+			z-index: 5;
+		}
+	}
 
 	&__container {
 		align-items: center;
@@ -948,14 +964,14 @@
 			}
 
 			video {
+				border-radius: 28px;
 				height: 100%;
 				object-fit: cover;
-				width: 100%;
-				border-radius: 28px;
 				overflow: hidden;
+				width: 100%;
 				@include breakpoints.xl {
-					width: auto;
 					margin: 0 auto;
+					width: auto;
 				}
 			}
 		}
@@ -992,35 +1008,42 @@
 	.swiper {
 		height: 100%;
 		padding: 30px 20px;
+
 		// padding-top: 7%;
 		// padding-bottom: 7%;
 
 		&-slide {
 			max-width: 890px;
-			
-			@media screen and (min-width: 1280px) and (max-height: 1000px) {
+
+			@media screen and (width >= 1280px) and (height <= 1000px) {
 				max-width: calc(33.3333% - 20px);
+
 				.board {
 					padding: 30px 40px 40px;
+
 					.headline {
 						font-size: 14px;
 					}
+
 					.title {
-						font-size: 16px;	
+						font-size: 16px;
 					}
+
 					.desc {
 						font-size: 13px;
 					}
 				}
 			}
-			@media screen and (min-width: 1280px) and (max-height: 800px) {
+			@media screen and (width >= 1280px) and (height <= 800px) {
 				.board {
 					.headline {
 						font-size: 13px;
 					}
+
 					.title {
-						font-size: 14px;	
+						font-size: 14px;
 					}
+
 					.desc {
 						font-size: 12px;
 					}
@@ -1059,14 +1082,15 @@
 					}
 				}
 			}
+
 			&:nth-child(1) {
 				.board {
 					.figure {
 						video {
+							height: auto;
 							position: absolute;
 							top: 50%;
 							transform: translateY(-50%);
-							height: auto;
 						}
 					}
 				}
@@ -1131,16 +1155,18 @@
 				.board {
 					&:nth-child(1) {
 						.figure {
-							background-color: #DEEBFF;
+							background-color: #deebff;
+
 							video {
+								height: auto;
+								object-fit: contain;
 								position: absolute;
 								top: 50%;
 								transform: translateY(-50%);
-								height: auto;
-								object-fit: contain;
 							}
 						}
 					}
+
 					&:nth-child(2) {
 						.figure {
 							background-image: url("../images/img_history_slide06_02.jpg");
@@ -1155,11 +1181,11 @@
 					&:nth-child(1) {
 						.figure {
 							video {
+								height: auto;
+								object-fit: contain;
 								position: absolute;
 								top: 50%;
 								transform: translateY(-50%);
-								height: auto;
-								object-fit: contain;
 							}
 						}
 					}
@@ -1191,9 +1217,9 @@
 				.board {
 					&:nth-child(1) {
 						.figure {
+							background-color: #f1f8e9;
 							background-image: url("../images/img_history_slide10_01.jpg");
 							background-size: contain;
-							background-color: #F1F8E9;
 						}
 					}
 
@@ -1220,15 +1246,17 @@
 							background-image: url("../images/img_history_slide12_01.jpg");
 						}
 					}
+
 					&:nth-child(2) {
 						.figure {
-							background-color: #F1F8E9;
+							background-color: #f1f8e9;
+
 							video {
+								height: auto;
+								object-fit: contain;
 								position: absolute;
 								top: 50%;
 								transform: translateY(-50%);
-								object-fit: contain;
-								height: auto;
 							}
 						}
 					}
@@ -1247,18 +1275,19 @@
 				.board {
 					&:nth-child(1) {
 						.figure {
-							video  {
+							video {
+								height: auto;
+								left: 50%;
 								position: absolute;
 								top: 50%;
-								left: 50%;
 								transform: translate(-50%, -50%);
-								height: auto;
 								@include breakpoints.xl {
 									height: 100%;
 								}
 							}
 						}
 					}
+
 					&:nth-child(2) {
 						.figure {
 							background-image: url("../images/img_history_slide14_02.jpg");
@@ -1282,9 +1311,9 @@
 				.board {
 					&:nth-child(1) {
 						.figure {
+							background-color: #d1eed9;
 							background-image: url("../images/img_history_slide16_01.jpg");
 							background-size: contain;
-							background-color: #D1EED9;
 						}
 					}
 				}
