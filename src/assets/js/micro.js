@@ -168,6 +168,12 @@ $("#fullpage").fullpage({
 		}
 	},
 	afterLoad: function (anchorLink, index) {
+		if (index !== 1) {
+			$(".quick").addClass("quick--active");
+		} else {
+			$(".quick").removeClass("quick--active");
+		}
+
 		if (index === 1) {
 			$.fn.fullpage.setAllowScrolling(true, "down");
 		}

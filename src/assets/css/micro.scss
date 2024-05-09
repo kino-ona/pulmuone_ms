@@ -1846,8 +1846,13 @@
 
 .quick {
 	bottom: 232px;
+	display: none;
 	position: fixed;
 	right: 40px;
+
+	&--active {
+		display: block;
+	}
 
 	a {
 		background-color: rgb(0 0 0 / 30%);
@@ -1858,7 +1863,7 @@
 		width: 80px;
 
 		&::before {
-			background: url("../images/ico/ico_arrow_top.svg") no-repeat 0 0;
+			background: url("../images/ico/ico_arrow_top.svg") no-repeat 0 0 / 100% 100%;
 			content: "";
 			display: block;
 			height: 40px;
@@ -1867,6 +1872,22 @@
 			position: absolute;
 			top: 50%;
 			width: 40px;
+		}
+	}
+
+	@include breakpoints.xl {
+		bottom: 119px;
+		right: 20px;
+
+		a {
+			height: 50px;
+			width: 50px;
+
+			&::before {
+				height: 26px;
+				margin: -13px 0 0 -13px;
+				width: 26px;
+			}
 		}
 	}
 }
