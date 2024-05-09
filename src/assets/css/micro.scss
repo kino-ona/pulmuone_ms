@@ -490,6 +490,8 @@
 		}
 	}
 	@include breakpoints.xl {
+		padding: 0 20px;
+
 		&__more {
 			flex-direction: column;
 
@@ -1509,12 +1511,12 @@
 
 				&:hover {
 					.swiperLayer {
-						background: #8dc63f;
+						background: #77d326;
 						color: #fff;
 						display: block;
 						height: 100%;
 						left: 0;
-						padding: 40px 40px 30px;
+						padding: 40px 24px 24px;
 						position: absolute;
 						text-align: left;
 						top: 0;
@@ -1525,6 +1527,10 @@
 							font-weight: 800;
 							line-height: 1;
 							margin-bottom: 15px;
+						}
+
+						&__decs {
+							line-height: 1.6;
 						}
 
 						&__decsList {
@@ -1550,14 +1556,14 @@
 						}
 
 						&__year {
-							bottom: 30px;
+							bottom: 24px;
 							color: rgb(255 255 255 / 30%);
 							font-size: 70px;
 							font-weight: 800;
 							letter-spacing: -0.05em;
 							line-height: 1;
 							position: absolute;
-							right: 40px;
+							right: 24px;
 							width: 164px;
 						}
 					}
@@ -1595,8 +1601,6 @@
 
 		&__btn {
 			align-items: center;
-			aspect-ratio: 1 / 1;
-			background-color: #fafafa;
 			border-radius: 12px;
 			display: flex;
 			justify-content: center;
@@ -1604,6 +1608,8 @@
 		}
 
 		&__img {
+			aspect-ratio: 1 / 1;
+			border-radius: 12px;
 			display: inline-block;
 		}
 
