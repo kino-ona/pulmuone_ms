@@ -9,7 +9,7 @@
  *
  * Released on: November 22, 2023
  */
- @use "./breakpoints";
+@use "./breakpoints";
 
 :host {
 	display: block;
@@ -268,13 +268,12 @@
 }
 
 .swiper-free-mode {
-	.swiper-wrapper {
-		transition-duration: 0.3s !important;
+	@include breakpoints.xl {
+		.swiper-wrapper {
+			transition-duration: 0.7s !important;
+			transition-timing-function: ease-out !important;
+		}
 	}
-	// @include breakpoints.xl {
-	// 	.swiper-wrapper {
-	// 		transition-duration: 0.6s !important;
-	// 	}
-	// }
 }
+
 /* Slide styles end */
