@@ -1928,6 +1928,7 @@
 				if (modal.querySelector(".glance__list")) {
 					const scrollContainer = modal.querySelector(".glance__list");
 					scrollContainer.addEventListener("wheel", function (event) {
+						event.preventDefault();
 						if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
 							return;
 						} else {
