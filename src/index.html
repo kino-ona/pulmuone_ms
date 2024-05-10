@@ -1924,6 +1924,17 @@
 				if (modal.querySelector('#modalVideo')) {
 					modal.querySelector('#modalVideo').play();
 				}
+
+				if (modal.querySelector(".glance__list")) {
+					const scrollContainer = modal.querySelector(".glance__list");
+					scrollContainer.addEventListener("wheel", function (event) {
+						if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+							return;
+						} else {
+							scrollContainer.scrollLeft += event.deltaY
+						}
+					});
+				}
 			},
 			onClose: modal => {
 				if (modal.querySelector('#modalVideo')) {
