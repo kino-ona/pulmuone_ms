@@ -1921,15 +1921,13 @@
 			awaitOpenAnimation: true,
 			awaitCloseAnimation: true,
 			onShow: modal => {
-				const $video = modal.querySelector('#modalVideo');
-				if ($video) {
-					$video.play();
+				if (modal.querySelector('#modalVideo')) {
+					modal.querySelector('#modalVideo').play();
 				}
 			},
 			onClose: modal => {
-				const $video = modal.querySelector('#modalVideo');
-				if ($video) {
-					$video.pause();
+				if (modal.querySelector('#modalVideo')) {
+					modal.querySelector('#modalVideo').pause();
 				}
 			}
 		});
