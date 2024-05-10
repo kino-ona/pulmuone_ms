@@ -24,7 +24,6 @@ $("#fullpage").fullpage({
 	},
 	afterRender: function () {
 		initArchiveSwiper();
-		$.fn.fullpage.setAllowScrolling(false, "all");
 
 		//mobile tab button center
 		if (windowWidth <= 1280) {
