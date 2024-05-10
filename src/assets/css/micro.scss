@@ -8,7 +8,6 @@
 @use "./swiper";
 @use "./gnb";
 
-
 #fullpage {
 	backface-visibility: hidden;
 	perspective: 1000px;
@@ -100,7 +99,7 @@
 		.glance {
 			&__list {
 				overflow-x: scroll;
-				padding: 0 70px;
+				padding: 0 70px 20px;
 			}
 
 			&__item {
@@ -647,9 +646,7 @@
 	margin-top: -2px;
 
 	&--start {
-		
 		.intro {
-
 			&__legend {
 				margin-top: -160px;
 				transform: scale(0.403);
@@ -682,21 +679,24 @@
 	}
 
 	&__legend {
+		margin-left: auto;
+		margin-right: auto;
+
 		// max-height: 580px;
 		position: relative;
 		transform: scale(1);
 		transition: all 600ms ease-in-out;
+
 		// width: 531px;
 		width: calc(100% - 80px);
-		margin-left: auto;
-		margin-right: auto;
 		z-index: 1;
 
 		img {
+			margin-top: calc(100vh / 5);
+			max-height: 580px;
+
 			// height: 100%;
 			width: 100%;
-			max-height: 580px;
-			margin-top: calc(100vh / 5);
 		}
 	}
 
@@ -802,6 +802,7 @@
 					// margin-left: -40px;
 					margin-top: -80px;
 					transform: scale(0.6);
+
 					img {
 						margin-top: 0;
 					}
@@ -823,6 +824,7 @@
 			// height: 270px;
 			// width: 265px;
 			margin-top: 80px;
+
 			img {
 				max-height: 259px;
 			}
