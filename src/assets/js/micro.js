@@ -162,8 +162,20 @@ $("#fullpage").fullpage({
 		});
 	},
 	onLeave: function (index, nextIndex, direction) {
-		if (nextIndex === 2 && direction === "up") {
-			$.fn.fullpage.setAllowScrolling(false, "up");
+		if (nextIndex === 1) {
+			$.fn.fullpage.setAllowScrolling(true, "down");
+		}
+
+		if (nextIndex === 2) {
+			if ($(".intro").hasClass("intro--start")) {
+				$.fn.fullpage.setAllowScrolling(false, "up");
+				$.fn.fullpage.setAllowScrolling(true, "down");
+				historyWheelLock = false;
+			} else {
+				$.fn.fullpage.setAllowScrolling(false, "down");
+				$.fn.fullpage.setAllowScrolling(true, "up");
+				historyWheelLock = false;
+			}
 		}
 
 		if (nextIndex === 4 && direction === "down") {
@@ -181,10 +193,6 @@ $("#fullpage").fullpage({
 			$(".quick").removeClass("quick--active");
 		}
 
-		if (index === 1) {
-			$.fn.fullpage.setAllowScrolling(true, "down");
-		}
-
 		if (index === 2) {
 			// $(".history .fp-slidesContainer").css({
 			// 	transition: "none",
@@ -193,16 +201,6 @@ $("#fullpage").fullpage({
 
 			// $(".history .slide:nth-child(1)").addClass("active").siblings(".slide").removeClass("active");
 			// historySwiper.slideTo(0, false);
-
-			if ($(".intro").hasClass("intro--start")) {
-				$.fn.fullpage.setAllowScrolling(false, "up");
-				$.fn.fullpage.setAllowScrolling(true, "down");
-				historyWheelLock = false;
-			} else {
-				$.fn.fullpage.setAllowScrolling(false, "down");
-				$.fn.fullpage.setAllowScrolling(true, "up");
-				historyWheelLock = false;
-			}
 
 			// desktop intro wheel sequence
 			$(".intro").on("wheel", function (event) {
