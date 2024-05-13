@@ -1072,7 +1072,7 @@ body {
 		&-slide {
 			max-width: 890px;
 
-			@media screen and (width >= 1280px) and (height <= 1000px) {
+			@media screen and (width >= 1200px) and (height <= 1000px) {
 				max-width: calc(33.3333% - 20px);
 
 				.board {
@@ -1091,7 +1091,7 @@ body {
 					}
 				}
 			}
-			@media screen and (width >= 1280px) and (height <= 800px) {
+			@media screen and (width >= 1200px) and (height <= 800px) {
 				.board {
 					.headline {
 						font-size: 13px;
@@ -1117,7 +1117,7 @@ body {
 					display: grid;
 					flex: 1;
 
-					@media screen and (width >= 1280px) {
+					@media screen and (width >= 1200px) {
 						grid-template-columns: repeat(2, 1fr);
 						grid-template-rows: auto auto 1fr;
 
