@@ -8,6 +8,11 @@
 @use "./swiper";
 @use "./gnb";
 
+html,
+body {
+	background-color: #042d22;
+}
+
 #fullpage {
 	backface-visibility: hidden;
 	perspective: 1000px;
@@ -35,6 +40,8 @@
 }
 
 .main {
+	background-color: #fff;
+
 	.contents {
 		overflow-x: hidden;
 		padding-top: 150px;
@@ -1900,7 +1907,7 @@
 	}
 
 	@include breakpoints.xl {
-		bottom: 119px;
+		bottom: 20px;
 		right: 20px;
 
 		a {
