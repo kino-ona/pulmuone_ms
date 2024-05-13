@@ -173,11 +173,26 @@ $("#fullpage").fullpage({
 			}
 		}
 
+		if (nextIndex !== 2) {
+			$(".intro").off("wheel touchstart touchmove touchend");
+		}
+
+		if (nextIndex !== 3) {
+			$(".history").off("wheel");
+		}
+
+		if (nextIndex === 2 && direction === "up") {
+			$.fn.fullpage.setAllowScrolling(false, "right");
+		}
+
 		if (nextIndex === 3 && direction === "up") {
 			$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].disable();
+			$.fn.fullpage.setAllowScrolling(false, "up");
+			$.fn.fullpage.setAllowScrolling(false, "left");
 		}
 
 		if (nextIndex === 4 && direction === "down") {
+			$.fn.fullpage.setAllowScrolling(true, "up");
 			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
 				historySwiper.allowTouchMove = false;
 			} else {
@@ -274,9 +289,16 @@ $("#fullpage").fullpage({
 		}
 
 		if (index === 3) {
-			$.fn.fullpage.setAllowScrolling(true, "up");
+			$.fn.fullpage.setAllowScrolling(true, "right");
+
 			if (!historySwiper.isEnd) {
 				$.fn.fullpage.setAllowScrolling(false, "down");
+			}
+
+			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+				historySwiper.allowTouchMove = true;
+			} else {
+				historySwiper.mousewheel.enable();
 			}
 
 			// history section slide
@@ -293,7 +315,6 @@ $("#fullpage").fullpage({
 
 		if (index === 4) {
 			$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].enable();
-			$.fn.fullpage.setAllowScrolling(true, "up");
 		}
 	},
 	onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
