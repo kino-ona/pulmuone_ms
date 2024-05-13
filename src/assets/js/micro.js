@@ -25,8 +25,6 @@ $("#fullpage").fullpage({
 		// disableMouse: true
 	},
 	afterRender: function () {
-		$(".kv__video video").get(0).play();
-
 		initArchiveSwiper();
 
 		//mobile tab button center
