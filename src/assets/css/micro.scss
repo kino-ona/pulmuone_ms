@@ -1949,6 +1949,7 @@ body {
 	display: none;
 	position: fixed;
 	right: 40px;
+	z-index: 10;
 
 	&--active {
 		display: block;
