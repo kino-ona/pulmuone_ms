@@ -1805,6 +1805,14 @@ body {
 				}
 			}
 		}
+
+		&.swiper-rtl {
+			.swiperLayer {
+				&__decs {
+					direction: ltr;
+				}
+			}
+		}
 	}
 
 	@include breakpoints.xl {
