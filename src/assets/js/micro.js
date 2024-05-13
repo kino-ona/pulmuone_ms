@@ -26,7 +26,7 @@ $("#fullpage").fullpage({
 		initArchiveSwiper();
 
 		//mobile tab button center
-		if (windowWidth <= 1280) {
+		if (windowWidth <= 1200) {
 			var $tabhmenu = $(".award .tab__list");
 			var tabMenuClick = function () {
 				$(".award .tab__list .tab__button").on("click", function (e) {
@@ -90,7 +90,7 @@ $("#fullpage").fullpage({
 			});
 
 			if (this.y - $(".copy").height() <= this.maxScrollY) {
-				if ($(window).width() >= 1280) {
+				if ($(window).width() >= 1200) {
 					$(".quick").css("bottom", `${$(".copy").height() + 40}px`);
 				} else {
 					$(".quick").css("bottom", `${$(".copy").height() + 20}px`);
@@ -103,7 +103,7 @@ $("#fullpage").fullpage({
 		$(".growth__list").on("touchstart", function (event) {
 			let swipe = event.originalEvent.touches,
 				start = swipe[0].pageY;
-			if ($(window).width() <= 1280) {
+			if ($(window).width() <= 1200) {
 				let swipe = event.originalEvent.touches,
 					start = swipe[0].pageY;
 				$(this)
@@ -131,7 +131,7 @@ $("#fullpage").fullpage({
 		$(".award .tab__panel .scroll-element").on("touchstart", function (event) {
 			let swipe = event.originalEvent.touches,
 				start = swipe[0].pageY;
-			if ($(window).width() <= 1280) {
+			if ($(window).width() <= 1200) {
 				let swipe = event.originalEvent.touches,
 					start = swipe[0].pageY;
 				$(this)
@@ -155,8 +155,9 @@ $("#fullpage").fullpage({
 		});
 
 		$(".award .tab__button").on("click", function (event) {
+			iscroll.refresh();
 			if (iscroll.moved) {
-				event.preventDefault;
+				event.preventDefault();
 				return false;
 			}
 		});
@@ -178,6 +179,10 @@ $("#fullpage").fullpage({
 			}
 		}
 
+		if (nextIndex === 3 && direction === "up") {
+			$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].disable();
+		}
+
 		if (nextIndex === 4 && direction === "down") {
 			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
 				historySwiper.allowTouchMove = false;
@@ -193,6 +198,10 @@ $("#fullpage").fullpage({
 			$(".quick").removeClass("quick--active");
 		}
 
+		if (index === 1) {
+			$.fn.fullpage.setAllowScrolling(true, "down");
+		}
+
 		if (index === 2) {
 			// $(".history .fp-slidesContainer").css({
 			// 	transition: "none",
@@ -204,7 +213,7 @@ $("#fullpage").fullpage({
 
 			// desktop intro wheel sequence
 			$(".intro").on("wheel", function (event) {
-				if ($(window).width() >= 1280) {
+				if ($(window).width() >= 1200) {
 					if (event.originalEvent.deltaY > 0 && !introWheelLock) {
 						if (!$(".intro").hasClass("intro--start")) {
 							$.fn.fullpage.setAllowScrolling(false, "up");
@@ -278,7 +287,7 @@ $("#fullpage").fullpage({
 
 			// history section slide
 			$(".history").on("wheel", function (event) {
-				if ($(window).width() > 1280) {
+				if ($(window).width() > 1200) {
 					if (event.originalEvent.deltaY > 0 && !historyWheelLock) {
 						$.fn.fullpage.moveSlideRight();
 					} else if (event.originalEvent.deltaY < 0 && historyWheelLock) {
@@ -289,6 +298,7 @@ $("#fullpage").fullpage({
 		}
 
 		if (index === 4) {
+			$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].enable();
 			$.fn.fullpage.setAllowScrolling(true, "up");
 		}
 	},
@@ -345,7 +355,7 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 		sensitivity: 1
 	},
 	breakpoints: {
-		1280: {
+		1200: {
 			allowTouchMove: false,
 			freeMode: {
 				momentum: false,
@@ -402,7 +412,7 @@ let archiveSwiper = undefined;
 let windowWidth = window.innerWidth;
 
 const initArchiveSwiper = () => {
-	if (windowWidth > 1280 && archiveSwiper == undefined) {
+	if (windowWidth > 1200 && archiveSwiper == undefined) {
 		archiveSwiper = new Swiper(".archive__swiper", {
 			autoplay: {
 				delay: 1,
@@ -415,7 +425,7 @@ const initArchiveSwiper = () => {
 			slidesPerView: "auto",
 			freemode: true
 		});
-	} else if (windowWidth <= 1280 && archiveSwiper !== undefined) {
+	} else if (windowWidth <= 1200 && archiveSwiper !== undefined) {
 		archiveSwiper.destroy();
 		archiveSwiper = undefined;
 	}
