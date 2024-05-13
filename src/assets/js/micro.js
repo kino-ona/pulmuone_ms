@@ -4,9 +4,11 @@ let introWheelLock = false,
 	historyWheelLock = false;
 
 $("#fullpage").fullpage({
+	css3: false,
 	scrollingSpeed: 600,
 	controlArrows: false,
-	easingcss3: "linear",
+	// easingcss3: "linear",
+	easing: "easeInOutCubic",
 	loopHorizontal: false,
 	touchSensitivity: 1,
 	normalScrollElements: ".scroll-element",
@@ -23,6 +25,8 @@ $("#fullpage").fullpage({
 		// disableMouse: true
 	},
 	afterRender: function () {
+		$(".kv__video video").get(0).play();
+
 		initArchiveSwiper();
 
 		//mobile tab button center
@@ -151,14 +155,6 @@ $("#fullpage").fullpage({
 					.one("touchend", function () {
 						$(this).off("touchmove touchend");
 					});
-			}
-		});
-
-		$(".award .tab__button").on("click", function (event) {
-			iscroll.refresh();
-			if (iscroll.moved) {
-				event.preventDefault();
-				return false;
 			}
 		});
 	},
@@ -342,13 +338,13 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 	spaceBetween: 20,
 	// resistance: false,
 	resistanceRatio: 0,
-	touchRatio: 2,
+	touchRatio: 8,
 	freeMode: {
 		momentum: true,
-		momentumBounce: true,
-		momentumBounceRatio: 0.8,
-		momentumRatio: 0.8,
-		momentumVelocityRatio: 0.8
+		momentumBounce: true
+		// momentumBounceRatio: 0.8,
+		// momentumRatio: 0.8,
+		// momentumVelocityRatio: 0.8
 	},
 	mousewheel: {
 		enabled: false,

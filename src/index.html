@@ -5,7 +5,13 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>풀무원</title>
+	<meta name="Description" content="풀무원은 유기농식품 기업에서 출발하여 이웃과 생명을 위한 바른 먹거리를 제공하고, 나아가 나와 지구를 위한 지속 가능한 기업으로 성장해 왔습니다. 식품 산업의 가치 기준과 패러다임을 바꾸며 풀무원은 지난 40년간의 발자취를 소개합니다." />
+	<meta name="Keywords" content="풀무원, pulmuone, 풀무원40주년, 40년히스토리, 풀무원역사, 바른먹거리40년" />
+	<meta property="og:title" content="풀무원 40주년" />
+	<meta property="og:description" content="풀무원은 유기농식품 기업에서 출발하여 이웃과 생명을 위한 바른 먹거리를 제공하고, 나아가 나와 지구를 위한 지속 가능한 기업으로 성장해 왔습니다. 식품 산업의 가치 기준과 패러다임을 바꾸며 풀무원은 지난 40년간의 발자취를 소개합니다." />
+	<meta property="og:image" content="">
+	<meta property="og:url" id="og_url" content="" />
+	<title>풀무원 40주년</title>
 	<link rel="shortcut icon" href="https://www.pulmuone.co.kr/pulmuone/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="./assets/css/micro.css">
 	<script defer src="./assets/js/micro.js"></script>
@@ -23,7 +29,10 @@
 						</video>
 					</div>
 					<h2 class="kv__title">
-						<span class="kv__text">풀무원의 40년, 함께해 주셔서 감사합니다.</span>
+						<span class="kv__text">
+							풀무원의 40년,<br>
+							함께해 주셔서 감사합니다.
+						</span>
 						<span>풀무원 40년</span>
 						<span class="anniversary">
 							<span class="a11y">풀무원과 함께 40th</span>
@@ -36,8 +45,8 @@
 				<div class="intro__container">
 					<div class="intro__figure">
 						<div class="intro__legend">
-							<img class="only--pc" dara-src="./assets/images/legend_all.png" alt="">
-							<img class="only--mobile" data-src="./assets/images/m_legend_all.png" alt="">
+							<img class="only--pc" src="./assets/images/legend_all.png" alt="">
+							<img class="only--mobile" src="./assets/images/m_legend_all.png" alt="">
 						</div>
 						<!-- <div class="intro__logo"></div> -->
 					</div>
@@ -71,6 +80,12 @@
 			<article class="history section fp-noscroll">
 				<div class="slide fp-noscroll">
 					<div class="history__container">
+						<div class="only--mobile">
+							<div class="noti">
+								<i></i>
+								<p>옆으로 넘기면 히스토리를 보실수 있어요</p>
+							</div>
+						</div>
 						<div class="trees">
 							<div></div>
 							<div></div>
@@ -1966,11 +1981,15 @@
 						}
 					});
 				}
+
+				$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].indicators[0].fade(0);
 			},
 			onClose: modal => {
 				if (modal.querySelector('#modalVideo')) {
 					modal.querySelector('#modalVideo').pause();
 				}
+
+				$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].indicators[0].fade(1);
 			}
 		});
 
