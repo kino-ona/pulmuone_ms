@@ -162,12 +162,8 @@ $("#fullpage").fullpage({
 		});
 	},
 	onLeave: function (index, nextIndex, direction) {
-		if (nextIndex === 4 && direction === "down") {
-			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-				historySwiper.allowTouchMove = false;
-			} else {
-				historySwiper.mousewheel.disable();
-			}
+		if (nextIndex === 1) {
+			$.fn.fullpage.setAllowScrolling(true, "down");
 		}
 
 		if (nextIndex === 2) {
@@ -181,16 +177,20 @@ $("#fullpage").fullpage({
 				historyWheelLock = false;
 			}
 		}
+
+		if (nextIndex === 4 && direction === "down") {
+			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+				historySwiper.allowTouchMove = false;
+			} else {
+				historySwiper.mousewheel.disable();
+			}
+		}
 	},
 	afterLoad: function (anchorLink, index) {
 		if (index !== 1) {
 			$(".quick").addClass("quick--active");
 		} else {
 			$(".quick").removeClass("quick--active");
-		}
-
-		if (index === 1) {
-			$.fn.fullpage.setAllowScrolling(true, "down");
 		}
 
 		if (index === 2) {
