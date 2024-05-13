@@ -57,7 +57,7 @@ $("#fullpage").fullpage({
 			startVal: 0,
 			useEasing: false
 		};
-		const countNum = [38000, 3500, 181, 7000];
+		const countNum = [38000, 3500, 181, 6409];
 
 		let targetTops = [];
 		let targetHeight = [];
