@@ -88,6 +88,32 @@ body {
 		}
 	}
 
+	&__eco {
+		.modal {
+			&__container {
+				max-width: 750px;
+			}
+
+			&__contents {
+				background: #84be25;
+				padding-bottom: 60px;
+			}
+
+			&__title {
+				color: #fff;
+				font-size: 30px;
+			}
+
+			&__img {
+				margin-top: 40px;
+
+				> img {
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+
 	.modal {
 		&__container {
 			max-height: 95vh;
@@ -163,6 +189,7 @@ body {
 		line-height: 1.625;
 		margin-top: 20px;
 	}
+
 	@include breakpoints.xl {
 		.modal {
 			&__overlay {
@@ -322,6 +349,27 @@ body {
 				}
 			}
 		}
+
+		&__eco {
+			.modal {
+				&__contents {
+					background: #84be25;
+					padding-bottom: 60px;
+				}
+
+				&__title {
+					color: #fff;
+				}
+
+				&__img {
+					margin-top: 30px;
+
+					> img {
+						margin: 0 auto;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -423,6 +471,17 @@ body {
 		.roundBox {
 			clip-path: inset(0 round 28px);
 		}
+
+		&__btnbox {
+			margin-top: 32px;
+
+			.btn {
+				height: 42px;
+				line-height: 42px;
+				padding: 0 20px;
+				width: auto;
+			}
+		}
 	}
 
 	@include breakpoints.xl {
@@ -465,6 +524,19 @@ body {
 
 				br {
 					display: none;
+				}
+			}
+
+			&__btnbox {
+				bottom: 32px;
+				left: 20px;
+				position: absolute;
+				width: calc(100% - 40px);
+
+				.btn {
+					font-size: 14px;
+					padding: 0 20px;
+					width: 100%;
 				}
 			}
 		}
@@ -695,6 +767,11 @@ body {
 				opacity: 1;
 				transform: translateY(-100px);
 			}
+
+			&__desc {
+				font-size: 32px;
+				font-weight: 300;
+			}
 		}
 	}
 
@@ -852,6 +929,10 @@ body {
 				&__text {
 					padding: 0 5px;
 					transform: translateY(0);
+				}
+
+				&__desc {
+					font-size: 14px;
 				}
 			}
 		}
