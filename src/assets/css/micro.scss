@@ -259,7 +259,8 @@ body {
 
 				&__container {
 					background: #8dc63f;
-					clip-path: inset(0 round 20px);
+					border-radius: 20px;
+					box-shadow: 10px 10px 30px rgb(0 0 0 / 10%);
 					color: #fff;
 					height: 50%;
 					max-height: none;
