@@ -408,6 +408,7 @@ const initArchiveSwiper = () => {
 				delay: 1,
 				desableOnInteraction: false
 			},
+			spaceBetween: 28,
 			speed: 8000,
 			loop: true,
 			loopedSlides: 1,
