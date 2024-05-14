@@ -55,8 +55,8 @@
 
 	@include breakpoints.xl {
 		&__header {
-			position: relative;
 			margin-bottom: 28px;
+			position: relative;
 			z-index: 1;
 
 			.title {
@@ -117,6 +117,25 @@
 				top: 14.5px;
 				width: 2px;
 			}
+		}
+	}
+}
+
+.video {
+	padding-top: 56.25%;
+	position: relative;
+
+	&__video {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		iframe,
+		video {
+			height: 100%;
+			width: 100%;
 		}
 	}
 }
