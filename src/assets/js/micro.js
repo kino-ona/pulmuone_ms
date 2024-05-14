@@ -185,6 +185,10 @@ $("#fullpage").fullpage({
 			$.fn.fullpage.setAllowScrolling(false, "right");
 		}
 
+		if (nextIndex === 3 && direction === "down") {
+			$.fn.fullpage.setAllowScrolling(true, "up");
+		}
+
 		if (nextIndex === 3 && direction === "up") {
 			$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].disable();
 			$.fn.fullpage.setAllowScrolling(false, "up");
