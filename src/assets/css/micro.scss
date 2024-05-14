@@ -767,11 +767,6 @@ body {
 				opacity: 1;
 				transform: translateY(-100px);
 			}
-
-			&__desc {
-				font-size: 32px;
-				font-weight: 300;
-			}
 		}
 	}
 
@@ -906,6 +901,11 @@ body {
 		em {
 			font-weight: 800;
 		}
+	}
+
+	&__desc {
+		font-size: 32px;
+		font-weight: 300;
 	}
 
 	@include breakpoints.xl {
