@@ -122,8 +122,12 @@
 }
 
 .video {
-	padding-top: 56.25%;
+	height: 450px;
+	margin: 0 auto;
 	position: relative;
+
+	// padding-top: 56.25%;
+	width: 800px;
 
 	&__video {
 		height: 100%;
@@ -137,5 +141,11 @@
 			height: 100%;
 			width: 100%;
 		}
+	}
+
+	@include breakpoints.xl {
+		height: auto;
+		padding-top: 56.25%;
+		width: auto;
 	}
 }
