@@ -361,7 +361,7 @@ const historySwiper = new Swiper(".history .slide .swiper", {
 	spaceBetween: 20,
 	// resistance: false,
 	resistanceRatio: 0,
-	touchRatio: 8,
+	touchRatio: 1,
 	freeMode: {
 		momentum: true,
 		momentumBounce: true
