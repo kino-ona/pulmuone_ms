@@ -157,6 +157,12 @@ $("#fullpage").fullpage({
 		});
 	},
 	onLeave: function (index, nextIndex, direction) {
+		if (nextIndex === 2 && direction === "down") {
+			$(".quick").addClass("quick--active");
+		} else if (nextIndex === 1 && direction === "up") {
+			$(".quick").removeClass("quick--active");
+		}
+
 		if (nextIndex === 1) {
 			$.fn.fullpage.setAllowScrolling(true, "down");
 		}
@@ -205,12 +211,6 @@ $("#fullpage").fullpage({
 		}
 	},
 	afterLoad: function (anchorLink, index) {
-		if (index !== 1) {
-			$(".quick").addClass("quick--active");
-		} else {
-			$(".quick").removeClass("quick--active");
-		}
-
 		if (index === 1) {
 			$.fn.fullpage.setAllowScrolling(true, "down");
 		}
