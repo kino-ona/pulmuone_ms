@@ -267,13 +267,4 @@
 	}
 }
 
-.swiper-free-mode {
-	@include breakpoints.xl {
-		.swiper-wrapper {
-			transition-duration: 0.7s !important;
-			transition-timing-function: ease-out !important;
-		}
-	}
-}
-
 /* Slide styles end */
