@@ -376,6 +376,27 @@ body {
 .award {
 	$white: #fff;
 
+	&__wrap {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+	}
+
+	&__leftbox {
+		aspect-ratio: 1 / 0.9;
+		background: #f5f5f5;
+		box-sizing: border-box;
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
+		max-height: 720px;
+		padding: 100px;
+	}
+
+	&__rightbox {
+		aspect-ratio: 1 / 0.9;
+	}
+
 	&__title {
 		font-size: 26px;
 		font-weight: 800;
@@ -383,6 +404,7 @@ body {
 	}
 
 	&__desc {
+		font-size: 18px;
 		line-height: 1.625;
 	}
 
@@ -394,35 +416,18 @@ body {
 
 	.tab {
 		&__panel {
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-			height: 720px;
-			overflow-y: auto;
-			padding: 60px 80px 55px;
-			position: relative;
-
-			@for $i from 1 through 7 {
-				&:nth-child(#{$i}) {
-					background-image: url("../images/bg_award0#{$i}.jpg");
+			&:nth-child(6) {
+				.award {
+					&__leftbox {
+						padding-right: 50px;
+					}
 				}
 			}
 
-			&:nth-child(2),
-			&:nth-child(4),
-			&:nth-child(5),
-			&:nth-child(6),
-			&:nth-child(7) {
-				color: $white;
-			}
-
-			&:nth-child(7) {
-				background-image: linear-gradient(101.17deg, rgb(0 0 0 / 45%) 36.79%, rgb(0 0 0 / 0%) 56.45%), url("../images/bg_award07.jpg");
-			}
-
 			.scroll-element {
-				height: 100%;
+				flex: 1;
 				overflow-y: auto;
+				padding-right: 20px;
 
 				&::-webkit-scrollbar {
 					background-color: transparent;
@@ -485,7 +490,36 @@ body {
 	}
 
 	@include breakpoints.xl {
+		&__wrap {
+			display: block;
+		}
+
+		&__leftbox {
+			aspect-ratio: 1 / 1;
+			display: block;
+			max-height: none;
+			padding: 32px 20px;
+		}
+
+		&__rightbox {
+			aspect-ratio: initial;
+		}
+
 		.tab {
+			&__panel {
+				&:nth-child(6) {
+					.award {
+						&__leftbox {
+							padding-right: 20px;
+						}
+					}
+				}
+
+				.scroll-element {
+					max-height: 100%;
+				}
+			}
+
 			&__list {
 				column-gap: 0;
 				justify-content: flex-start;
@@ -504,39 +538,11 @@ body {
 				}
 			}
 
-			&__panel {
-				height: 680px;
-				padding: 32px 20px 20px;
-
-				@for $i from 1 through 7 {
-					&:nth-child(#{$i}) {
-						background-image: url("../images/bg_mo_award0#{$i}.jpg");
-					}
-				}
-
-				&:nth-child(3) {
-					color: #fff;
-				}
-
-				&:nth-child(7) {
-					background-image: linear-gradient(0.1deg, rgb(0 0 0 / 0%) 39.04%, rgb(0 0 0 / 60%) 90.62%), url("../images/bg_mo_award07.jpg");
-				}
-
-				br {
-					display: none;
-				}
-			}
-
 			&__btnbox {
-				bottom: 32px;
-				left: 20px;
-				position: absolute;
-				width: calc(100% - 40px);
-
 				.btn {
 					font-size: 14px;
 					padding: 0 20px;
-					width: 100%;
+					width: 170px;
 				}
 			}
 		}

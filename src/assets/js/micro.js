@@ -55,7 +55,7 @@ $("#fullpage").fullpage({
 		const iscroll = $.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0];
 
 		const growthCountObj = {
-			duration: 1,
+			duration: 3,
 			startVal: 0,
 			useEasing: false
 		};
