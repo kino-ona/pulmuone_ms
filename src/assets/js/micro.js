@@ -3,6 +3,12 @@
 let introWheelLock = false,
 	historyWheelLock = false;
 
+function prevent(event) {
+	event.preventDefault();
+	event.stopPropagation();
+	return false;
+}
+
 $("#fullpage").fullpage({
 	css3: false,
 	scrollingSpeed: 600,
@@ -157,10 +163,6 @@ $("#fullpage").fullpage({
 		}
 
 		if (nextIndex === 2) {
-			$.fn.fullpage.setAllowScrolling(true, "down");
-		}
-
-		if (nextIndex === 3) {
 			if ($(".intro").hasClass("intro--start")) {
 				$.fn.fullpage.setAllowScrolling(false, "up");
 				$.fn.fullpage.setAllowScrolling(true, "down");
@@ -172,7 +174,7 @@ $("#fullpage").fullpage({
 			}
 		}
 
-		if (nextIndex !== 3) {
+		if (nextIndex !== 2) {
 			$(".intro").off("wheel touchstart touchmove touchend");
 		}
 
@@ -180,12 +182,8 @@ $("#fullpage").fullpage({
 			$(".history").off("wheel");
 		}
 
-		if (nextIndex === 2 && direction === "up") {
-			$.fn.fullpage.setAllowScrolling(false, "right");
-		}
-
-		if (nextIndex === 4 && direction === "down") {
-			$.fn.fullpage.setAllowScrolling(true, "up");
+		if (nextIndex === 3) {
+			$.fn.fullpage.setAllowScrolling(true);
 		}
 
 		if (nextIndex === 4 && direction === "up") {
@@ -204,15 +202,11 @@ $("#fullpage").fullpage({
 		}
 	},
 	afterLoad: function (anchorLink, index) {
-		if (index === 3) {
-			// $(".history .fp-slidesContainer").css({
-			// 	transition: "none",
-			// 	transform: "translate3d(0px, 0px, 0px)"
-			// });
+		if (index === 1) {
+			$.fn.fullpage.setAllowScrolling(true, "down");
+		}
 
-			// $(".history .slide:nth-child(1)").addClass("active").siblings(".slide").removeClass("active");
-			// historySwiper.slideTo(0, false);
-
+		if (index === 2) {
 			// desktop intro wheel sequence
 			$(".intro").on("wheel", function (event) {
 				if ($(window).width() >= 1200) {
