@@ -55,17 +55,21 @@
 
 	@include breakpoints.xl {
 		&__header {
-			margin-bottom: 28px;
+			margin-bottom: 20px;
 			position: relative;
 			z-index: 1;
 
 			.title {
 				font-size: 26px;
+
+				&:not(:first-child) {
+					margin-top: 12px;
+				}
 			}
 
 			.desc {
 				font-size: 14px;
-				line-height: 1.4;
+				line-height: 1;
 			}
 		}
 	}
@@ -124,10 +128,10 @@
 .video {
 	height: 450px;
 	margin: 0 auto;
-	position: relative;
+	max-width: 800px;
 
-	// padding-top: 56.25%;
-	width: 800px;
+	// padding-top: 46.88%;
+	position: relative;
 
 	&__video {
 		height: 100%;
@@ -144,8 +148,6 @@
 	}
 
 	@include breakpoints.xl {
-		height: auto;
-		padding-top: 56.25%;
-		width: auto;
+		padding-top: 78.13%;
 	}
 }
