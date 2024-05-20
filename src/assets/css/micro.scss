@@ -1509,26 +1509,21 @@ body {
 			}
 		}
 
-		.noti {
-			align-items: center;
-			background-color: rgb(0 0 0 / 50%);
-			border-radius: 12px;
-			column-gap: 8px;
-			display: flex;
-			left: 50%;
-			padding: 12px 20px;
-			position: absolute;
-			top: 50px;
-			transform: translateX(-50%);
+		.swiper {
+			padding: 30px 20px;
 
-			i {
-				background: url("../images/ico/ico_swipe.svg") no-repeat 0 0;
-				height: 33px;
-				width: 33px;
+			&-wrapper {
+				transition-duration: 0.7s !important;
+				transition-timing-function: ease-out !important;
 			}
 
-			p {
-				white-space: nowrap;
+			&-slide {
+				width: auto;
+
+				&:nth-child(even) {
+					column-gap: 20px;
+					flex-direction: row;
+				}
 			}
 		}
 
@@ -1569,16 +1564,26 @@ body {
 			}
 		}
 
-		.swiper {
-			padding: 30px 20px;
+		.noti {
+			align-items: center;
+			background-color: rgb(0 0 0 / 50%);
+			border-radius: 12px;
+			column-gap: 8px;
+			display: flex;
+			left: 50%;
+			padding: 12px 20px;
+			position: absolute;
+			top: 50px;
+			transform: translateX(-50%);
 
-			&-slide {
-				width: auto;
+			i {
+				background: url("../images/ico/ico_swipe.svg") no-repeat 0 0;
+				height: 33px;
+				width: 33px;
+			}
 
-				&:nth-child(even) {
-					column-gap: 20px;
-					flex-direction: row;
-				}
+			p {
+				white-space: nowrap;
 			}
 		}
 	}

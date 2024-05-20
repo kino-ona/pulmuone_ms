@@ -184,7 +184,7 @@ $("#fullpage").fullpage({
 			$.fn.fullpage.setAllowScrolling(false, "right");
 		}
 
-		if (nextIndex === 3 && direction === "down") {
+		if (nextIndex === 4 && direction === "down") {
 			$.fn.fullpage.setAllowScrolling(true, "up");
 		}
 
