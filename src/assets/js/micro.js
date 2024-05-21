@@ -101,6 +101,14 @@ $("#fullpage").fullpage({
 			}
 		});
 
+		$(".award .tab__panel .scroll-element").on("mouseenter", function (event) {
+			iscroll.wheelOff();
+		});
+
+		$(".award .tab__panel .scroll-element").on("mouseleave", function (event) {
+			iscroll.wheelOn();
+		});
+
 		$(".growth__list").on("touchstart", function (event) {
 			let swipe = event.originalEvent.touches,
 				start = swipe[0].pageY;
@@ -154,6 +162,16 @@ $("#fullpage").fullpage({
 					});
 			}
 		});
+
+		$(".history .board .button").on("click", function () {
+			if ($(this).attr("aria-pressed") === "false") {
+				$(this).attr("aria-pressed", "true");
+				$(this).closest(".board").find(".layer").addClass("layer--visibled");
+			} else {
+				$(this).attr("aria-pressed", "false");
+				$(this).closest(".board").find(".layer").removeClass("layer--visibled");
+			}
+		});
 	},
 	onLeave: function (index, nextIndex, direction) {
 		if (nextIndex === 2 && direction === "down") {
@@ -178,27 +196,16 @@ $("#fullpage").fullpage({
 			$(".intro").off("wheel touchstart touchmove touchend");
 		}
 
-		if (nextIndex !== 4) {
-			$(".history").off("wheel");
-		}
-
 		if (nextIndex === 3) {
 			$.fn.fullpage.setAllowScrolling(true);
 		}
 
 		if (nextIndex === 4 && direction === "up") {
 			$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].disable();
-			$.fn.fullpage.setAllowScrolling(false, "up");
-			$.fn.fullpage.setAllowScrolling(false, "left");
 		}
 
-		if (nextIndex === 5 && direction === "down") {
-			$.fn.fullpage.setAllowScrolling(true, "up");
-			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-				historySwiper.allowTouchMove = false;
-			} else {
-				historySwiper.mousewheel.disable();
-			}
+		if (nextIndex === 5) {
+			historySwiper.disable();
 		}
 	},
 	afterLoad: function (anchorLink, index) {
@@ -276,137 +283,19 @@ $("#fullpage").fullpage({
 		}
 
 		if (index === 4) {
-			$.fn.fullpage.setAllowScrolling(true, "right");
-
-			if (!historySwiper.isEnd) {
-				$.fn.fullpage.setAllowScrolling(false, "down");
-			}
-
-			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-				historySwiper.allowTouchMove = true;
-			} else {
-				historySwiper.mousewheel.enable();
-			}
-
-			// history section slide
-			$(".history").on("wheel", function (event) {
-				if ($(window).width() > 1200) {
-					if (event.originalEvent.deltaY > 0 && !historyWheelLock) {
-						$.fn.fullpage.moveSlideRight();
-					} else if (event.originalEvent.deltaY < 0 && historyWheelLock) {
-						$.fn.fullpage.moveSlideLeft();
-					}
-				}
-			});
+			historySwiper.enable();
 		}
 
 		if (index === 5) {
 			$.fn.fp_scrolloverflow.iscrollHandler.iScrollInstances[0].enable();
 		}
-	},
-	onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
-		if (slideIndex === 1) {
-			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-				historySwiper.allowTouchMove = false;
-			} else {
-				historySwiper.mousewheel.disable();
-			}
-		}
-	},
-	afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
-		if (slideIndex === 0) {
-			$.fn.fullpage.setAllowScrolling(true, "up");
-
-			setTimeout(function () {
-				historyWheelLock = false;
-			}, 800);
-		}
-
-		if (slideIndex === 1) {
-			$.fn.fullpage.setAllowScrolling(false, "up");
-
-			setTimeout(function () {
-				historyWheelLock = true;
-			}, 800);
-
-			if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-				historySwiper.allowTouchMove = true;
-			} else {
-				historySwiper.mousewheel.enable();
-			}
-		}
 	}
 });
 
-const historySwiper = new Swiper(".history .slide .swiper", {
-	// speed: 700,
+const historySwiper = new Swiper(".history .swiper", {
+	speed: 700,
 	slidesPerView: "auto",
-	spaceBetween: 20,
-	// resistance: false,
-	resistanceRatio: 0,
-	touchRatio: 1,
-	freeMode: {
-		momentum: true,
-		momentumBounce: true
-		// momentumBounceRatio: 0.8,
-		// momentumRatio: 0.8,
-		// momentumVelocityRatio: 0.8
-	},
-	mousewheel: {
-		enabled: false,
-		sensitivity: 1
-	},
-	breakpoints: {
-		1200: {
-			allowTouchMove: false,
-			freeMode: {
-				momentum: false,
-				momentumBounce: false
-			},
-			mousewheel: {
-				enabled: true,
-				sensitivity: 4
-			}
-		}
-	},
-	on: {
-		breakpoint: function (swiper, breakpointParams) {
-			swiper.on("touchMove", function () {
-				$.fn.fullpage.setAllowScrolling(false, "left");
-			});
-			swiper.on("touchEnd", function () {
-				if (swiper.isBeginning) {
-					$.fn.fullpage.setAllowScrolling(true, "left");
-				} else {
-					$.fn.fullpage.setAllowScrolling(false, "left");
-				}
-				if (swiper.isEnd) {
-					setTimeout(function () {
-						$.fn.fullpage.setAllowScrolling(true, "down");
-					}, 250);
-				} else {
-					$.fn.fullpage.setAllowScrolling(false, "down");
-				}
-			});
-		},
-		scroll: function (swiper, event) {
-			if (swiper.isBeginning) {
-				setTimeout(function () {
-					historyWheelLock = true;
-				}, 800);
-			} else {
-				historyWheelLock = false;
-			}
-
-			if (swiper.isEnd) {
-				setTimeout(function () {
-					$.fn.fullpage.setAllowScrolling(true, "down");
-				}, 800);
-			} else {
-				$.fn.fullpage.setAllowScrolling(false, "down");
-			}
-		}
-	}
+	spaceBetween: 20
 });
 
 //archive pc swiper

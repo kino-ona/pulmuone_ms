@@ -1002,75 +1002,38 @@ body {
 }
 
 .history {
-	position: relative;
+	.wraping {
+		&__header {
+			color: #fff;
+			margin-bottom: 50px;
 
-	&__container {
-		align-items: center;
-		color: #fff;
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		justify-content: center;
-		text-align: center;
+			.title {
+				display: inline-block;
+				position: relative;
 
-		.trees {
-			div {
-				background-color: #2cd073;
-				mask: url("../images/tree.svg") no-repeat 0 0 / 100% 100%;
-				position: absolute;
-				z-index: -1;
-
-				&:nth-child(1) {
-					bottom: -28px;
-					height: 289px;
-					left: -20px;
-					width: 225px;
+				&::before {
+					background: url("../images/marking.svg") no-repeat 0 0 / 100% 100%;
+					content: "";
+					display: block;
+					height: 92.08px;
+					left: 182px;
+					position: absolute;
+					top: -18px;
+					transform: rotate(-3.89deg);
+					width: 342.27px;
 				}
 
-				&:nth-child(2) {
-					background: url("../images/tree.svg") no-repeat 0 0 / 100% 100%;
-					bottom: -28px;
-					height: 249px;
-					left: 144px;
-					mask: none;
-					width: 194px;
-				}
-
-				&:nth-child(3) {
-					bottom: -50px;
-					height: 489px;
-					right: 60px;
-					width: 381px;
+				span {
+					font-weight: 800;
 				}
 			}
+
+			.desc {
+				font-size: 18px;
+				line-height: 1.6;
+				margin-top: 15px;
+			}
 		}
-	}
-
-	&__title {
-		font-size: 70px;
-		position: relative;
-
-		&::before {
-			background: url("../images/marking.svg") no-repeat 0 0 / 100% 100%;
-			content: "";
-			display: block;
-			height: 138.33px;
-			left: 240.05px;
-			position: absolute;
-			top: calc(50% + 3.06px);
-			transform: translateY(-50%);
-			width: 452.19px;
-		}
-
-		span {
-			font-weight: 800;
-		}
-	}
-
-	&__desc {
-		font-size: 18px;
-		line-height: 1.6;
-		margin-top: 28px;
 	}
 
 	.board {
@@ -1079,6 +1042,7 @@ body {
 		flex-direction: column;
 		height: 100%;
 		padding: 40px 40px 50px;
+		position: relative;
 
 		&.roundBox {
 			clip-path: inset(0 round 40px);
@@ -1086,23 +1050,12 @@ body {
 
 		.figure {
 			background-color: #f2f2f2;
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			background-size: cover;
-			flex: 1;
-			margin-bottom: 36px;
-			max-height: 600px;
+			height: 300px;
+			margin-top: auto;
 			position: relative;
 
 			&.roundBox {
 				clip-path: inset(0 round 28px);
-			}
-
-			.img {
-				left: 50%;
-				position: absolute;
-				top: 50%;
-				transform: translate(-50%, -50%);
 			}
 
 			video {
@@ -1127,7 +1080,7 @@ body {
 		}
 
 		.title {
-			font-size: 24px;
+			font-size: 22px;
 			font-weight: 700;
 			line-height: 1.25;
 		}
@@ -1135,95 +1088,61 @@ body {
 		.desc {
 			font-size: 16px;
 			line-height: 1.625;
-			margin-top: 40px;
 		}
-	}
 
-	.slide {
-		position: relative;
+		.year {
+			color: #666;
+			font-weight: 800;
+			line-height: 1.875;
+			margin-bottom: 12px;
+		}
 
-		.fp-tableCell {
-			display: block;
+		.layer {
+			background-color: #8dc63f;
+			height: 100%;
+			left: 0;
+			opacity: 0;
+			padding: 100px 40px 0;
+			position: absolute;
+			top: 0;
+			transition:
+				opacity 0.66s cubic-bezier(0.66, 0, 0.01, 1) 0.2s,
+				visibility 0.66s linear;
+			visibility: hidden;
+			width: 100%;
+
+			&--visibled {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		.button {
+			background-color: #f3f3f3;
+			background-image: url("../images/ico/ico_plus.svg");
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			background-size: 26px 26px;
+			border-radius: 100%;
+			height: 50px;
+			position: absolute;
+			right: 24px;
+			top: 24px;
+			transition: transform 0.66s cubic-bezier(0.66, 0, 0.2, 1);
+			width: 50px;
+
+			&[aria-pressed="true"] {
+				transform: rotate(45deg);
+			}
 		}
 	}
 
 	.swiper {
-		height: 100%;
-		padding: 30px 20px;
-
-		// padding-top: 7%;
-		// padding-bottom: 7%;
+		height: 560px;
+		padding: 0 80px;
 
 		&-slide {
-			max-width: 890px;
-
-			@media screen and (width >= 1200px) and (height <= 1000px) {
-				max-width: calc(33.3333% - 20px);
-
-				.board {
-					padding: 30px 40px 40px;
-
-					.headline {
-						font-size: 14px;
-					}
-
-					.title {
-						font-size: 16px;
-					}
-
-					.desc {
-						font-size: 13px;
-					}
-				}
-			}
-			@media screen and (width >= 1200px) and (height <= 800px) {
-				.board {
-					.headline {
-						font-size: 13px;
-					}
-
-					.title {
-						font-size: 14px;
-					}
-
-					.desc {
-						font-size: 12px;
-					}
-				}
-			}
-
-			&:nth-child(even) {
-				display: flex;
-				flex-direction: column;
-				row-gap: 20px;
-
-				.board {
-					column-gap: 40px;
-					display: grid;
-					flex: 1;
-
-					@media screen and (width >= 1200px) {
-						grid-template-columns: repeat(2, 1fr);
-						grid-template-rows: auto auto 1fr;
-
-						&:nth-child(2) {
-							.figure {
-								grid-column: 2 / 3;
-							}
-						}
-
-						.figure {
-							grid-row: 1 / 4;
-							margin-bottom: 0;
-							max-height: none;
-						}
-
-						.desc {
-							margin-top: auto;
-						}
-					}
-				}
-			}
+			width: 500px;
 
 			&:nth-child(1) {
 				.board {
@@ -1466,70 +1385,37 @@ body {
 	}
 
 	@include breakpoints.xl {
-		&__title {
-			font-size: 32px;
+		.wraping {
+			&__header {
+				margin-bottom: 32px;
 
-			&::before {
-				height: 64px;
-				left: 112px;
-				top: calc(50% - 1.94px);
-				width: 209px;
-			}
-		}
-
-		&__desc {
-			font-size: 14px;
-			padding: 0 20px;
-		}
-
-		&__container {
-			.trees {
-				div {
-					&:nth-child(1) {
-						bottom: 0;
-						height: 129px;
-						left: 0;
-						width: 100px;
+				.title {
+					&::before {
+						height: 49.45px;
+						left: 90.22px;
+						top: -9.36px;
+						transform: rotate(-4.02deg);
+						width: 167.18px;
 					}
+				}
 
-					&:nth-child(2) {
-						bottom: 0;
-						height: 88px;
-						left: 80px;
-						width: 67px;
-					}
-
-					&:nth-child(3) {
-						bottom: 0;
-						height: 202px;
-						right: 0;
-						width: 158px;
-					}
+				.desc {
+					font-size: 14px;
+					margin-top: 12px;
 				}
 			}
 		}
 
 		.swiper {
-			padding: 30px 20px;
-
-			&-wrapper {
-				transition-duration: 0.7s !important;
-				transition-timing-function: ease-out !important;
-			}
+			height: 360px;
+			padding: 0 20px;
 
 			&-slide {
-				width: auto;
-
-				&:nth-child(even) {
-					column-gap: 20px;
-					flex-direction: row;
-				}
+				width: 320px;
 			}
 		}
 
 		.board {
-			display: grid;
-			grid-template-rows: 210px auto auto 1fr;
 			padding: 20px 20px 28px;
 			width: 320px;
 
@@ -1538,8 +1424,7 @@ body {
 			}
 
 			.figure {
-				margin-bottom: 24px;
-				max-height: 210px;
+				height: 180px;
 
 				&.roundBox {
 					clip-path: inset(0 round 12px);
@@ -1559,8 +1444,24 @@ body {
 			.desc {
 				font-size: 14px;
 				line-height: 1.58;
-				margin-top: 20px;
-				overflow: hidden;
+			}
+
+			.year {
+				font-size: 13px;
+				line-height: 1.5385;
+				margin-bottom: 16px;
+			}
+
+			.layer {
+				padding: 60px 20px 0;
+			}
+
+			.button {
+				background-size: 14px 14px;
+				height: 30px;
+				right: 20px;
+				top: 20px;
+				width: 30px;
 			}
 		}
 
