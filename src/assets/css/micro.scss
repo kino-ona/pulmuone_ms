@@ -1115,6 +1115,10 @@ body {
 				opacity: 1;
 				visibility: visible;
 			}
+
+			.desc {
+				font-size: 18px;
+			}
 		}
 
 		.button {
@@ -1144,110 +1148,17 @@ body {
 		&-slide {
 			width: 500px;
 
-			&:nth-child(1) {
+			&:nth-child(8),
+			&:nth-child(11),
+			&:nth-child(18),
+			&:nth-child(24) {
 				.board {
 					.figure {
 						video {
-							height: auto;
-							position: absolute;
-							top: 50%;
-							transform: translateY(-50%);
-						}
-					}
-				}
-			}
-
-			&:nth-child(2) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							background-image: url("../images/img_history_slide02_01.jpg");
-
-							@include breakpoints.xl {
-								background-position: center top;
-							}
-						}
-					}
-
-					&:nth-child(2) {
-						.figure {
-							background-image: url("../images/img_history_slide02_02.jpg");
-						}
-					}
-				}
-			}
-
-			&:nth-child(3) {
-				.board {
-					.figure {
-						background-image: url("../images/img_history_slide03.jpg");
-					}
-				}
-			}
-
-			&:nth-child(4) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							background-image: url("../images/img_history_slide04_01.jpg");
-						}
-					}
-
-					// &:nth-child(2) {
-					// 	.figure {
-					// 		.img {
-					// 			height: 98px;
-					// 			width: 277px;
-					// 		}
-					// 	}
-					// }
-				}
-			}
-
-			&:nth-child(5) {
-				.board {
-					.figure {
-						background-image: url("../images/img_history_slide05.jpg");
-					}
-				}
-			}
-
-			&:nth-child(6) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							background-color: #deebff;
-
-							video {
-								height: auto;
-								object-fit: contain;
-								position: absolute;
-								top: 50%;
-								transform: translateY(-50%);
-							}
-						}
-					}
-
-					&:nth-child(2) {
-						.figure {
-							background-image: url("../images/img_history_slide06_02.jpg");
-							background-size: contain;
-						}
-					}
-				}
-			}
-
-			&:nth-child(7) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							video {
-								height: auto;
-								object-fit: contain;
-								position: absolute;
-								top: 50%;
-								transform: translateY(-50%);
-							}
+							border-radius: 28px;
+							margin: 0 auto;
+							object-fit: contain;
+							width: auto;
 						}
 					}
 				}
@@ -1255,39 +1166,8 @@ body {
 
 			&:nth-child(8) {
 				.board {
-					&:nth-child(2) {
-						.figure {
-							background-image: url("../images/img_history_slide08_02.jpg");
-						}
-					}
-				}
-			}
-
-			// &:nth-child(9) {
-			// 	.board {
-			// 		.figure {
-			// 			.img {
-			// 				height: 259px;
-			// 				width: 582px;
-			// 			}
-			// 		}
-			// 	}
-			// }
-
-			&:nth-child(10) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							background-color: #f1f8e9;
-							background-image: url("../images/img_history_slide10_01.jpg");
-							background-size: contain;
-						}
-					}
-
-					&:nth-child(2) {
-						.figure {
-							background-image: url("../images/img_history_slide10_02.jpg");
-						}
+					.figure {
+						background: #deebff;
 					}
 				}
 			}
@@ -1295,92 +1175,72 @@ body {
 			&:nth-child(11) {
 				.board {
 					.figure {
-						background-image: url("../images/img_history_slide11.jpg");
+						background: #5dbd4e;
 					}
 				}
 			}
 
-			&:nth-child(12) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							background-image: url("../images/img_history_slide12_01.jpg");
-						}
-					}
-
-					&:nth-child(2) {
-						.figure {
-							background-color: #f1f8e9;
-
-							video {
-								height: auto;
-								object-fit: contain;
-								position: absolute;
-								top: 50%;
-								transform: translateY(-50%);
-							}
-						}
-					}
-				}
-			}
-
-			&:nth-child(13) {
+			&:nth-child(18) {
 				.board {
 					.figure {
-						background-image: url("../images/img_history_slide13.jpg");
+						background: #f1f8e9;
 					}
 				}
 			}
 
-			&:nth-child(14) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							video {
-								height: auto;
-								left: 50%;
-								position: absolute;
-								top: 50%;
-								transform: translate(-50%, -50%);
-								@include breakpoints.xl {
-									height: 100%;
-								}
-							}
-
-							background-image: url("../images/img_history_slide14_01.jpg");
-						}
-					}
-
-					&:nth-child(2) {
-						.figure {
-							background-image: url("../images/img_history_slide14_02.jpg");
-							@include breakpoints.xl {
-								background-size: contain;
-							}
-						}
-					}
-				}
-			}
-
-			&:nth-child(15) {
+			&:nth-child(24) {
 				.board {
 					.figure {
-						background-image: url("../images/img_history_slide15.jpg");
+						background: #f2f2f2;
 					}
 				}
 			}
+		}
 
-			&:nth-child(16) {
-				.board {
-					&:nth-child(1) {
-						.figure {
-							background-color: #d1eed9;
-							background-image: url("../images/img_history_slide16_01.jpg");
-							background-size: contain;
-						}
-					}
-				}
+		&-button-prev,
+		&-button-next {
+			background-color: rgb(0 0 0 / 60%);
+			border-radius: 30px;
+			box-shadow: 0 4px 4px 0 #00000040;
+			cursor: pointer;
+			height: 60px;
+			position: absolute;
+			top: 50%;
+			width: 60px;
+			z-index: 10;
+
+			&::after {
+				background-image: url("../images/ico/ico_swiper_arrow.svg");
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-size: 10px 20px;
+				content: "";
+				display: block;
+				height: 100%;
+				left: 50%;
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
 			}
+		}
+
+		&-button-prev {
+			left: 100px;
+		}
+
+		&-button-next {
+			right: 100px;
+
+			&::after {
+				transform: rotate(180deg) translate(50%, 50%);
+			}
+		}
+
+		&-button-disabled {
+			background: rgb(0 0 0 / 30%);
+			box-shadow: none;
+			cursor: initial;
 		}
 	}
 
@@ -1407,11 +1267,34 @@ body {
 		}
 
 		.swiper {
+			box-sizing: content-box;
 			height: 360px;
-			padding: 0 20px;
+			padding: 0 20px 50px;
+			position: relative;
 
 			&-slide {
 				width: 320px;
+			}
+
+			&-button-prev,
+			&-button-next {
+				bottom: 0;
+				height: 30px;
+				top: initial;
+				transform: translate(0, 0);
+				width: 30px;
+
+				&::after {
+					background-size: 6px 12px;
+				}
+			}
+
+			&-button-prev {
+				left: calc(50% - 36px);
+			}
+
+			&-button-next {
+				right: calc(50% - 36px);
 			}
 		}
 

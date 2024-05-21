@@ -126,9 +126,11 @@
 }
 
 .video {
+	border-radius: 30px;
 	height: 450px;
 	margin: 0 auto;
 	max-width: 800px;
+	overflow: hidden;
 
 	// padding-top: 46.88%;
 	position: relative;
@@ -148,6 +150,7 @@
 	}
 
 	@include breakpoints.xl {
+		border-radius: 20px;
 		height: auto;
 		padding-top: 56.25%;
 	}

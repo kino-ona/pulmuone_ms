@@ -295,7 +295,16 @@ $("#fullpage").fullpage({
 const historySwiper = new Swiper(".history .swiper", {
 	speed: 700,
 	slidesPerView: "auto",
-	spaceBetween: 20
+	spaceBetween: 8,
+	breakpoints: {
+		1200: {
+			spaceBetween: 20
+		}
+	},
+	navigation: {
+		nextEl: ".swiper-button-next",
+		prevEl: ".swiper-button-prev"
+	}
 });
 
 //archive pc swiper
