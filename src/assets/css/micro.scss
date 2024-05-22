@@ -658,7 +658,7 @@ body {
 		flex-direction: column;
 		height: 100%;
 		justify-content: flex-end;
-		padding: 0 93.5px 46px;
+		padding: 0 7.45vw 2.6vw;
 		position: relative;
 	}
 
@@ -679,16 +679,17 @@ body {
 	&__title {
 		align-items: center;
 		display: grid;
-		font-size: 6.37vw;
+		font-size: 6.3vw;
 		font-weight: 800;
-		gap: 16px 18.59%;
-		grid-template-columns: repeat(2, auto);
+		grid-template-columns: repeat(2, max-content);
+		justify-content: space-between;
 		letter-spacing: -0.04em;
 		position: relative;
+		row-gap: 16px;
 
 		.kv {
 			&__text {
-				font-size: 1.88vw;
+				font-size: 1.82vw;
 				grid-column: 1 / 3;
 				letter-spacing: 0;
 
@@ -701,7 +702,7 @@ body {
 		.anniversary {
 			bottom: -1.38vw;
 			height: 12.34vw;
-			left: 37.22%;
+			left: 31.41vw;
 			position: absolute;
 			width: 12.34vw;
 		}
