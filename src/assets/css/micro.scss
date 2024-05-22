@@ -383,7 +383,6 @@ body {
 	}
 
 	&__leftbox {
-		aspect-ratio: 1 / 0.9;
 		background: #f5f5f5;
 		box-sizing: border-box;
 		display: flex;
@@ -394,7 +393,11 @@ body {
 	}
 
 	&__rightbox {
-		aspect-ratio: 1 / 0.9;
+		img {
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
 	}
 
 	&__title {
@@ -1207,6 +1210,7 @@ body {
 			height: 60px;
 			position: absolute;
 			top: 50%;
+			transform: translateY(-50%);
 			width: 60px;
 			z-index: 10;
 
@@ -1874,6 +1878,70 @@ body {
 				margin: -13px 0 0 -13px;
 				width: 26px;
 			}
+		}
+	}
+}
+
+/* 태블릿 대응 */
+@media (width >= 1024px) and (width <= 1250px) {
+	.intro {
+		&__text {
+			font-size: 40px;
+		}
+	}
+
+	.history {
+		.wraping {
+			&__header {
+				margin-bottom: 20px;
+			}
+		}
+
+		.swiper {
+			height: 530px;
+		}
+	}
+
+	.growth {
+		&__emphasis {
+			display: inline-block;
+
+			strong {
+				font-size: 40px;
+			}
+
+			& + .growth__decs {
+				display: inline-block;
+				font-size: 10px;
+			}
+		}
+
+		&__item {
+			&:nth-child(2),
+			&:nth-child(3) {
+				.growth__textbox {
+					padding-left: 36%;
+					padding-right: 2%;
+				}
+			}
+		}
+	}
+
+	.prologue {
+		&__more {
+			.prologue {
+				&__button {
+					font-size: 26px;
+					padding: 30px;
+				}
+			}
+		}
+	}
+
+	.ico {
+		&__80x80 {
+			height: 60px;
+			width: 60px;
 		}
 	}
 }
