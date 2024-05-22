@@ -27,7 +27,7 @@ $("#fullpage").fullpage({
 		initArchiveSwiper();
 
 		//mobile tab button center
-		if (windowWidth <= 1023) {
+		if (windowWidth <= 1024) {
 			var $tabhmenu = $(".award .tab__list");
 			var tabMenuClick = function () {
 				$(".award .tab__list .tab__button").on("click", function (e) {
@@ -91,7 +91,7 @@ $("#fullpage").fullpage({
 			});
 
 			if (this.y - $(".copy").height() <= this.maxScrollY) {
-				if ($(window).width() >= 1023) {
+				if ($(window).width() >= 1024) {
 					$(".quick").css("bottom", `${$(".copy").height() + 40}px`);
 				} else {
 					$(".quick").css("bottom", `${$(".copy").height() + 20}px`);
@@ -112,7 +112,7 @@ $("#fullpage").fullpage({
 		$(".growth__list").on("touchstart", function (event) {
 			let swipe = event.originalEvent.touches,
 				start = swipe[0].pageY;
-			if ($(window).width() <= 1023) {
+			if ($(window).width() <= 1024) {
 				let swipe = event.originalEvent.touches,
 					start = swipe[0].pageY;
 				$(this)
@@ -140,7 +140,7 @@ $("#fullpage").fullpage({
 		$(".award .tab__panel .scroll-element").on("touchstart", function (event) {
 			let swipe = event.originalEvent.touches,
 				start = swipe[0].pageY;
-			if ($(window).width() <= 1023) {
+			if ($(window).width() <= 1024) {
 				let swipe = event.originalEvent.touches,
 					start = swipe[0].pageY;
 				$(this)
@@ -216,7 +216,7 @@ $("#fullpage").fullpage({
 		if (index === 2) {
 			// desktop intro wheel sequence
 			$(".intro").on("wheel", function (event) {
-				if ($(window).width() >= 1023) {
+				if ($(window).width() >= 1024) {
 					if (event.originalEvent.deltaY > 0 && !introWheelLock) {
 						if (!$(".intro").hasClass("intro--start")) {
 							$.fn.fullpage.setAllowScrolling(false, "up");
@@ -297,7 +297,7 @@ const historySwiper = new Swiper(".history .swiper", {
 	slidesPerView: "auto",
 	spaceBetween: 8,
 	breakpoints: {
-		1023: {
+		1024: {
 			spaceBetween: 20
 		}
 	},
@@ -312,7 +312,7 @@ let archiveSwiper = undefined;
 let windowWidth = window.innerWidth;
 
 const initArchiveSwiper = () => {
-	if (windowWidth > 1023 && archiveSwiper == undefined) {
+	if (windowWidth >= 1024 && archiveSwiper == undefined) {
 		archiveSwiper = new Swiper(".archive__swiper", {
 			autoplay: {
 				delay: 1,
@@ -325,7 +325,7 @@ const initArchiveSwiper = () => {
 			slidesPerView: "auto",
 			freemode: true
 		});
-	} else if (windowWidth <= 1023 && archiveSwiper !== undefined) {
+	} else if (windowWidth <= 1024 && archiveSwiper !== undefined) {
 		archiveSwiper.destroy();
 		archiveSwiper = undefined;
 	}
